@@ -26,6 +26,7 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import com.google.common.collect.ImmutableBiMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
@@ -54,6 +55,17 @@ public class RegistryManager
     public String getName()
     {
         return this.name;
+    }
+
+    /**
+     * @return an immutable version of all registries that caller RegistryManager is holding
+     */
+    public BiMap<ResourceLocation, ForgeRegistry<? extends IForgeRegistryEntry<?>>> getRegistries()
+    {
+        return ImmutableBiMap
+            .<ResourceLocation, ForgeRegistry<? extends IForgeRegistryEntry<?>>>builderWithExpectedSize(this.registries.size())
+            .putAll(this.registries)
+            .build();
     }
 
     @SuppressWarnings("unchecked")
