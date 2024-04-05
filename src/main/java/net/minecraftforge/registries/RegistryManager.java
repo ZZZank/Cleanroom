@@ -58,14 +58,13 @@ public class RegistryManager
     }
 
     /**
-     * @return an immutable version of all registries that caller RegistryManager is holding
+     * get a "snapshot" of {@code registries}, modifying this snapshot will not affect original registries map
+     * @return a copy of {@code registries} that caller RegistryManager is holding
+     * @see net.minecraftforge.registries.RegistryManager#registries
      */
-    public BiMap<ResourceLocation, ForgeRegistry<? extends IForgeRegistryEntry<?>>> getRegistries()
+    public BiMap<ResourceLocation, ForgeRegistry<? extends IForgeRegistryEntry<?>>> snapshotRegistries()
     {
-        return ImmutableBiMap
-            .<ResourceLocation, ForgeRegistry<? extends IForgeRegistryEntry<?>>>builderWithExpectedSize(this.registries.size())
-            .putAll(this.registries)
-            .build();
+        return HashBiMap.create(this.registries);
     }
 
     @SuppressWarnings("unchecked")
