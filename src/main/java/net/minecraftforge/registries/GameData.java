@@ -103,19 +103,19 @@ public class GameData
     public static final ResourceLocation PROFESSIONS  = new ResourceLocation("minecraft:villagerprofessions");
     public static final ResourceLocation SERIALIZERS  = new ResourceLocation("minecraft:dataserializers");
 
-    private static final int MAX_BLOCK_ID = 4095;
-    private static final int MIN_ITEM_ID = MAX_BLOCK_ID + 1;
-    private static final int MAX_ITEM_ID = 31999;
-    private static final int MAX_POTION_ID = 255; // SPacketEntityEffect sends bytes, we can only use 255
-    private static final int MAX_BIOME_ID = 255; // Maximum number in a byte in the chunk
-    private static final int MAX_SOUND_ID = Integer.MAX_VALUE >> 5; // Varint (SPacketSoundEffect)
-    private static final int MAX_POTIONTYPE_ID = Integer.MAX_VALUE >> 5; // Int (SPacketEffect)
-    private static final int MAX_ENCHANTMENT_ID = Short.MAX_VALUE - 1; // Short - serialized as a short in ItemStack NBTs.
-    private static final int MAX_ENTITY_ID = Integer.MAX_VALUE >> 5; // Varint (SPacketSpawnMob)
-    private static final int MAX_RECIPE_ID = Integer.MAX_VALUE >> 5; // Varint CPacketRecipeInfo/SPacketRecipeBook
-    private static final int MAX_PROFESSION_ID = 1024; //TODO: Is this serialized anywhere anymore?
-    private static final int MIN_SERIALIZER_ID = 256; // Leave room for vanilla entries
-    private static final int MAX_SERIALIZER_ID = Integer.MAX_VALUE >> 5; // Varint (EntityDataManager)
+    public static final int MAX_BLOCK_ID = 4095;
+    public static final int MIN_ITEM_ID = MAX_BLOCK_ID + 1;
+    public static final int MAX_ITEM_ID = 31999;
+    public static final int MAX_POTION_ID = 255; // SPacketEntityEffect sends bytes, we can only use 255
+    public static final int MAX_BIOME_ID = 255; // Maximum number in a byte in the chunk
+    public static final int MAX_SOUND_ID = Integer.MAX_VALUE >> 5; // Varint (SPacketSoundEffect)
+    public static final int MAX_POTIONTYPE_ID = Integer.MAX_VALUE >> 5; // Int (SPacketEffect)
+    public static final int MAX_ENCHANTMENT_ID = Short.MAX_VALUE - 1; // Short - serialized as a short in ItemStack NBTs.
+    public static final int MAX_ENTITY_ID = Integer.MAX_VALUE >> 5; // Varint (SPacketSpawnMob)
+    public static final int MAX_RECIPE_ID = Integer.MAX_VALUE >> 5; // Varint CPacketRecipeInfo/SPacketRecipeBook
+    public static final int MAX_PROFESSION_ID = 1024; //TODO: Is this serialized anywhere anymore?
+    public static final int MIN_SERIALIZER_ID = 256; // Leave room for vanilla entries
+    public static final int MAX_SERIALIZER_ID = Integer.MAX_VALUE >> 5; // Varint (EntityDataManager)
 
     private static final ResourceLocation BLOCK_TO_ITEM         = new ResourceLocation("minecraft:blocktoitemmap");
     private static final ResourceLocation BLOCKSTATE_TO_ID      = new ResourceLocation("minecraft:blockstatetoid");
