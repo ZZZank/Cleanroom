@@ -49,21 +49,24 @@ public class ASMEventHandler implements IEventListener
         subInfo = method.getAnnotation(SubscribeEvent.class);
         readable = "ASM: " + target + " " + method.getName() + Type.getMethodDescriptor(method);
 
-        var rawHandler = EventListenerFactory.createRawListener(
+        this.handler = getEventListener(target, method, isGeneric);
+    }
+
+    protected IEventListener getEventListener(Object target, Method method, boolean isGeneric) throws Exception {
+        var rawListener = EventListenerFactory.createRawListener(
             method,
             Modifier.isStatic(method.getModifiers()),
             target
         );
         if (isGeneric && method.getGenericParameterTypes()[0] instanceof ParameterizedType parameterized) {
             var filter = parameterized.getActualTypeArguments()[0];
-            this.handler = event -> {
+            return event -> {
                 if (filter == ((IGenericEvent<?>) event).getGenericType()) {
-                    rawHandler.invoke(event);
+                    rawListener.invoke(event);
                 }
             };
-        } else {
-            this.handler = rawHandler;
         }
+        return rawListener;
     }
 
     @Override

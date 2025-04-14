@@ -36,7 +36,6 @@ import net.minecraftforge.fml.common.ModContainer;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Throwables;
 import com.google.common.collect.MapMaker;
-import com.google.common.collect.Sets;
 import com.google.common.reflect.TypeToken;
 
 public class EventBus implements IEventExceptionHandler
@@ -72,7 +71,7 @@ public class EventBus implements IEventExceptionHandler
         ModContainer activeModContainer = Loader.instance().activeModContainer();
         if (activeModContainer == null)
         {
-            FMLLog.log.error("Unable to determine registrant mod for {}. This is a critical error and should be impossible", target, new Throwable());
+//            FMLLog.log.error("Unable to determine registrant mod for {}. This is a critical error and should be impossible", target, new Throwable());
             activeModContainer = Loader.instance().getMinecraftModContainer();
         }
         listenerOwners.put(target, activeModContainer);
@@ -137,7 +136,7 @@ public class EventBus implements IEventExceptionHandler
             Constructor<?> ctr = eventType.getConstructor();
             ctr.setAccessible(true);
             Event event = (Event)ctr.newInstance();
-            final ASMEventHandler asm = new ASMEventHandler(target, method, owner, IGenericEvent.class.isAssignableFrom(eventType));
+            final var asm = generateHandler(target, method, owner, IGenericEvent.class.isAssignableFrom(eventType));
 
             IEventListener listener = asm;
             if (IContextSetter.class.isAssignableFrom(eventType))
@@ -164,6 +163,15 @@ public class EventBus implements IEventExceptionHandler
         {
             FMLLog.log.error("Error registering event handler: {} {} {}", owner, eventType, method, e);
         }
+    }
+
+    protected ASMEventHandler generateHandler(
+        Object target,
+        Method method,
+        ModContainer owner,
+        boolean isGeneric
+    ) throws Exception {
+        return new ASMEventHandler(target, method, owner, isGeneric);
     }
 
     public void unregister(Object object)

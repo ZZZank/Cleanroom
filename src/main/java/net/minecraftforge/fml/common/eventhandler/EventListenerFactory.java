@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author ZZZank
  */
 class EventListenerFactory {
-    private static final MethodHandles.Lookup LOOKUP = MethodHandles.lookup();
+    public static final MethodHandles.Lookup LOOKUP = MethodHandles.lookup();
 
     private static final Map<Method, MethodHandle> LISTENER_FACTORIES = new ConcurrentHashMap<>();
 
