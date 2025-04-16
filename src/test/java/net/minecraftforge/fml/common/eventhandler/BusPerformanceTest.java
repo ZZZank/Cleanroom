@@ -10,6 +10,9 @@ import org.objectweb.asm.MethodVisitor;
 import org.objectweb.asm.Type;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
+import org.openjdk.jmh.runner.Runner;
+import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
 
 import java.net.URL;
 import java.util.Map;
@@ -38,7 +41,7 @@ public class BusPerformanceTest {
     public static final LaunchClassLoader CLASS_LOADER = new TestClassLoader(BusPerformanceTest.class.getClassLoader());
     public static final AtomicInteger ID = new AtomicInteger();
 
-//    @Benchmark
+    @Benchmark
     public void register10000Modern(Blackhole bh) {
         doTest(bh, l -> new EventBus(), 10000, 0);
     }
@@ -48,15 +51,22 @@ public class BusPerformanceTest {
         doTest(bh, LegacyEventBus::new, 10000, 0);
     }
 
-    @Benchmark
+//    @Benchmark
 //    @Test
     public void register1000test10000Modern() {
         doTest(null, l -> new EventBus(), 1000, 10000);
     }
 
-    @Benchmark
+//    @Benchmark
     public void register1000test10000Legacy(Blackhole bh) {
         doTest(bh, LegacyEventBus::new, 1000, 10000);
+    }
+
+    public static void main(String[] args) throws RunnerException {
+        var opt = new OptionsBuilder()
+            .include(BusPerformanceTest.class.getName().replace(".", "\\."))
+            .build();
+        new Runner(opt).run();
     }
 
     public void doTest(Blackhole bh, Function<LaunchClassLoader, EventBus> bus, int registerAmount, int postAmount) {
