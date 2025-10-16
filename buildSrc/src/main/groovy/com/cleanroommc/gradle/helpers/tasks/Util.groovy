@@ -19,15 +19,15 @@ class Util {
 		File.metaClass.json = { -> new JsonSlurper().parseText(delegate.text) }
 		
 		Date.metaClass.iso8601 = { ->
-			def format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-			def result = format.format(delegate)
+			final format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+			final result = format.format(delegate)
 			return result[0..21] + ':' + result[22..-1]
 		}
         
         String.metaClass.rsplit = { String del, int limit = -1 ->
-            def lst = new ArrayList()
-            def x = 0, idx
-            def tmp = delegate
+            final lst = new ArrayList<String>()
+            int x = 0, idx
+            String tmp = delegate
             while ((idx = tmp.lastIndexOf(del)) != -1 && (limit == -1 || x++ < limit)) {
                 lst.add(0, tmp.substring(idx + del.length(), tmp.length()))
                 tmp = tmp.substring(0, idx)

@@ -20,7 +20,7 @@ public class CheckPatches extends DefaultTask {
             Paths.get("patches/minecraft/net/minecraft/data/BlockModelDefinition.java.patch")
         ]
 
-        def verified = true;
+        boolean verified = true
         project.fileTree(patchDir).each { patch ->
             def patchPath = project.rootDir.toPath().relativize(patch.toPath())
             verified &= verifyPatch(patch, autoFix, patchPath.toString(), hasS2SArtifact.contains(patchPath))
@@ -30,13 +30,14 @@ public class CheckPatches extends DefaultTask {
             throw new RuntimeException('One or more patches failed verification. Check the log for errors.')
     }
 
-    def verifyPatch(patch, fix, patchPath, hasS2SArtifact) {
-        def hunk_start_pattern = Pattern.compile('^@@ -[0-9,]* \\+[0-9,]* @@$')
-        def white_space_pattern = Pattern.compile('^[+\\-]\\s*$')
-        def import_pattern = Pattern.compile('^[+\\-]\\s*import.*')
-        def field_pattern = Pattern.compile('^[+\\-][\\s]*((public|protected|private)[\\s]*)?(static[\\s]*)?(final)?([^=;]*)(=.*)?;\\s*$')
-        def method_pattern = Pattern.compile('^[+\\-][\\s]*((public|protected|private)[\\s]*)?(static[\\s]*)?(final)?([^(]*)[(]([^)]*)?[)]\\s*[{]\\s*$')
-        def class_pattern = Pattern.compile('^[+\\-][\\s]*((public|protected|private)[\\s]*)?(static[\\s]*)?(final[\\s]*)?(class|interface)([^{]*)[{]\\s*$')
+    def hunk_start_pattern = Pattern.compile('^@@ -[0-9,]* \\+[0-9,]* @@$')
+    def white_space_pattern = Pattern.compile('^[+\\-]\\s*$')
+    def import_pattern = Pattern.compile('^[+\\-]\\s*import.*')
+    def field_pattern = Pattern.compile('^[+\\-][\\s]*((public|protected|private)[\\s]*)?(static[\\s]*)?(final)?([^=;]*)(=.*)?;\\s*$')
+    def method_pattern = Pattern.compile('^[+\\-][\\s]*((public|protected|private)[\\s]*)?(static[\\s]*)?(final)?([^(]*)[(]([^)]*)?[)]\\s*[{]\\s*$')
+    def class_pattern = Pattern.compile('^[+\\-][\\s]*((public|protected|private)[\\s]*)?(static[\\s]*)?(final[\\s]*)?(class|interface)([^{]*)[{]\\s*$')
+
+    boolean verifyPatch(File patch, boolean fix, String patchPath, boolean hasS2SArtifact) {
 
         def accessMap = [("private"):0, (null):1, ("protected"):2, ("public"):3]
 

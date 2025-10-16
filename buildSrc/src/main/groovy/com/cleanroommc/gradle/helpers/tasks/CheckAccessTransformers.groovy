@@ -16,21 +16,23 @@ public class CheckAccessTransformers extends DefaultTask {
     @TaskAction
     protected void exec() {
 		Util.init()
-		def parse = { line ->
-			def idx = line.indexOf('#')
-			def comment = idx == -1 ? null : line.substring(idx)
-			if (idx != -1) line = line.substring(0, idx - 1)
-			def (modifier, cls, desc) = (line.trim() + '     ').split(' ', -1)
-			def key = cls + (desc.isEmpty() ? '' : ' ' + desc)
+		def parse = { String line ->
+			int idx = line.indexOf('#')
+			String comment = idx == -1 ? null : line.substring(idx)
+			if (idx != -1) {
+				line = line.substring(0, idx - 1)
+			}
+			def (String modifier, String cls, String desc) = (line.trim() + '     ').split(' ', -1)
+			String key = cls + (desc.isEmpty() ? '' : ' ' + desc)
 			return [modifier, cls, desc, comment, key]
 		}
-		def accessLevel = { access ->
+		def accessLevel = { int access ->
 			if ((access & Opcodes.ACC_PUBLIC)    != 0) return 3
 			if ((access & Opcodes.ACC_PROTECTED) != 0) return 2
 			if ((access & Opcodes.ACC_PRIVATE)   != 0) return 0
 			return 1
 		}
-		def accessStr = { access ->
+		def accessStr = { String access ->
 			if (access.endsWith('-f') || access.endsWith('+f'))
 				return 4
 			switch (access.toLowerCase()) {
@@ -46,7 +48,7 @@ public class CheckAccessTransformers extends DefaultTask {
 		ats.each { f -> 
 			TreeMap lines = [:]
 			def group = null
-			for (def line : f.readLines()) {
+			for (String line : f.readLines()) {
 				if (line.isEmpty()) continue
 				if (line.startsWith('#group ')) {
 					def (modifier, cls, desc, comment, key) = parse.call(line.substring(7))

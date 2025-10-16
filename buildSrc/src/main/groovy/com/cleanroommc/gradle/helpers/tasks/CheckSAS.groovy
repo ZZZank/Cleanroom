@@ -1,13 +1,10 @@
 package com.cleanroommc.gradle.helpers.tasks
 
-import java.util.ArrayList
-import java.util.TreeMap
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.InputFiles
 import org.gradle.api.tasks.TaskAction
-import org.objectweb.asm.Opcodes
 
 public class CheckSAS extends DefaultTask {
 	@InputFile File inheritance
@@ -29,7 +26,7 @@ public class CheckSAS extends DefaultTask {
 				}
 				def comment = idx == -1 ? null : line.substring(idx)
 				if (idx != -1) line = line.substring(0, idx - 1)
-				def (cls, desc) = (line.trim() + '    ').split(' ', -1)
+				def (String cls, String desc) = (line.trim() + '    ').split(' ', -1)
 				cls = cls.replaceAll('\\.', '/')
 				desc = desc.replace('(', ' (')
 
@@ -42,8 +39,8 @@ public class CheckSAS extends DefaultTask {
 				if (desc.isEmpty()) {
 					lines.add(cls + (comment == null ? '' : ' ' + comment))
 					if (json[cls]['methods'] != null)
-						(json[cls]['methods'] as TreeMap).each {
-							findChildMethods(json, cls, it.key).each { lines.add('\t' + it) }
+						(json[cls]['methods'] as Map).each {
+							findChildMethods(json, cls, it.key as String).each { lines.add('\t' + it) }
 						}
 					return
 				}
@@ -56,9 +53,12 @@ public class CheckSAS extends DefaultTask {
 		}
 	}
 
-	protected static findChildMethods(json, cls, desc)
+	protected static findChildMethods(json, String cls, String desc)
 	{
-		return json.values().findAll{ it.methods != null && it.methods[desc] != null && it.methods[desc].override == cls}
-				.collect { it.name + ' ' + desc.replace(' ', '') } as TreeSet
+		return (json as Map)
+			.values()
+			.findAll { it.methods?[desc]?.override == cls}
+			.collect { it.name + ' ' + desc.replace(' ', '') }
+			as TreeSet
 	}
 }

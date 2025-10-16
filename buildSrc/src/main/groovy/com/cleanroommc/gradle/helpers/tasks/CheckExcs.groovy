@@ -51,29 +51,29 @@ public class CheckExcs extends DefaultTask {
 		}
 		
 		excs.each { f -> 
-			def lines = []
+			final lines = []
 			f.eachLine { line ->
-				def idx = line.indexOf('#')
-				if (idx == 0 || line.isEmpty()) {
+				int idx = line.indexOf('#')
+				if (idx === 0 || line.isEmpty()) {
 					return
 				}
 				
 				def comment = idx == -1 ? null : line.substring(idx)
-				if (idx != -1) line = line.substring(0, idx - 1)
+				if (idx !== -1) line = line.substring(0, idx - 1)
 				
 				if (!line.contains('=')) {
 					println('Invalid: ' + line)
 					return
 				}
 				
-				def (key, value) = line.split('=', 2)
+				def (String key, String value) = line.split('=', 2)
 				if (!known.contains(key)) {
 					println(key)
 					println('Invalid: ' + line)
 					return
 				}
 				
-				def (cls, desc) = key.split('\\.', 2)
+				def (cls, String desc) = key.split('\\.', 2)
 				if (!desc.contains('(')) {
 					println('Invalid: ' + line)
 					return
@@ -81,13 +81,15 @@ public class CheckExcs extends DefaultTask {
 				def name = desc.split('\\(', 2)[0]
 				desc = '(' + desc.split('\\(', 2)[1]
 				
-				def (exceptions, args) = value.contains('|') ? value.split('|', 2) : [value, '']
+				def (exceptions, String args) = value.contains('|') ? value.split('|', 2) : [value, '']
 				
 				if (args.split(',').length != Type.getArgumentTypes(desc).length) {
 					println('Invalid: ' + line)
 					return
 				}
 				lines.add(line)
+
+				return
 			}
 			f.text = lines.sort().join('\n')
 		}
