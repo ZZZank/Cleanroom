@@ -1,8 +1,11 @@
 package com.cleanroommc.patch_cleaner;
 
+import io.codechicken.diffpatch.util.Diff;
+import io.codechicken.diffpatch.util.Operation;
 import io.codechicken.diffpatch.util.Patch;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ZZZank
@@ -39,7 +42,13 @@ public interface CleanerAction {
             var begin = ints[0];
             var end = ints[1];
             if (end > begin) {
-                diffs.subList(begin, end).clear();
+                var contextDiffs = diffs.subList(begin, (begin + end) / 2)
+                    .stream()
+                    .map(diff -> new Diff(Operation.EQUAL, diff.text))
+                    .toList();
+                var subList = diffs.subList(begin, end);
+                subList.clear();
+                subList.addAll(contextDiffs);
             }
         }
 
