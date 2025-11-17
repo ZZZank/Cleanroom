@@ -1,0 +1,14 @@
+
+plugins {
+    id('java')
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/io.codechicken/DiffPatch
+    implementation("io.codechicken:DiffPatch:2.1.0.42")
+}
