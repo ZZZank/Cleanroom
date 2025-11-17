@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/monster/EntityIronGolem.java
 +++ after/net/minecraft/entity/monster/EntityIronGolem.java
-@@ -41,7 +41,7 @@
- 
- public class EntityIronGolem extends EntityGolem
- {
--    protected static final DataParameter<Byte> PLAYER_CREATED = EntityDataManager.createKey(EntityIronGolem.class, DataSerializers.BYTE);
-+    protected static final DataParameter<Byte> PLAYER_CREATED = EntityDataManager.<Byte>createKey(EntityIronGolem.class, DataSerializers.BYTE);
-     private int homeCheckTimer;
-     @Nullable
-     Village village;
 @@ -54,20 +54,19 @@
          this.setSize(1.4F, 2.7F);
      }

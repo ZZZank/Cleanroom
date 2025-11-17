@@ -20,15 +20,6 @@
  
              if (this.field_194335_f != null && this.field_194336_g != null)
              {
-@@ -63,7 +69,7 @@
-                     p_194327_1_.inventory.fillStackedContents(this.field_194331_b, false);
-                     this.field_194336_g.fillStackedContents(this.field_194331_b);
- 
--                    if (this.field_194331_b.canCraft(p_194327_2_, null))
-+                    if (this.field_194331_b.canCraft(p_194327_2_, (IntList)null))
-                     {
-                         this.func_194329_b();
-                     }
 @@ -83,7 +89,7 @@
      {
          InventoryPlayer inventoryplayer = this.field_194332_c.inventory;
@@ -42,8 +33,7 @@
      private void func_194329_b()
      {
          boolean flag = this.field_194333_d.matches(this.field_194336_g, this.field_194332_c.world);
--        int i = this.field_194331_b.getBiggestCraftableStack(this.field_194333_d, null);
-+        int i = this.field_194331_b.getBiggestCraftableStack(this.field_194333_d, (IntList)null);
+         int i = this.field_194331_b.getBiggestCraftableStack(this.field_194333_d, null);
  
          if (flag)
          {

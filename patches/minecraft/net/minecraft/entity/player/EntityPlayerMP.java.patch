@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/player/EntityPlayerMP.java
 +++ after/net/minecraft/entity/player/EntityPlayerMP.java
-@@ -123,7 +123,7 @@
-     public final PlayerInteractionManager interactionManager;
-     public double managedPosX;
-     public double managedPosZ;
--    private final List<Integer> entityRemoveQueue = Lists.newLinkedList();
-+    private final List<Integer> entityRemoveQueue = Lists.<Integer>newLinkedList();
-     private final PlayerAdvancements advancements;
-     private final StatisticsManagerServer statsFile;
-     private float lastHealthScore = Float.MIN_VALUE;
 @@ -158,9 +158,9 @@
          super(worldIn, profile);
          interactionManagerIn.player = this;
@@ -225,8 +216,7 @@
              }
          }
  
--        return Lists.newArrayList();
-+        return Lists.<ScoreObjective>newArrayList();
+         return Lists.newArrayList();
      }
  
 -    @Override
@@ -556,8 +546,7 @@
 -    @Override
      public void unlockRecipes(ResourceLocation[] p_193102_1_)
      {
--        List<IRecipe> list = Lists.newArrayList();
-+        List<IRecipe> list = Lists.<IRecipe>newArrayList();
+         List<IRecipe> list = Lists.newArrayList();
  
          for (ResourceLocation resourcelocation : p_193102_1_)
          {

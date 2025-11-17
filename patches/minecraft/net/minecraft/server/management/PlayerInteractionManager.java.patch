@@ -63,8 +63,7 @@
 +
          if (this.isCreative())
          {
--            if (!this.world.extinguishFire(null, pos, side))
-+            if (!this.world.extinguishFire((EntityPlayer)null, pos, side))
+             if (!this.world.extinguishFire(null, pos, side))
              {
                  this.tryHarvestBlock(pos);
              }

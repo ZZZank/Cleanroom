@@ -7,8 +7,7 @@
 -public class EntitySnowman extends EntityGolem implements IRangedAttackMob
 +public class EntitySnowman extends EntityGolem implements IRangedAttackMob, net.minecraftforge.common.IShearable
  {
--    private static final DataParameter<Byte> PUMPKIN_EQUIPPED = EntityDataManager.createKey(EntitySnowman.class, DataSerializers.BYTE);
-+    private static final DataParameter<Byte> PUMPKIN_EQUIPPED = EntityDataManager.<Byte>createKey(EntitySnowman.class, DataSerializers.BYTE);
+     private static final DataParameter<Byte> PUMPKIN_EQUIPPED = EntityDataManager.createKey(EntitySnowman.class, DataSerializers.BYTE);
  
      public EntitySnowman(World worldIn)
      {

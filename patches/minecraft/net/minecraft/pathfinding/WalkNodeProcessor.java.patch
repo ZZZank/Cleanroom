@@ -70,15 +70,6 @@
              }
  
              i = blockpos.up().getY();
-@@ -87,7 +73,7 @@
- 
-         if (this.entity.getPathPriority(pathnodetype1) < 0.0F)
-         {
--            Set<BlockPos> set = Sets.newHashSet();
-+            Set<BlockPos> set = Sets.<BlockPos>newHashSet();
-             set.add(new BlockPos(this.entity.getEntityBoundingBox().minX, (double)i, this.entity.getEntityBoundingBox().minZ));
-             set.add(new BlockPos(this.entity.getEntityBoundingBox().minX, (double)i, this.entity.getEntityBoundingBox().maxZ));
-             set.add(new BlockPos(this.entity.getEntityBoundingBox().maxX, (double)i, this.entity.getEntityBoundingBox().minZ));
 @@ -107,13 +93,11 @@
          return this.openPoint(blockpos2.getX(), i, blockpos2.getZ());
      }
@@ -237,8 +228,7 @@
 -    )
 +    public PathNodeType getPathNodeType(IBlockAccess blockaccessIn, int x, int y, int z, EntityLiving entitylivingIn, int xSize, int ySize, int zSize, boolean canBreakDoorsIn, boolean canEnterDoorsIn)
      {
--        EnumSet<PathNodeType> enumset = EnumSet.noneOf(PathNodeType.class);
-+        EnumSet<PathNodeType> enumset = EnumSet.<PathNodeType>noneOf(PathNodeType.class);
+         EnumSet<PathNodeType> enumset = EnumSet.noneOf(PathNodeType.class);
          PathNodeType pathnodetype = PathNodeType.BLOCKED;
 -        double d0 = (double)entitylivingIn.width / 2.0;
 +        double d0 = (double)entitylivingIn.width / 2.0D;

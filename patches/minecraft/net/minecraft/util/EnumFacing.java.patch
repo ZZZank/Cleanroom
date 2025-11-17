@@ -13,8 +13,7 @@
      private final Vec3i directionVec;
      public static final EnumFacing[] VALUES = new EnumFacing[6];
      public static final EnumFacing[] HORIZONTALS = new EnumFacing[4];
--    private static final Map<String, EnumFacing> NAME_LOOKUP = Maps.newHashMap();
-+    private static final Map<String, EnumFacing> NAME_LOOKUP = Maps.<String, EnumFacing>newHashMap();
+     private static final Map<String, EnumFacing> NAME_LOOKUP = Maps.newHashMap();
  
 -    private EnumFacing(
 -        int indexIn,
@@ -60,8 +59,7 @@
 -    @SideOnly(Side.CLIENT)
      public static EnumFacing byName(String name)
      {
--        return name == null ? null : NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
-+        return name == null ? null : (EnumFacing)NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
+         return name == null ? null : NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
      }
  
      public static EnumFacing byIndex(int index)
@@ -136,15 +134,6 @@
      public Vec3i getDirectionVec()
      {
          return this.directionVec;
-@@ -332,7 +311,7 @@
-         Y("y", EnumFacing.Plane.VERTICAL),
-         Z("z", EnumFacing.Plane.HORIZONTAL);
- 
--        private static final Map<String, EnumFacing.Axis> NAME_LOOKUP = Maps.newHashMap();
-+        private static final Map<String, EnumFacing.Axis> NAME_LOOKUP = Maps.<String, EnumFacing.Axis>newHashMap();
-         private final String name;
-         private final EnumFacing.Plane plane;
- 
 @@ -343,10 +322,9 @@
          }
  
@@ -152,8 +141,7 @@
 -        @SideOnly(Side.CLIENT)
          public static EnumFacing.Axis byName(String name)
          {
--            return name == null ? null : NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
-+            return name == null ? null : (EnumFacing.Axis)NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
+             return name == null ? null : NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
          }
  
          public String getName2()
@@ -188,8 +176,7 @@
 -        @Override
          public Iterator<EnumFacing> iterator()
          {
--            return Iterators.forArray(this.facings());
-+            return Iterators.<EnumFacing>forArray(this.facings());
+             return Iterators.forArray(this.facings());
          }
      }
  }

@@ -72,8 +72,7 @@
  
      public void doExplosionA()
      {
--        Set<BlockPos> set = Sets.newHashSet();
-+        Set<BlockPos> set = Sets.<BlockPos>newHashSet();
+         Set<BlockPos> set = Sets.newHashSet();
          int i = 16;
  
 -        for (int j = 0; j < 16; j++)

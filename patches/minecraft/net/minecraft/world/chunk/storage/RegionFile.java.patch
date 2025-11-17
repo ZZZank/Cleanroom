@@ -22,8 +22,7 @@
              }
  
              int i1 = (int)this.dataFile.length() / 4096;
--            this.sectorFree = Lists.newArrayListWithCapacity(i1);
-+            this.sectorFree = Lists.<Boolean>newArrayListWithCapacity(i1);
+             this.sectorFree = Lists.newArrayListWithCapacity(i1);
  
 -            for (int j = 0; j < i1; j++)
 +            for (int j = 0; j < i1; ++j)

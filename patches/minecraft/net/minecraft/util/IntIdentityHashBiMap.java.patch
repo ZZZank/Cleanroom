@@ -109,10 +109,8 @@
 -    @SideOnly(Side.CLIENT)
      public void clear()
      {
--        Arrays.fill(this.values, null);
--        Arrays.fill(this.byId, null);
-+        Arrays.fill(this.values, (Object)null);
-+        Arrays.fill(this.byId, (Object)null);
+         Arrays.fill(this.values, null);
+         Arrays.fill(this.byId, null);
          this.nextFreeIndex = 0;
          this.mapSize = 0;
      }

@@ -159,15 +159,6 @@
      private static final StatBase[] BLOCKS_STATS = new StatBase[4096];
      private static final StatBase[] CRAFTS_STATS = new StatBase[32000];
      private static final StatBase[] OBJECT_USE_STATS = new StatBase[32000];
-@@ -173,7 +131,7 @@
- 
-     private static void initCraftableStats()
-     {
--        Set<Item> set = Sets.newHashSet();
-+        Set<Item> set = Sets.<Item>newHashSet();
- 
-         for (IRecipe irecipe : CraftingManager.REGISTRY)
-         {
 @@ -199,15 +157,12 @@
  
                  if (s != null)

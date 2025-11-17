@@ -135,8 +135,7 @@
  
      protected void sendScoreboard(ServerScoreboard scoreboardIn, EntityPlayerMP playerIn)
      {
--        Set<ScoreObjective> set = Sets.newHashSet();
-+        Set<ScoreObjective> set = Sets.<ScoreObjective>newHashSet();
+         Set<ScoreObjective> set = Sets.newHashSet();
  
          for (ScorePlayerTeam scoreplayerteam : scoreboardIn.getTeams())
          {
@@ -246,8 +245,7 @@
  
 +        net.minecraftforge.common.chunkio.ChunkIOExecutor.adjustPoolSize(this.getCurrentPlayerCount());
          worldserver.spawnEntity(playerIn);
--        this.preparePlayer(playerIn, null);
-+        this.preparePlayer(playerIn, (WorldServer)null);
+         this.preparePlayer(playerIn, null);
      }
  
      public void serverUpdateMovingPlayer(EntityPlayerMP playerIn)
@@ -279,8 +277,7 @@
      {
          if (this.bannedPlayers.isBanned(profile))
          {
--            UserListBansEntry userlistbansentry = this.bannedPlayers.getEntry(profile);
-+            UserListBansEntry userlistbansentry = (UserListBansEntry)this.bannedPlayers.getEntry(profile);
+             UserListBansEntry userlistbansentry = this.bannedPlayers.getEntry(profile);
              String s1 = "You are banned from this server!\nReason: " + userlistbansentry.getBanReason();
  
              if (userlistbansentry.getBanEndDate() != null)
@@ -288,8 +285,7 @@
      public EntityPlayerMP createPlayerForUser(GameProfile profile)
      {
          UUID uuid = EntityPlayer.getUUID(profile);
--        List<EntityPlayerMP> list = Lists.newArrayList();
-+        List<EntityPlayerMP> list = Lists.<EntityPlayerMP>newArrayList();
+         List<EntityPlayerMP> list = Lists.newArrayList();
  
 -        for (int i = 0; i < this.playerEntityList.size(); i++)
 +        for (int i = 0; i < this.playerEntityList.size(); ++i)
@@ -689,15 +685,6 @@
      public void setWhiteListEnabled(boolean whitelistEnabled)
      {
          this.whiteListEnforced = whitelistEnabled;
-@@ -1026,7 +1023,7 @@
- 
-     public List<EntityPlayerMP> getPlayersMatchingAddress(String address)
-     {
--        List<EntityPlayerMP> list = Lists.newArrayList();
-+        List<EntityPlayerMP> list = Lists.<EntityPlayerMP>newArrayList();
- 
-         for (EntityPlayerMP entityplayermp : this.playerEntityList)
-         {
 @@ -1082,9 +1079,9 @@
  
      public void removeAllPlayers()
@@ -710,15 +697,6 @@
          }
      }
  
-@@ -1103,7 +1100,7 @@
-     public StatisticsManagerServer getPlayerStatsFile(EntityPlayer playerIn)
-     {
-         UUID uuid = playerIn.getUniqueID();
--        StatisticsManagerServer statisticsmanagerserver = uuid == null ? null : this.playerStatFiles.get(uuid);
-+        StatisticsManagerServer statisticsmanagerserver = uuid == null ? null : (StatisticsManagerServer)this.playerStatFiles.get(uuid);
- 
-         if (statisticsmanagerserver == null)
-         {
 @@ -1183,5 +1180,11 @@
          {
              playeradvancements.reload();

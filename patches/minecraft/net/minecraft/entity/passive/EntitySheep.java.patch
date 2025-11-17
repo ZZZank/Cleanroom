@@ -7,8 +7,7 @@
 -public class EntitySheep extends EntityAnimal
 +public class EntitySheep extends EntityAnimal implements net.minecraftforge.common.IShearable
  {
--    private static final DataParameter<Byte> DYE_COLOR = EntityDataManager.createKey(EntitySheep.class, DataSerializers.BYTE);
-+    private static final DataParameter<Byte> DYE_COLOR = EntityDataManager.<Byte>createKey(EntitySheep.class, DataSerializers.BYTE);
+     private static final DataParameter<Byte> DYE_COLOR = EntityDataManager.createKey(EntitySheep.class, DataSerializers.BYTE);
      private final InventoryCrafting inventoryCrafting = new InventoryCrafting(new Container()
      {
 -        @Override

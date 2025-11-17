@@ -379,15 +379,6 @@
                  {
                      int i11 = i6 + (i9 - 1) * l6;
                      int i12 = k2 + i10;
-@@ -430,7 +408,7 @@
- 
-             while (objectiterator.hasNext())
-             {
--                Teleporter.PortalPosition teleporter$portalposition = objectiterator.next();
-+                Teleporter.PortalPosition teleporter$portalposition = (Teleporter.PortalPosition)objectiterator.next();
- 
-                 if (teleporter$portalposition == null || teleporter$portalposition.lastUpdateTime < i)
-                 {
 @@ -449,5 +427,14 @@
              super(pos.getX(), pos.getY(), pos.getZ());
              this.lastUpdateTime = lastUpdate;

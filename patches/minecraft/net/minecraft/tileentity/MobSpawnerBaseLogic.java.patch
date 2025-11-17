@@ -8,15 +8,6 @@
  import net.minecraft.nbt.NBTTagCompound;
  import net.minecraft.nbt.NBTTagList;
  import net.minecraft.util.EnumParticleTypes;
-@@ -22,7 +23,7 @@
- public abstract class MobSpawnerBaseLogic
- {
-     private int spawnDelay = 20;
--    private final List<WeightedSpawnerEntity> potentialSpawns = Lists.newArrayList();
-+    private final List<WeightedSpawnerEntity> potentialSpawns = Lists.<WeightedSpawnerEntity>newArrayList();
-     private WeightedSpawnerEntity spawnData = new WeightedSpawnerEntity();
-     private double mobRotation;
-     private double prevMobRotation;
 @@ -52,10 +53,7 @@
      private boolean isActivated()
      {
@@ -138,8 +129,7 @@
  
          if (!this.potentialSpawns.isEmpty())
          {
--            this.setNextSpawnData(WeightedRandom.getRandomItem(this.getSpawnerWorld().rand, this.potentialSpawns));
-+            this.setNextSpawnData((WeightedSpawnerEntity)WeightedRandom.getRandomItem(this.getSpawnerWorld().rand, this.potentialSpawns));
+             this.setNextSpawnData(WeightedRandom.getRandomItem(this.getSpawnerWorld().rand, this.potentialSpawns));
          }
  
          this.broadcastEvent(1);
@@ -152,15 +142,6 @@
              {
                  this.potentialSpawns.add(new WeightedSpawnerEntity(nbttaglist.getCompoundTagAt(i)));
              }
-@@ -211,7 +193,7 @@
-         }
-         else if (!this.potentialSpawns.isEmpty())
-         {
--            this.setNextSpawnData(WeightedRandom.getRandomItem(this.getSpawnerWorld().rand, this.potentialSpawns));
-+            this.setNextSpawnData((WeightedSpawnerEntity)WeightedRandom.getRandomItem(this.getSpawnerWorld().rand, this.potentialSpawns));
-         }
- 
-         if (nbt.hasKey("MinSpawnDelay", 99))
 @@ -275,24 +257,6 @@
          }
      }

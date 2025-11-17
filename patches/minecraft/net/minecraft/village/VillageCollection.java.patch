@@ -1,18 +1,5 @@
 --- before/net/minecraft/village/VillageCollection.java
 +++ after/net/minecraft/village/VillageCollection.java
-@@ -19,9 +19,9 @@
- public class VillageCollection extends WorldSavedData
- {
-     private World world;
--    private final List<BlockPos> villagerPositionsList = Lists.newArrayList();
--    private final List<VillageDoorInfo> newDoors = Lists.newArrayList();
--    private final List<Village> villageList = Lists.newArrayList();
-+    private final List<BlockPos> villagerPositionsList = Lists.<BlockPos>newArrayList();
-+    private final List<VillageDoorInfo> newDoors = Lists.<VillageDoorInfo>newArrayList();
-+    private final List<Village> villageList = Lists.<Village>newArrayList();
-     private int tickCounter;
- 
-     public VillageCollection(String name)
 @@ -59,7 +59,7 @@
  
      public void tick()

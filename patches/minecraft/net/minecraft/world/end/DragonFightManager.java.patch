@@ -23,8 +23,7 @@
 +    private static final Predicate<EntityPlayerMP> VALID_PLAYER = Predicates.<EntityPlayerMP>and(EntitySelectors.IS_ALIVE, EntitySelectors.withinRange(0.0D, 128.0D, 0.0D, 192.0D));
 +    private final BossInfoServer bossInfo = (BossInfoServer)(new BossInfoServer(new TextComponentTranslation("entity.EnderDragon.name", new Object[0]), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS)).setPlayEndBossMusic(true).setCreateFog(true);
      private final WorldServer world;
--    private final List<Integer> gateways = Lists.newArrayList();
-+    private final List<Integer> gateways = Lists.<Integer>newArrayList();
+     private final List<Integer> gateways = Lists.newArrayList();
      private final BlockPattern portalPattern;
      private int ticksSinceDragonSeen;
      private int aliveCrystals;
@@ -87,15 +86,6 @@
              nbttaglist.appendTag(new NBTTagInt(i));
          }
  
-@@ -198,7 +190,7 @@
-                 {
-                     EntityDragon entitydragon = list.get(0);
-                     this.dragonUniqueId = entitydragon.getUniqueID();
--                    LOGGER.info("Found that there's a dragon still alive ({})", entitydragon);
-+                    LOGGER.info("Found that there's a dragon still alive ({})", (Object)entitydragon);
-                     this.dragonKilled = false;
- 
-                     if (!flag)
 @@ -241,7 +233,7 @@
                      else
                      {
@@ -156,15 +146,6 @@
              {
                  this.world.getChunk(i, j);
              }
-@@ -372,7 +361,7 @@
- 
-     private void updatePlayers()
-     {
--        Set<EntityPlayerMP> set = Sets.newHashSet();
-+        Set<EntityPlayerMP> set = Sets.<EntityPlayerMP>newHashSet();
- 
-         for (EntityPlayerMP entityplayermp : this.world.getPlayers(EntityPlayerMP.class, VALID_PLAYER))
-         {
 @@ -396,10 +385,10 @@
  
          for (WorldGenSpikes.EndSpike worldgenspikes$endspike : BiomeEndDecorator.getSpikesForWorld(this.world))
@@ -173,8 +154,7 @@
 +            this.aliveCrystals += this.world.getEntitiesWithinAABB(EntityEnderCrystal.class, worldgenspikes$endspike.getTopBoundingBox()).size();
          }
  
--        LOGGER.debug("Found {} end crystals still alive", this.aliveCrystals);
-+        LOGGER.debug("Found {} end crystals still alive", (int)this.aliveCrystals);
+         LOGGER.debug("Found {} end crystals still alive", this.aliveCrystals);
      }
  
      public void processDragonDeath(EntityDragon dragon)
@@ -230,8 +210,7 @@
                  blockpos = this.exitPortalLocation;
              }
  
--            List<EntityEnderCrystal> list1 = Lists.newArrayList();
-+            List<EntityEnderCrystal> list1 = Lists.<EntityEnderCrystal>newArrayList();
+             List<EntityEnderCrystal> list1 = Lists.newArrayList();
              BlockPos blockpos1 = blockpos.up(1);
  
              for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
@@ -273,8 +252,7 @@
              for (EntityEnderCrystal entityendercrystal : this.world.getEntitiesWithinAABB(EntityEnderCrystal.class, worldgenspikes$endspike.getTopBoundingBox()))
              {
                  entityendercrystal.setEntityInvulnerable(false);
--                entityendercrystal.setBeamTarget(null);
-+                entityendercrystal.setBeamTarget((BlockPos)null);
+                 entityendercrystal.setBeamTarget(null);
              }
          }
 +    }

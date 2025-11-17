@@ -46,8 +46,7 @@
  
              if (iattributeinstance == null)
              {
--                LOGGER.warn("Ignoring unknown attribute '{}'", nbttagcompound.getString("Name"));
-+                LOGGER.warn("Ignoring unknown attribute '{}'", (Object)nbttagcompound.getString("Name"));
+                 LOGGER.warn("Ignoring unknown attribute '{}'", nbttagcompound.getString("Name"));
              }
              else
              {
@@ -60,12 +59,3 @@
              {
                  AttributeModifier attributemodifier = readAttributeModifierFromNBT(nbttaglist.getCompoundTagAt(i));
  
-@@ -138,7 +131,7 @@
-         }
-         catch (Exception exception)
-         {
--            LOGGER.warn("Unable to create attribute: {}", exception.getMessage());
-+            LOGGER.warn("Unable to create attribute: {}", (Object)exception.getMessage());
-             return null;
-         }
-     }

@@ -4,8 +4,7 @@
  
  public abstract class TextComponentBase implements ITextComponent
  {
--    protected List<ITextComponent> siblings = Lists.newArrayList();
-+    protected List<ITextComponent> siblings = Lists.<ITextComponent>newArrayList();
+     protected List<ITextComponent> siblings = Lists.newArrayList();
      private Style style;
  
 -    @Override
@@ -47,8 +46,7 @@
 -    @Override
      public Iterator<ITextComponent> iterator()
      {
--        return Iterators.concat(Iterators.forArray(this), createDeepCopyIterator(this.siblings));
-+        return Iterators.<ITextComponent>concat(Iterators.forArray(this), createDeepCopyIterator(this.siblings));
+         return Iterators.concat(Iterators.forArray(this), createDeepCopyIterator(this.siblings));
      }
  
 -    @Override
@@ -64,15 +62,6 @@
      public final String getFormattedText()
      {
          StringBuilder stringbuilder = new StringBuilder();
-@@ -96,7 +87,7 @@
-             {
-                 stringbuilder.append(itextcomponent.getStyle().getFormattingCode());
-                 stringbuilder.append(s);
--                stringbuilder.append(TextFormatting.RESET);
-+                stringbuilder.append((Object)TextFormatting.RESET);
-             }
-         }
- 
 @@ -105,16 +96,14 @@
  
      public static Iterator<ITextComponent> createDeepCopyIterator(Iterable<ITextComponent> components)

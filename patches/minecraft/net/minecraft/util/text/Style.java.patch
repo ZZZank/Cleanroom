@@ -172,45 +172,6 @@
      public String getFormattingCode()
      {
          if (this.isEmpty())
-@@ -281,32 +250,32 @@
- 
-             if (this.getColor() != null)
-             {
--                stringbuilder.append(this.getColor());
-+                stringbuilder.append((Object)this.getColor());
-             }
- 
-             if (this.getBold())
-             {
--                stringbuilder.append(TextFormatting.BOLD);
-+                stringbuilder.append((Object)TextFormatting.BOLD);
-             }
- 
-             if (this.getItalic())
-             {
--                stringbuilder.append(TextFormatting.ITALIC);
-+                stringbuilder.append((Object)TextFormatting.ITALIC);
-             }
- 
-             if (this.getUnderlined())
-             {
--                stringbuilder.append(TextFormatting.UNDERLINE);
-+                stringbuilder.append((Object)TextFormatting.UNDERLINE);
-             }
- 
-             if (this.getObfuscated())
-             {
--                stringbuilder.append(TextFormatting.OBFUSCATED);
-+                stringbuilder.append((Object)TextFormatting.OBFUSCATED);
-             }
- 
-             if (this.getStrikethrough())
-             {
--                stringbuilder.append(TextFormatting.STRIKETHROUGH);
-+                stringbuilder.append((Object)TextFormatting.STRIKETHROUGH);
-             }
- 
-             return stringbuilder.toString();
 @@ -318,31 +287,11 @@
          return this.parentStyle == null ? ROOT : this.parentStyle;
      }
@@ -344,21 +305,3 @@
          style.setColor(this.getColor());
          style.setClickEvent(this.getClickEvent());
          style.setHoverEvent(this.getHoverEvent());
-@@ -456,7 +447,7 @@
- 
-                         if (jsonobject.has("color"))
-                         {
--                            style.color = p_deserialize_3_.deserialize(jsonobject.get("color"), TextFormatting.class);
-+                            style.color = (TextFormatting)p_deserialize_3_.deserialize(jsonobject.get("color"), TextFormatting.class);
-                         }
- 
-                         if (jsonobject.has("insertion"))
-@@ -490,7 +481,7 @@
-                             {
-                                 JsonPrimitive jsonprimitive2 = jsonobject2.getAsJsonPrimitive("action");
-                                 HoverEvent.Action hoverevent$action = jsonprimitive2 == null ? null : HoverEvent.Action.getValueByCanonicalName(jsonprimitive2.getAsString());
--                                ITextComponent itextcomponent = p_deserialize_3_.deserialize(jsonobject2.get("value"), ITextComponent.class);
-+                                ITextComponent itextcomponent = (ITextComponent)p_deserialize_3_.deserialize(jsonobject2.get("value"), ITextComponent.class);
- 
-                                 if (hoverevent$action != null && itextcomponent != null && hoverevent$action.shouldAllowInChat())
-                                 {

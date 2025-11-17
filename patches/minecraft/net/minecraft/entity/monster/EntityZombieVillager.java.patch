@@ -1,16 +1,5 @@
 --- before/net/minecraft/entity/monster/EntityZombieVillager.java
 +++ after/net/minecraft/entity/monster/EntityZombieVillager.java
-@@ -33,8 +33,8 @@
- 
- public class EntityZombieVillager extends EntityZombie
- {
--    private static final DataParameter<Boolean> CONVERTING = EntityDataManager.createKey(EntityZombieVillager.class, DataSerializers.BOOLEAN);
--    private static final DataParameter<Integer> PROFESSION = EntityDataManager.createKey(EntityZombieVillager.class, DataSerializers.VARINT);
-+    private static final DataParameter<Boolean> CONVERTING = EntityDataManager.<Boolean>createKey(EntityZombieVillager.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Integer> PROFESSION = EntityDataManager.<Integer>createKey(EntityZombieVillager.class, DataSerializers.VARINT);
-     private int conversionTime;
-     private UUID converstionStarter;
- 
 @@ -43,22 +43,24 @@
          super(worldIn);
      }
@@ -161,15 +150,6 @@
          entityvillager.setLookingForHome();
  
          if (this.isChild())
-@@ -226,7 +216,7 @@
-         }
- 
-         entityvillager.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 200, 0));
--        this.world.playEvent(null, 1027, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
-+        this.world.playEvent((EntityPlayer)null, 1027, new BlockPos((int)this.posX, (int)this.posY, (int)this.posZ), 0);
-     }
- 
-     protected int getConversionProgress()
 @@ -238,11 +228,11 @@
              int j = 0;
              BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();

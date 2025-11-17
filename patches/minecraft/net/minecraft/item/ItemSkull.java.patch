@@ -217,8 +217,7 @@
  
          if (nbt.hasKey("SkullOwner", 8) && !StringUtils.isBlank(nbt.getString("SkullOwner")))
          {
--            GameProfile gameprofile = new GameProfile(null, nbt.getString("SkullOwner"));
-+            GameProfile gameprofile = new GameProfile((UUID)null, nbt.getString("SkullOwner"));
+             GameProfile gameprofile = new GameProfile(null, nbt.getString("SkullOwner"));
              gameprofile = TileEntitySkull.updateGameProfile(gameprofile);
              nbt.setTag("SkullOwner", NBTUtil.writeGameProfile(new NBTTagCompound(), gameprofile));
              return true;

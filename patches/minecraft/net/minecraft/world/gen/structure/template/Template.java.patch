@@ -1,16 +1,5 @@
 --- before/net/minecraft/world/gen/structure/template/Template.java
 +++ after/net/minecraft/world/gen/structure/template/Template.java
-@@ -38,8 +38,8 @@
- 
- public class Template
- {
--    private final List<Template.BlockInfo> blocks = Lists.newArrayList();
--    private final List<Template.EntityInfo> entities = Lists.newArrayList();
-+    private final List<Template.BlockInfo> blocks = Lists.<Template.BlockInfo>newArrayList();
-+    private final List<Template.EntityInfo> entities = Lists.<Template.EntityInfo>newArrayList();
-     private BlockPos size = BlockPos.ORIGIN;
-     private String author = "?";
- 
 @@ -63,19 +63,11 @@
          if (size.getX() >= 1 && size.getY() >= 1 && size.getZ() >= 1)
          {
@@ -36,29 +25,6 @@
              this.size = size;
  
              for (BlockPos.MutableBlockPos blockpos$mutableblockpos : BlockPos.getAllInBoxMutable(blockpos1, blockpos2))
-@@ -97,11 +89,11 @@
-                     }
-                     else if (!iblockstate.isFullBlock() && !iblockstate.isFullCube())
-                     {
--                        list2.add(new Template.BlockInfo(blockpos3, iblockstate, null));
-+                        list2.add(new Template.BlockInfo(blockpos3, iblockstate, (NBTTagCompound)null));
-                     }
-                     else
-                     {
--                        list.add(new Template.BlockInfo(blockpos3, iblockstate, null));
-+                        list.add(new Template.BlockInfo(blockpos3, iblockstate, (NBTTagCompound)null));
-                     }
-                 }
-             }
-@@ -124,7 +116,7 @@
- 
-     private void takeEntitiesFromWorld(World worldIn, BlockPos startPos, BlockPos endPos)
-     {
--        List<Entity> list = worldIn.getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(startPos, endPos), new Predicate<Entity>()
-+        List<Entity> list = worldIn.<Entity>getEntitiesWithinAABB(Entity.class, new AxisAlignedBB(startPos, endPos), new Predicate<Entity>()
-         {
-             public boolean apply(@Nullable Entity p_apply_1_)
-             {
 @@ -135,11 +127,7 @@
  
          for (Entity entity : list)
@@ -72,15 +38,6 @@
              NBTTagCompound nbttagcompound = new NBTTagCompound();
              entity.writeToNBTOptional(nbttagcompound);
              BlockPos blockpos;
-@@ -159,7 +147,7 @@
- 
-     public Map<BlockPos, String> getDataBlocks(BlockPos pos, PlacementSettings placementIn)
-     {
--        Map<BlockPos, String> map = Maps.newHashMap();
-+        Map<BlockPos, String> map = Maps.<BlockPos, String>newHashMap();
-         StructureBoundingBox structureboundingbox = placementIn.getBoundingBox();
- 
-         for (Template.BlockInfo template$blockinfo : this.blocks)
 @@ -215,10 +203,7 @@
  
      public void addBlocksToWorld(World worldIn, BlockPos pos, @Nullable ITemplateProcessor templateProcessor, PlacementSettings placementIn, int flags)

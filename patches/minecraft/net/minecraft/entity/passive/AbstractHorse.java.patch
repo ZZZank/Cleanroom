@@ -703,8 +703,7 @@
 -    @Override
      public Entity getControllingPassenger()
      {
--        return this.getPassengers().isEmpty() ? null : this.getPassengers().get(0);
-+        return this.getPassengers().isEmpty() ? null : (Entity)this.getPassengers().get(0);
+         return this.getPassengers().isEmpty() ? null : this.getPassengers().get(0);
      }
  
      @Nullable

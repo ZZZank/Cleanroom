@@ -103,8 +103,7 @@
  
              if (!list.isEmpty())
              {
--                TileEntityHopper.putDropInInventoryAllSlots(null, this, list.get(0));
-+                TileEntityHopper.putDropInInventoryAllSlots((IInventory)null, this, list.get(0));
+                 TileEntityHopper.putDropInInventoryAllSlots(null, this, list.get(0));
              }
  
              return false;

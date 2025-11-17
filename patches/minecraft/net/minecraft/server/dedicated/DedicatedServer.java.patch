@@ -1,14 +1,5 @@
 --- before/net/minecraft/server/dedicated/DedicatedServer.java
 +++ after/net/minecraft/server/dedicated/DedicatedServer.java
-@@ -53,7 +53,7 @@
- {
-     private static final Logger LOGGER = LogManager.getLogger();
-     private static final Pattern RESOURCE_PACK_SHA1_PATTERN = Pattern.compile("^[a-fA-F0-9]{40}$");
--    public final List<PendingCommand> pendingCommandList = Collections.synchronizedList(Lists.newArrayList());
-+    public final List<PendingCommand> pendingCommandList = Collections.<PendingCommand>synchronizedList(Lists.newArrayList());
-     private RConThreadQuery rconQueryThread;
-     private final RConConsoleSource rconConsoleSource = new RConConsoleSource(this);
-     private RConThreadMain rconThread;
 @@ -62,24 +62,19 @@
      private boolean canSpawnStructures;
      private GameType gameType;
@@ -90,8 +81,7 @@
              this.canSpawnStructures = this.settings.getBooleanProperty("generate-structures", true);
              int i = this.settings.getIntProperty("gamemode", GameType.SURVIVAL.getID());
              this.gameType = WorldSettings.getGameTypeById(i);
--            LOGGER.info("Default game type: {}", this.gameType);
-+            LOGGER.info("Default game type: {}", (Object)this.gameType);
+             LOGGER.info("Default game type: {}", this.gameType);
              InetAddress inetaddress = null;
  
              if (!this.getServerHostname().isEmpty())
@@ -104,15 +94,6 @@
  
              try
              {
-@@ -197,7 +194,7 @@
-             catch (IOException ioexception)
-             {
-                 LOGGER.warn("**** FAILED TO BIND TO PORT!");
--                LOGGER.warn("The exception was: {}", ioexception.toString());
-+                LOGGER.warn("The exception was: {}", (Object)ioexception.toString());
-                 LOGGER.warn("Perhaps a server is already running on that port?");
-                 return false;
-             }
 @@ -206,9 +203,7 @@
              {
                  LOGGER.warn("**** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!");

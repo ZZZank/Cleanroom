@@ -4,8 +4,7 @@
      private final EntityPlayer player;
      @Nullable
      private final DamageSource damageSource;
--    private final Set<LootTable> lootTables = Sets.newLinkedHashSet();
-+    private final Set<LootTable> lootTables = Sets.<LootTable>newLinkedHashSet();
+     private final Set<LootTable> lootTables = Sets.newLinkedHashSet();
  
 -    public LootContext(
 -        float luckIn,

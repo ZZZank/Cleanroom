@@ -170,8 +170,7 @@
          }
          public EnumFacing read(PacketBuffer buf) throws IOException
          {
--            return buf.readEnumValue(EnumFacing.class);
-+            return (EnumFacing)buf.readEnumValue(EnumFacing.class);
+             return buf.readEnumValue(EnumFacing.class);
          }
 -        @Override
          public DataParameter<EnumFacing> createKey(int id)

@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/EntityAgeable.java
 +++ after/net/minecraft/entity/EntityAgeable.java
-@@ -15,7 +15,7 @@
- 
- public abstract class EntityAgeable extends EntityCreature
- {
--    private static final DataParameter<Boolean> BABY = EntityDataManager.createKey(EntityAgeable.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Boolean> BABY = EntityDataManager.<Boolean>createKey(EntityAgeable.class, DataSerializers.BOOLEAN);
-     protected int growingAge;
-     protected int forcedAge;
-     protected int forcedAgeTimer;
 @@ -30,7 +30,6 @@
      @Nullable
      public abstract EntityAgeable createChild(EntityAgeable ageable);

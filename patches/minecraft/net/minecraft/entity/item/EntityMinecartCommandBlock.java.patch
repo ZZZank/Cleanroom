@@ -133,8 +133,7 @@
          {
              try
              {
--                this.commandBlockLogic.setLastOutput(this.getDataManager().get(LAST_OUTPUT));
-+                this.commandBlockLogic.setLastOutput((ITextComponent)this.getDataManager().get(LAST_OUTPUT));
+                 this.commandBlockLogic.setLastOutput(this.getDataManager().get(LAST_OUTPUT));
              }
 -            catch (Throwable throwable)
 +            catch (Throwable var3)
@@ -144,8 +143,7 @@
          }
          else if (COMMAND.equals(key))
          {
--            this.commandBlockLogic.setCommand(this.getDataManager().get(COMMAND));
-+            this.commandBlockLogic.setCommand((String)this.getDataManager().get(COMMAND));
+             this.commandBlockLogic.setCommand(this.getDataManager().get(COMMAND));
          }
      }
  

@@ -21,15 +21,6 @@
      private static int nextPotionTypeId;
      private final String baseName;
      private final ImmutableList<PotionEffect> effects;
-@@ -23,7 +25,7 @@
- 
-     public PotionType(PotionEffect... p_i46739_1_)
-     {
--        this(null, p_i46739_1_);
-+        this((String)null, p_i46739_1_);
-     }
- 
-     public PotionType(@Nullable String p_i46740_1_, PotionEffect... p_i46740_2_)
 @@ -34,7 +36,7 @@
  
      public String getNamePrefixed(String p_185174_1_)

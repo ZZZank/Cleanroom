@@ -17,25 +17,6 @@
      private static int nextEntityID;
      private int entityId;
      public boolean preventEntitySpawning;
-@@ -143,12 +143,12 @@
-     protected boolean firstUpdate;
-     protected boolean isImmuneToFire;
-     protected EntityDataManager dataManager;
--    protected static final DataParameter<Byte> FLAGS = EntityDataManager.createKey(Entity.class, DataSerializers.BYTE);
--    private static final DataParameter<Integer> AIR = EntityDataManager.createKey(Entity.class, DataSerializers.VARINT);
--    private static final DataParameter<String> CUSTOM_NAME = EntityDataManager.createKey(Entity.class, DataSerializers.STRING);
--    private static final DataParameter<Boolean> CUSTOM_NAME_VISIBLE = EntityDataManager.createKey(Entity.class, DataSerializers.BOOLEAN);
--    private static final DataParameter<Boolean> SILENT = EntityDataManager.createKey(Entity.class, DataSerializers.BOOLEAN);
--    private static final DataParameter<Boolean> NO_GRAVITY = EntityDataManager.createKey(Entity.class, DataSerializers.BOOLEAN);
-+    protected static final DataParameter<Byte> FLAGS = EntityDataManager.<Byte>createKey(Entity.class, DataSerializers.BYTE);
-+    private static final DataParameter<Integer> AIR = EntityDataManager.<Integer>createKey(Entity.class, DataSerializers.VARINT);
-+    private static final DataParameter<String> CUSTOM_NAME = EntityDataManager.<String>createKey(Entity.class, DataSerializers.STRING);
-+    private static final DataParameter<Boolean> CUSTOM_NAME_VISIBLE = EntityDataManager.<Boolean>createKey(Entity.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Boolean> SILENT = EntityDataManager.<Boolean>createKey(Entity.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Boolean> NO_GRAVITY = EntityDataManager.<Boolean>createKey(Entity.class, DataSerializers.BOOLEAN);
-     public boolean addedToChunk;
-     public int chunkCoordX;
-     public int chunkCoordY;
 @@ -177,11 +177,15 @@
      private boolean isPositionDirty;
      private final double[] pistonDeltas;
@@ -48,8 +29,7 @@
      public Entity(World worldIn)
      {
          this.entityId = nextEntityID++;
--        this.riddenByEntities = Lists.newArrayList();
-+        this.riddenByEntities = Lists.<Entity>newArrayList();
+         this.riddenByEntities = Lists.newArrayList();
          this.boundingBox = ZERO_AABB;
          this.width = 0.6F;
          this.height = 1.8F;
@@ -1322,15 +1302,6 @@
                  this.teleportDirection = blockpattern$patternhelper.getForwards();
              }
  
-@@ -2299,7 +2227,7 @@
- 
-     public Iterable<ItemStack> getEquipmentAndArmor()
-     {
--        return Iterables.concat(this.getHeldEquipment(), this.getArmorInventoryList());
-+        return Iterables.<ItemStack>concat(this.getHeldEquipment(), this.getArmorInventoryList());
-     }
- 
-     public void setItemStackToSlot(EntityEquipmentSlot slotIn, ItemStack stack)
 @@ -2399,37 +2327,37 @@
  
      protected boolean getFlag(int flag)
@@ -1626,8 +1597,7 @@
  
      public String getCustomNameTag()
      {
--        return this.dataManager.get(CUSTOM_NAME);
-+        return (String)this.dataManager.get(CUSTOM_NAME);
+         return this.dataManager.get(CUSTOM_NAME);
      }
  
      public boolean hasCustomName()
@@ -1950,23 +1920,6 @@
 +
      public void addTrackingPlayer(EntityPlayerMP player)
      {
-     }
-@@ -3115,14 +3229,14 @@
- 
-     public Collection<Entity> getRecursivePassengers()
-     {
--        Set<Entity> set = Sets.newHashSet();
-+        Set<Entity> set = Sets.<Entity>newHashSet();
-         this.getRecursivePassengersByType(Entity.class, set);
-         return set;
-     }
- 
-     public <T extends Entity> Collection<T> getRecursivePassengersByType(Class<T> entityClass)
-     {
--        Set<T> set = Sets.newHashSet();
-+        Set<T> set = Sets.<T>newHashSet();
-         this.getRecursivePassengersByType(entityClass, set);
-         return set;
      }
 @@ -3142,11 +3256,11 @@
  

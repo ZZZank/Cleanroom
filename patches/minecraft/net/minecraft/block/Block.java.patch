@@ -211,8 +211,7 @@
 +    @Deprecated //Forge: State sensitive version
      protected boolean canSilkHarvest()
      {
--        return this.getDefaultState().isFullCube() && !this.hasTileEntity;
-+        return this.getDefaultState().isFullCube() && !this.hasTileEntity(silk_check_state.get());
+         return this.getDefaultState().isFullCube() && !this.hasTileEntity;
      }
  
      protected ItemStack getSilkTouchDrop(IBlockState state)

@@ -152,24 +152,6 @@
  
          if (blockpos == null && !this.world.isRemote)
          {
-@@ -234,7 +218,7 @@
-             {
-                 if (iblockstate.getBlock() == Blocks.PISTON_EXTENSION)
-                 {
--                    EnumFacing enumfacing = iblockstate.getValue(BlockPistonBase.FACING);
-+                    EnumFacing enumfacing = (EnumFacing)iblockstate.getValue(BlockPistonBase.FACING);
- 
-                     if (this.world.isAirBlock(blockpos.offset(enumfacing)))
-                     {
-@@ -248,7 +232,7 @@
-                 }
-                 else if (iblockstate.getBlock() == Blocks.PISTON_HEAD)
-                 {
--                    EnumFacing enumfacing3 = iblockstate.getValue(BlockPistonExtension.FACING);
-+                    EnumFacing enumfacing3 = (EnumFacing)iblockstate.getValue(BlockPistonExtension.FACING);
- 
-                     if (this.world.isAirBlock(blockpos.offset(enumfacing3)))
-                     {
 @@ -316,7 +300,7 @@
              {
                  if (this.clientSideTeleportInterpolation > 0 && this.currentAttachmentPosition != null)
@@ -319,10 +301,8 @@
  
          if (this.dataManager != null && this.ticksExisted != 0)
          {
--            Optional<BlockPos> optional = this.dataManager.get(ATTACHED_BLOCK_POS);
--            Optional<BlockPos> optional1 = Optional.of(new BlockPos(x, y, z));
-+            Optional<BlockPos> optional = (Optional)this.dataManager.get(ATTACHED_BLOCK_POS);
-+            Optional<BlockPos> optional1 = Optional.<BlockPos>of(new BlockPos(x, y, z));
+             Optional<BlockPos> optional = this.dataManager.get(ATTACHED_BLOCK_POS);
+             Optional<BlockPos> optional1 = Optional.of(new BlockPos(x, y, z));
  
              if (!optional1.equals(optional))
              {
@@ -445,8 +425,7 @@
  
      public EnumFacing getAttachmentFacing()
      {
--        return this.dataManager.get(ATTACHED_FACE);
-+        return (EnumFacing)this.dataManager.get(ATTACHED_FACE);
+         return this.dataManager.get(ATTACHED_FACE);
      }
  
      @Nullable
@@ -590,8 +569,7 @@
                  }
                  else
                  {
--                    EntityShulker.this.setAttackTarget(null);
-+                    EntityShulker.this.setAttackTarget((EntityLivingBase)null);
+                     EntityShulker.this.setAttackTarget(null);
                  }
  
                  super.updateTask();

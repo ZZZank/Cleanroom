@@ -1,16 +1,5 @@
 --- before/net/minecraft/item/crafting/FurnaceRecipes.java
 +++ after/net/minecraft/item/crafting/FurnaceRecipes.java
-@@ -15,8 +15,8 @@
- public class FurnaceRecipes
- {
-     private static final FurnaceRecipes SMELTING_BASE = new FurnaceRecipes();
--    private final Map<ItemStack, ItemStack> smeltingList = Maps.newHashMap();
--    private final Map<ItemStack, Float> experienceList = Maps.newHashMap();
-+    private final Map<ItemStack, ItemStack> smeltingList = Maps.<ItemStack, ItemStack>newHashMap();
-+    private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
- 
-     public static FurnaceRecipes instance()
-     {
 @@ -35,11 +35,7 @@
          this.addSmelting(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.35F);
          this.addSmelting(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.35F);

@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/projectile/EntityWitherSkull.java
 +++ after/net/minecraft/entity/projectile/EntityWitherSkull.java
-@@ -21,7 +21,7 @@
- 
- public class EntityWitherSkull extends EntityFireball
- {
--    private static final DataParameter<Boolean> INVULNERABLE = EntityDataManager.createKey(EntityWitherSkull.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Boolean> INVULNERABLE = EntityDataManager.<Boolean>createKey(EntityWitherSkull.class, DataSerializers.BOOLEAN);
- 
-     public EntityWitherSkull(World worldIn)
-     {
 @@ -40,34 +40,29 @@
          EntityFireball.registerFixesFireball(fixer, "WitherSkull");
      }

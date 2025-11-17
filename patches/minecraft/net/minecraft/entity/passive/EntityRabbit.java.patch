@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/passive/EntityRabbit.java
 +++ after/net/minecraft/entity/passive/EntityRabbit.java
-@@ -55,7 +55,7 @@
- 
- public class EntityRabbit extends EntityAnimal
- {
--    private static final DataParameter<Integer> RABBIT_TYPE = EntityDataManager.createKey(EntityRabbit.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> RABBIT_TYPE = EntityDataManager.<Integer>createKey(EntityRabbit.class, DataSerializers.VARINT);
-     private int jumpTicks;
-     private int jumpDuration;
-     private boolean wasOnGround;
 @@ -68,30 +68,28 @@
          this.setSize(0.4F, 0.5F);
          this.jumpHelper = new EntityRabbit.RabbitJumpHelper(this);
@@ -416,8 +407,7 @@
  
                      if (this.canRaid && block instanceof BlockCarrot)
                      {
--                        Integer integer = iblockstate.getValue(BlockCarrot.AGE);
-+                        Integer integer = (Integer)iblockstate.getValue(BlockCarrot.AGE);
+                         Integer integer = iblockstate.getValue(BlockCarrot.AGE);
  
 -                        if (integer == 0)
 +                        if (integer.intValue() == 0)

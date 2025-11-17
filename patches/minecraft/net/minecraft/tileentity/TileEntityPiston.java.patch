@@ -47,16 +47,13 @@
      {
          EnumFacing enumfacing = this.extending ? this.pistonFacing : this.pistonFacing.getOpposite();
          double d0 = (double)(p_184322_1_ - this.progress);
--        List<AxisAlignedBB> list = Lists.newArrayList();
--        this.getCollisionRelatedBlockState().addCollisionBoxToList(this.world, BlockPos.ORIGIN, new AxisAlignedBB(BlockPos.ORIGIN), list, null, true);
-+        List<AxisAlignedBB> list = Lists.<AxisAlignedBB>newArrayList();
-+        this.getCollisionRelatedBlockState().addCollisionBoxToList(this.world, BlockPos.ORIGIN, new AxisAlignedBB(BlockPos.ORIGIN), list, (Entity)null, true);
+         List<AxisAlignedBB> list = Lists.newArrayList();
+         this.getCollisionRelatedBlockState().addCollisionBoxToList(this.world, BlockPos.ORIGIN, new AxisAlignedBB(BlockPos.ORIGIN), list, null, true);
  
          if (!list.isEmpty())
          {
              AxisAlignedBB axisalignedbb = this.moveByPositionAndProgress(this.getMinMaxPiecesAABB(list));
--            List<Entity> list1 = this.world.getEntitiesWithinAABBExcludingEntity(null, this.getMovementArea(axisalignedbb, enumfacing, d0).union(axisalignedbb));
-+            List<Entity> list1 = this.world.getEntitiesWithinAABBExcludingEntity((Entity)null, this.getMovementArea(axisalignedbb, enumfacing, d0).union(axisalignedbb));
+             List<Entity> list1 = this.world.getEntitiesWithinAABBExcludingEntity(null, this.getMovementArea(axisalignedbb, enumfacing, d0).union(axisalignedbb));
  
              if (!list1.isEmpty())
              {

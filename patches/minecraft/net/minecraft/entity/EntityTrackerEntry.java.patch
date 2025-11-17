@@ -1,19 +1,5 @@
 --- before/net/minecraft/entity/EntityTrackerEntry.java
 +++ after/net/minecraft/entity/EntityTrackerEntry.java
-@@ -90,11 +90,11 @@
-     private boolean updatedPlayerVisibility;
-     private final boolean sendVelocityUpdates;
-     private int ticksSinceLastForcedTeleport;
--    private List<Entity> passengers = Collections.emptyList();
-+    private List<Entity> passengers = Collections.<Entity>emptyList();
-     private boolean ridingEntity;
-     private boolean onGround;
-     public boolean playerEntitiesUpdated;
--    public final Set<EntityPlayerMP> trackingPlayers = Sets.newHashSet();
-+    public final Set<EntityPlayerMP> trackingPlayers = Sets.<EntityPlayerMP>newHashSet();
- 
-     public EntityTrackerEntry(Entity entityIn, int rangeIn, int maxRangeIn, int updateFrequencyIn, boolean sendVelocityUpdatesIn)
-     {
 @@ -112,15 +112,18 @@
          this.onGround = entityIn.onGround;
      }

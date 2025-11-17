@@ -1,21 +1,5 @@
 --- before/net/minecraft/entity/boss/EntityWither.java
 +++ after/net/minecraft/entity/boss/EntityWither.java
-@@ -52,11 +52,11 @@
- 
- public class EntityWither extends EntityMob implements IRangedAttackMob
- {
--    private static final DataParameter<Integer> FIRST_HEAD_TARGET = EntityDataManager.createKey(EntityWither.class, DataSerializers.VARINT);
--    private static final DataParameter<Integer> SECOND_HEAD_TARGET = EntityDataManager.createKey(EntityWither.class, DataSerializers.VARINT);
--    private static final DataParameter<Integer> THIRD_HEAD_TARGET = EntityDataManager.createKey(EntityWither.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> FIRST_HEAD_TARGET = EntityDataManager.<Integer>createKey(EntityWither.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> SECOND_HEAD_TARGET = EntityDataManager.<Integer>createKey(EntityWither.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> THIRD_HEAD_TARGET = EntityDataManager.<Integer>createKey(EntityWither.class, DataSerializers.VARINT);
-     private static final DataParameter<Integer>[] HEAD_TARGETS = new DataParameter[] {FIRST_HEAD_TARGET, SECOND_HEAD_TARGET, THIRD_HEAD_TARGET};
--    private static final DataParameter<Integer> INVULNERABILITY_TIME = EntityDataManager.createKey(EntityWither.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> INVULNERABILITY_TIME = EntityDataManager.<Integer>createKey(EntityWither.class, DataSerializers.VARINT);
-     private final float[] xRotationHeads = new float[2];
-     private final float[] yRotationHeads = new float[2];
-     private final float[] xRotOHeads = new float[2];
 @@ -64,15 +64,12 @@
      private final int[] nextHeadUpdate = new int[2];
      private final int[] idleHeadUpdates = new int[2];
@@ -389,15 +373,6 @@
                                  {
                                      flag = this.world.destroyBlock(blockpos, true) || flag;
                                  }
-@@ -437,7 +392,7 @@
- 
-                     if (flag)
-                     {
--                        this.world.playEvent(null, 1022, new BlockPos(this), 0);
-+                        this.world.playEvent((EntityPlayer)null, 1022, new BlockPos(this), 0);
-                     }
-                 }
-             }
 @@ -453,17 +408,7 @@
  
      public static boolean canDestroyBlock(Block blockIn)
@@ -484,8 +459,7 @@
  
      private void launchWitherSkullToCoords(int p_82209_1_, double x, double y, double z, boolean invulnerable)
      {
--        this.world.playEvent(null, 1024, new BlockPos(this), 0);
-+        this.world.playEvent((EntityPlayer)null, 1024, new BlockPos(this), 0);
+         this.world.playEvent(null, 1024, new BlockPos(this), 0);
          double d0 = this.getHeadX(p_82209_1_);
          double d1 = this.getHeadY(p_82209_1_);
          double d2 = this.getHeadZ(p_82209_1_);

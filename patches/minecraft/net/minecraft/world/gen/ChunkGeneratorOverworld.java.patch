@@ -448,38 +448,32 @@
          {
              if (this.settings.useMineShafts)
              {
--                this.mineshaftGenerator.generate(this.world, x, z, null);
-+                this.mineshaftGenerator.generate(this.world, x, z, (ChunkPrimer)null);
+                 this.mineshaftGenerator.generate(this.world, x, z, null);
              }
  
              if (this.settings.useVillages)
              {
--                this.villageGenerator.generate(this.world, x, z, null);
-+                this.villageGenerator.generate(this.world, x, z, (ChunkPrimer)null);
+                 this.villageGenerator.generate(this.world, x, z, null);
              }
  
              if (this.settings.useStrongholds)
              {
--                this.strongholdGenerator.generate(this.world, x, z, null);
-+                this.strongholdGenerator.generate(this.world, x, z, (ChunkPrimer)null);
+                 this.strongholdGenerator.generate(this.world, x, z, null);
              }
  
              if (this.settings.useTemples)
              {
--                this.scatteredFeatureGenerator.generate(this.world, x, z, null);
-+                this.scatteredFeatureGenerator.generate(this.world, x, z, (ChunkPrimer)null);
+                 this.scatteredFeatureGenerator.generate(this.world, x, z, null);
              }
  
              if (this.settings.useMonuments)
              {
--                this.oceanMonumentGenerator.generate(this.world, x, z, null);
-+                this.oceanMonumentGenerator.generate(this.world, x, z, (ChunkPrimer)null);
+                 this.oceanMonumentGenerator.generate(this.world, x, z, null);
              }
  
              if (this.settings.useMansions)
              {
--                this.woodlandMansionGenerator.generate(this.world, x, z, null);
-+                this.woodlandMansionGenerator.generate(this.world, x, z, (ChunkPrimer)null);
+                 this.woodlandMansionGenerator.generate(this.world, x, z, null);
              }
          }
      }

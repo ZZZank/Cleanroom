@@ -8,8 +8,7 @@
 +public class Village implements net.minecraftforge.common.capabilities.ICapabilitySerializable<NBTTagCompound>
  {
      private World world;
--    private final List<VillageDoorInfo> villageDoorInfoList = Lists.newArrayList();
-+    private final List<VillageDoorInfo> villageDoorInfoList = Lists.<VillageDoorInfo>newArrayList();
+     private final List<VillageDoorInfo> villageDoorInfoList = Lists.newArrayList();
      private BlockPos centerHelper = BlockPos.ORIGIN;
      private BlockPos center = BlockPos.ORIGIN;
      private int villageRadius;

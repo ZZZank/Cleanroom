@@ -107,8 +107,7 @@
  
          if (entity == null)
          {
--            LOGGER.warn("Skipping Entity with id {}", resourcelocation);
-+            LOGGER.warn("Skipping Entity with id {}", (Object)resourcelocation);
+             LOGGER.warn("Skipping Entity with id {}", resourcelocation);
          }
          else
          {
@@ -140,19 +139,6 @@
  
          if (resourcelocation != null)
          {
-@@ -238,10 +265,10 @@
- 
-         for (ResourceLocation resourcelocation : getEntityNameList())
-         {
--            stringbuilder.append(resourcelocation).append(", ");
-+            stringbuilder.append((Object)resourcelocation).append(", ");
-         }
- 
--        stringbuilder.append(PLAYER);
-+        stringbuilder.append((Object)PLAYER);
-         return stringbuilder.toString();
-     }
- 
 @@ -373,7 +400,7 @@
          addSpawnInfo("zombie_horse", 3232308, 9945732);
          addSpawnInfo("zombie_pigman", 15373203, 5009705);

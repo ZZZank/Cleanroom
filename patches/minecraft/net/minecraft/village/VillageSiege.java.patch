@@ -103,15 +103,6 @@
      }
  
      private boolean spawnZombie()
-@@ -162,7 +173,7 @@
-             try
-             {
-                 entityzombie = new EntityZombie(this.world);
--                entityzombie.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityzombie)), null);
-+                entityzombie.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityzombie)), (IEntityLivingData)null);
-             }
-             catch (Exception exception)
-             {
 @@ -181,14 +192,11 @@
      @Nullable
      private Vec3d findRandomSpawnPos(BlockPos pos)

@@ -1,18 +1,5 @@
 --- before/net/minecraft/entity/passive/EntityWolf.java
 +++ after/net/minecraft/entity/passive/EntityWolf.java
-@@ -54,9 +54,9 @@
- 
- public class EntityWolf extends EntityTameable
- {
--    private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.createKey(EntityWolf.class, DataSerializers.FLOAT);
--    private static final DataParameter<Boolean> BEGGING = EntityDataManager.createKey(EntityWolf.class, DataSerializers.BOOLEAN);
--    private static final DataParameter<Integer> COLLAR_COLOR = EntityDataManager.createKey(EntityWolf.class, DataSerializers.VARINT);
-+    private static final DataParameter<Float> DATA_HEALTH_ID = EntityDataManager.<Float>createKey(EntityWolf.class, DataSerializers.FLOAT);
-+    private static final DataParameter<Boolean> BEGGING = EntityDataManager.<Boolean>createKey(EntityWolf.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Integer> COLLAR_COLOR = EntityDataManager.<Integer>createKey(EntityWolf.class, DataSerializers.VARINT);
-     private float headRotationCourse;
-     private float headRotationCourseOld;
-     private boolean isWet;
 @@ -71,53 +71,50 @@
          this.setTamed(false);
      }
@@ -313,15 +300,6 @@
                      {
                          if (!player.capabilities.isCreativeMode)
                          {
-@@ -456,7 +422,7 @@
-                 this.aiSit.setSitting(!this.isSitting());
-                 this.isJumping = false;
-                 this.navigator.clearPath();
--                this.setAttackTarget(null);
-+                this.setAttackTarget((EntityLivingBase)null);
-             }
-         }
-         else if (itemstack.getItem() == Items.BONE && !this.isAngry())
 @@ -468,11 +434,11 @@
  
              if (!this.world.isRemote)
@@ -331,8 +309,7 @@
                  {
                      this.setTamedBy(player);
                      this.navigator.clearPath();
--                    this.setAttackTarget(null);
-+                    this.setAttackTarget((EntityLivingBase)null);
+                     this.setAttackTarget(null);
                      this.aiSit.setSitting(true);
                      this.setHealth(20.0F);
                      this.playTameEffect(true);
@@ -497,16 +474,14 @@
 -        @Override
          public void startExecuting()
          {
--            EntityWolf.this.setAttackTarget(null);
-+            EntityWolf.this.setAttackTarget((EntityLivingBase)null);
+             EntityWolf.this.setAttackTarget(null);
              super.startExecuting();
          }
  
 -        @Override
          public void updateTask()
          {
--            EntityWolf.this.setAttackTarget(null);
-+            EntityWolf.this.setAttackTarget((EntityLivingBase)null);
+             EntityWolf.this.setAttackTarget(null);
              super.updateTask();
          }
      }

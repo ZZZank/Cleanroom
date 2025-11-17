@@ -26,8 +26,7 @@
  
      protected void createLootRoll(Collection<ItemStack> stacks, Random rand, LootContext context)
      {
--        List<LootEntry> list = Lists.newArrayList();
-+        List<LootEntry> list = Lists.<LootEntry>newArrayList();
+         List<LootEntry> list = Lists.newArrayList();
          int i = 0;
  
          for (LootEntry lootentry : this.lootEntries)

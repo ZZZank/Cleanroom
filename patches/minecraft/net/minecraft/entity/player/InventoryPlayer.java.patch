@@ -35,8 +35,7 @@
  
      public ItemStack getCurrentItem()
      {
--        return isHotbar(this.currentItem) ? this.mainInventory.get(this.currentItem) : ItemStack.EMPTY;
-+        return isHotbar(this.currentItem) ? (ItemStack)this.mainInventory.get(this.currentItem) : ItemStack.EMPTY;
+         return isHotbar(this.currentItem) ? this.mainInventory.get(this.currentItem) : ItemStack.EMPTY;
      }
  
      public static int getHotbarSize()
@@ -404,8 +403,7 @@
              index -= nonnulllist.size();
          }
  
--        return list == null ? ItemStack.EMPTY : list.get(index);
-+        return list == null ? ItemStack.EMPTY : (ItemStack)list.get(index);
+         return list == null ? ItemStack.EMPTY : list.get(index);
      }
  
 -    @Override

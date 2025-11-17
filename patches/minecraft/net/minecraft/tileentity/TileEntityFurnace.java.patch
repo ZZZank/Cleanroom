@@ -4,8 +4,7 @@
      private static final int[] SLOTS_TOP = new int[] {0};
      private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
      private static final int[] SLOTS_SIDES = new int[] {1};
--    private NonNullList<ItemStack> furnaceItemStacks = NonNullList.withSize(3, ItemStack.EMPTY);
-+    private NonNullList<ItemStack> furnaceItemStacks = NonNullList.<ItemStack>withSize(3, ItemStack.EMPTY);
+     private NonNullList<ItemStack> furnaceItemStacks = NonNullList.withSize(3, ItemStack.EMPTY);
      private int furnaceBurnTime;
      private int currentItemBurnTime;
      private int cookTime;
@@ -74,8 +73,7 @@
      public void readFromNBT(NBTTagCompound compound)
      {
          super.readFromNBT(compound);
--        this.furnaceItemStacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-+        this.furnaceItemStacks = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+         this.furnaceItemStacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
          ItemStackHelper.loadAllItems(compound, this.furnaceItemStacks);
 -        this.furnaceBurnTime = compound.getShort("BurnTime");
 -        this.cookTime = compound.getShort("CookTime");

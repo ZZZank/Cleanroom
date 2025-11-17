@@ -150,15 +150,6 @@
                  this.getPlayerList().setViewDistance(this.mc.gameSettings.renderDistanceChunks);
              }
  
-@@ -209,7 +202,7 @@
-                 }
-                 else if (worldinfo.isDifficultyLocked() && !worldinfo1.isDifficultyLocked())
-                 {
--                    LOGGER.info("Locking difficulty to {}", worldinfo.getDifficulty());
-+                    LOGGER.info("Locking difficulty to {}", (Object)worldinfo.getDifficulty());
- 
-                     for (WorldServer worldserver : this.worlds)
-                     {
 @@ -223,73 +216,62 @@
          }
      }
@@ -299,17 +290,6 @@
              }
  
              if (i <= 0)
-@@ -378,8 +351,8 @@
-                 i = 25564;
-             }
- 
--            this.getNetworkSystem().addEndpoint(null, i);
--            LOGGER.info("Started on {}", i);
-+            this.getNetworkSystem().addEndpoint((InetAddress)null, i);
-+            LOGGER.info("Started on {}", (int)i);
-             this.isPublic = true;
-             this.lanServerPing = new ThreadLanServerPing(this.getMOTD(), i + "");
-             this.lanServerPing.start();
 @@ -388,13 +361,12 @@
              this.mc.player.setPermissionLevel(allowCheats ? 4 : 0);
              return i + "";

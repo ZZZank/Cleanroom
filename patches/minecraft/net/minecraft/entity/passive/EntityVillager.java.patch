@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/passive/EntityVillager.java
 +++ after/net/minecraft/entity/passive/EntityVillager.java
-@@ -96,7 +96,7 @@
- public class EntityVillager extends EntityAgeable implements INpc, IMerchant
- {
-     private static final Logger LOGGER = LogManager.getLogger();
--    private static final DataParameter<Integer> PROFESSION = EntityDataManager.createKey(EntityVillager.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> PROFESSION = EntityDataManager.<Integer>createKey(EntityVillager.class, DataSerializers.VARINT);
-     private int randomTickDivider;
-     private boolean isMating;
-     private boolean isPlaying;
 @@ -109,238 +109,13 @@
      private boolean needsInitilization;
      private boolean isWillingToMate;
@@ -807,8 +798,7 @@
      public EntityVillager createChild(EntityAgeable ageable)
      {
          EntityVillager entityvillager = new EntityVillager(this.world);
--        entityvillager.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityvillager)), null);
-+        entityvillager.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityvillager)), (IEntityLivingData)null);
+         entityvillager.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityvillager)), null);
          return entityvillager;
      }
  
@@ -825,8 +815,7 @@
          {
              EntityWitch entitywitch = new EntityWitch(this.world);
              entitywitch.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
--            entitywitch.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entitywitch)), null);
-+            entitywitch.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entitywitch)), (IEntityLivingData)null);
+             entitywitch.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entitywitch)), null);
              entitywitch.setNoAI(this.isAIDisabled());
  
              if (this.hasCustomName())
@@ -949,8 +938,7 @@
 -            @Override
              public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random)
              {
--                Enchantment enchantment = Enchantment.REGISTRY.getRandomObject(random);
-+                Enchantment enchantment = (Enchantment)Enchantment.REGISTRY.getRandomObject(random);
+                 Enchantment enchantment = Enchantment.REGISTRY.getRandomObject(random);
                  int i = MathHelper.getInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel());
                  ItemStack itemstack = ItemEnchantedBook.getEnchantedItemStack(new EnchantmentData(enchantment, i));
                  int j = 2 + random.nextInt(5 + i * 10) + 3 * i;

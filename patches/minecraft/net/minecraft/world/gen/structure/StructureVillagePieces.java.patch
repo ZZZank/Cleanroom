@@ -1073,8 +1073,7 @@
 -            )
 +            public Start(BiomeProvider biomeProviderIn, int p_i2104_2_, Random rand, int p_i2104_4_, int p_i2104_5_, List<StructureVillagePieces.PieceWeight> p_i2104_6_, int p_i2104_7_)
              {
--                super(null, 0, rand, p_i2104_4_, p_i2104_5_);
-+                super((StructureVillagePieces.Start)null, 0, rand, p_i2104_4_, p_i2104_5_);
+                 super(null, 0, rand, p_i2104_4_, p_i2104_5_);
                  this.biomeProvider = biomeProviderIn;
                  this.structureVillageWeightedPieceList = p_i2104_6_;
                  this.terrainType = p_i2104_7_;

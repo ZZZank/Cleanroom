@@ -7,15 +7,6 @@
  import javax.annotation.Nullable;
  import net.minecraft.block.Block;
  import net.minecraft.block.material.Material;
-@@ -43,7 +44,7 @@
- 
- public class EntityOcelot extends EntityTameable
- {
--    private static final DataParameter<Integer> OCELOT_VARIANT = EntityDataManager.createKey(EntityOcelot.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> OCELOT_VARIANT = EntityDataManager.<Integer>createKey(EntityOcelot.class, DataSerializers.VARINT);
-     private EntityAIAvoidEntity<EntityPlayer> avoidEntity;
-     private EntityAITempt aiTempt;
- 
 @@ -53,44 +54,41 @@
          this.setSize(0.6F, 0.7F);
      }

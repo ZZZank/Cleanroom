@@ -1,18 +1,5 @@
 --- before/net/minecraft/entity/monster/EntityCreeper.java
 +++ after/net/minecraft/entity/monster/EntityCreeper.java
-@@ -39,9 +39,9 @@
- 
- public class EntityCreeper extends EntityMob
- {
--    private static final DataParameter<Integer> STATE = EntityDataManager.createKey(EntityCreeper.class, DataSerializers.VARINT);
--    private static final DataParameter<Boolean> POWERED = EntityDataManager.createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
--    private static final DataParameter<Boolean> IGNITED = EntityDataManager.createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Integer> STATE = EntityDataManager.<Integer>createKey(EntityCreeper.class, DataSerializers.VARINT);
-+    private static final DataParameter<Boolean> POWERED = EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Boolean> IGNITED = EntityDataManager.<Boolean>createKey(EntityCreeper.class, DataSerializers.BOOLEAN);
-     private int lastActiveTime;
-     private int timeSinceIgnited;
-     private int fuseTime = 30;
 @@ -54,34 +54,30 @@
          this.setSize(0.6F, 1.7F);
      }

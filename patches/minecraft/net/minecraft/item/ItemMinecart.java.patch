@@ -7,8 +7,7 @@
 -        @Override
          public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
          {
--            EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-+            EnumFacing enumfacing = (EnumFacing)source.getBlockState().getValue(BlockDispenser.FACING);
+             EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
              World world = source.getWorld();
 -            double d0 = source.getX() + (double)enumfacing.getXOffset() * 1.125;
 +            double d0 = source.getX() + (double)enumfacing.getXOffset() * 1.125D;

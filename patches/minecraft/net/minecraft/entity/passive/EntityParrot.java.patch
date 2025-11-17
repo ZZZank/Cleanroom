@@ -12,8 +12,7 @@
  
  public class EntityParrot extends EntityShoulderRiding implements EntityFlying
  {
--    private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(EntityParrot.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> VARIANT = EntityDataManager.<Integer>createKey(EntityParrot.class, DataSerializers.VARINT);
+     private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(EntityParrot.class, DataSerializers.VARINT);
      private static final Predicate<EntityLiving> CAN_MIMIC = new Predicate<EntityLiving>()
      {
          public boolean apply(@Nullable EntityLiving p_apply_1_)

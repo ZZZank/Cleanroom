@@ -1,26 +1,5 @@
 --- before/net/minecraft/entity/EntityLiving.java
 +++ after/net/minecraft/entity/EntityLiving.java
-@@ -60,7 +60,7 @@
- 
- public abstract class EntityLiving extends EntityLivingBase
- {
--    private static final DataParameter<Byte> AI_FLAGS = EntityDataManager.createKey(EntityLiving.class, DataSerializers.BYTE);
-+    private static final DataParameter<Byte> AI_FLAGS = EntityDataManager.<Byte>createKey(EntityLiving.class, DataSerializers.BYTE);
-     public int livingSoundTime;
-     protected int experienceValue;
-     private final EntityLookHelper lookHelper;
-@@ -72,9 +72,9 @@
-     public final EntityAITasks targetTasks;
-     private EntityLivingBase attackTarget;
-     private final EntitySenses senses;
--    private final NonNullList<ItemStack> inventoryHands = NonNullList.withSize(2, ItemStack.EMPTY);
-+    private final NonNullList<ItemStack> inventoryHands = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
-     protected float[] inventoryHandsDropChances = new float[2];
--    private final NonNullList<ItemStack> inventoryArmor = NonNullList.withSize(4, ItemStack.EMPTY);
-+    private final NonNullList<ItemStack> inventoryArmor = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
-     protected float[] inventoryArmorDropChances = new float[4];
-     private boolean canPickUpLoot;
-     private boolean persistenceRequired;
 @@ -109,11 +109,10 @@
      {
      }
@@ -610,15 +589,6 @@
      public final boolean processInitialInteract(EntityPlayer player, EnumHand hand)
      {
          if (this.getLeashed() && this.getLeashHolder() == player)
-@@ -1302,7 +1269,7 @@
- 
-             if (!this.world.isRemote && sendPacket && this.world instanceof WorldServer)
-             {
--                ((WorldServer)this.world).getEntityTracker().sendToTracking(this, new SPacketEntityAttach(this, null));
-+                ((WorldServer)this.world).getEntityTracker().sendToTracking(this, new SPacketEntityAttach(this, (Entity)null));
-             }
-         }
-     }
 @@ -1338,7 +1305,6 @@
          }
      }

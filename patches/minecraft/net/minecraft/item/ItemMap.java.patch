@@ -49,15 +49,6 @@
                      {
                          if (k1 >= 0 && l1 >= -1 && k1 < 128 && l1 < 128)
                          {
-@@ -114,7 +114,7 @@
-                             boolean flag1 = i2 * i2 + j2 * j2 > (j1 - 2) * (j1 - 2);
-                             int k2 = (j / i + k1 - 64) * i;
-                             int l2 = (k / i + l1 - 64) * i;
--                            Multiset<MapColor> multiset = HashMultiset.create();
-+                            Multiset<MapColor> multiset = HashMultiset.<MapColor>create();
-                             Chunk chunk = worldIn.getChunk(new BlockPos(k2, 0, l2));
- 
-                             if (!chunk.isEmpty())
 @@ -122,7 +122,7 @@
                                  int i3 = k2 & 15;
                                  int j3 = l2 & 15;
@@ -183,8 +174,7 @@
                                      i5 = 0;
                                  }
  
--                                MapColor mapcolor = Iterables.getFirst(Multisets.copyHighestCountFirst(multiset), MapColor.AIR);
-+                                MapColor mapcolor = (MapColor)Iterables.getFirst(Multisets.copyHighestCountFirst(multiset), MapColor.AIR);
+                                 MapColor mapcolor = Iterables.getFirst(Multisets.copyHighestCountFirst(multiset), MapColor.AIR);
  
                                  if (mapcolor == MapColor.WATER)
                                  {
@@ -221,8 +211,7 @@
                      int i = 1 << mapdata.scale;
                      int j = mapdata.xCenter;
                      int k = mapdata.zCenter;
--                    Biome[] abiome = worldIn.getBiomeProvider().getBiomes(null, (j / i - 64) * i, (k / i - 64) * i, 128 * i, 128 * i, false);
-+                    Biome[] abiome = worldIn.getBiomeProvider().getBiomes((Biome[])null, (j / i - 64) * i, (k / i - 64) * i, 128 * i, 128 * i, false);
+                     Biome[] abiome = worldIn.getBiomeProvider().getBiomes(null, (j / i - 64) * i, (k / i - 64) * i, 128 * i, 128 * i, false);
  
 -                    for (int l = 0; l < 128; l++)
 +                    for (int l = 0; l < 128; ++l)

@@ -1,16 +1,5 @@
 --- before/net/minecraft/world/chunk/storage/AnvilChunkLoader.java
 +++ after/net/minecraft/world/chunk/storage/AnvilChunkLoader.java
-@@ -37,8 +37,8 @@
- public class AnvilChunkLoader implements IChunkLoader, IThreadedFileIO
- {
-     private static final Logger LOGGER = LogManager.getLogger();
--    private final Map<ChunkPos, NBTTagCompound> chunksToSave = Maps.newConcurrentMap();
--    private final Set<ChunkPos> chunksBeingSaved = Collections.newSetFromMap(Maps.newConcurrentMap());
-+    private final Map<ChunkPos, NBTTagCompound> chunksToSave = Maps.<ChunkPos, NBTTagCompound>newConcurrentMap();
-+    private final Set<ChunkPos> chunksBeingSaved = Collections.<ChunkPos>newSetFromMap(Maps.newConcurrentMap());
-     public final File chunkSaveLocation;
-     private final DataFixer fixer;
-     private boolean flushing;
 @@ -49,10 +49,31 @@
          this.fixer = dataFixerIn;
      }
@@ -156,8 +145,7 @@
          {
              if (this.flushing)
              {
--                LOGGER.info("ThreadedAnvilChunkStorage ({}): All chunks are saved", this.chunkSaveLocation.getName());
-+                LOGGER.info("ThreadedAnvilChunkStorage ({}): All chunks are saved", (Object)this.chunkSaveLocation.getName());
+                 LOGGER.info("ThreadedAnvilChunkStorage ({}): All chunks are saved", this.chunkSaveLocation.getName());
              }
  
              return false;

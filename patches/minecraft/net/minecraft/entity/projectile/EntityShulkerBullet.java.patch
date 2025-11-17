@@ -85,8 +85,7 @@
 +        if (blockpos.distanceSqToCenter(this.posX, this.posY, this.posZ) >= 4.0D)
          {
              BlockPos blockpos1 = new BlockPos(this);
--            List<EnumFacing> list = Lists.newArrayList();
-+            List<EnumFacing> list = Lists.<EnumFacing>newArrayList();
+             List<EnumFacing> list = Lists.newArrayList();
  
              if (p_184569_1_ != EnumFacing.Axis.X)
              {

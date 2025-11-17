@@ -195,15 +195,6 @@
      protected void updateAITasks()
      {
          if (this.isWet())
-@@ -273,7 +238,7 @@
- 
-             if (f > 0.5F && this.world.canSeeSky(new BlockPos(this)) && this.rand.nextFloat() * 30.0F < (f - 0.4F) * 2.0F)
-             {
--                this.setAttackTarget(null);
-+                this.setAttackTarget((EntityLivingBase)null);
-                 this.teleportRandomly();
-             }
-         }
 @@ -283,60 +248,53 @@
  
      protected boolean teleportRandomly()
@@ -393,8 +384,7 @@
                  {
                      if (this.targetEntity != null)
                      {
--                        if (this.enderman.shouldAttackPlayer(this.targetEntity))
-+                        if (this.enderman.shouldAttackPlayer((EntityPlayer)this.targetEntity))
+                         if (this.enderman.shouldAttackPlayer(this.targetEntity))
                          {
 -                            if (this.targetEntity.getDistanceSq(this.enderman) < 16.0)
 +                            if (((EntityPlayer)this.targetEntity).getDistanceSq(this.enderman) < 16.0D)
@@ -455,8 +445,7 @@
 +                if (iblockstate2 != null && this.canPlaceBlock(world, blockpos, iblockstate2.getBlock(), iblockstate, iblockstate1) && net.minecraftforge.event.ForgeEventFactory.onBlockPlace(enderman, new net.minecraftforge.common.util.BlockSnapshot(world, blockpos, iblockstate2), net.minecraft.util.EnumFacing.UP).isCanceled())
                  {
                      world.setBlockState(blockpos, iblockstate2, 3);
--                    this.enderman.setHeldBlockState(null);
-+                    this.enderman.setHeldBlockState((IBlockState)null);
+                     this.enderman.setHeldBlockState(null);
                  }
              }
  

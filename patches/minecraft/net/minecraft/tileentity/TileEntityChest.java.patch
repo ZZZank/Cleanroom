@@ -1,14 +1,5 @@
 --- before/net/minecraft/tileentity/TileEntityChest.java
 +++ after/net/minecraft/tileentity/TileEntityChest.java
-@@ -25,7 +25,7 @@
- 
- public class TileEntityChest extends TileEntityLockableLoot implements ITickable
- {
--    private NonNullList<ItemStack> chestContents = NonNullList.withSize(27, ItemStack.EMPTY);
-+    private NonNullList<ItemStack> chestContents = NonNullList.<ItemStack>withSize(27, ItemStack.EMPTY);
-     public boolean adjacentChestChecked;
-     public TileEntityChest adjacentChestZNeg;
-     public TileEntityChest adjacentChestXPos;
 @@ -46,13 +46,11 @@
          this.cachedChestType = typeIn;
      }
@@ -43,8 +34,7 @@
      public void readFromNBT(NBTTagCompound compound)
      {
          super.readFromNBT(compound);
--        this.chestContents = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-+        this.chestContents = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+         this.chestContents = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
  
          if (!this.checkLootAndRead(compound))
          {

@@ -17,8 +17,7 @@
  
      public TileEntityShulkerBox()
      {
--        this(null);
-+        this((EnumDyeColor)null);
+         this(null);
      }
  
      public TileEntityShulkerBox(@Nullable EnumDyeColor colorIn)
@@ -36,8 +35,7 @@
  
      public AxisAlignedBB getBoundingBox(IBlockState p_190584_1_)
      {
--        return this.getBoundingBox(p_190584_1_.getValue(BlockShulkerBox.FACING));
-+        return this.getBoundingBox((EnumFacing)p_190584_1_.getValue(BlockShulkerBox.FACING));
+         return this.getBoundingBox(p_190584_1_.getValue(BlockShulkerBox.FACING));
      }
  
      public AxisAlignedBB getBoundingBox(EnumFacing p_190587_1_)
@@ -64,11 +62,9 @@
  
          if (iblockstate.getBlock() instanceof BlockShulkerBox)
          {
--            EnumFacing enumfacing = iblockstate.getValue(BlockShulkerBox.FACING);
-+            EnumFacing enumfacing = (EnumFacing)iblockstate.getValue(BlockShulkerBox.FACING);
+             EnumFacing enumfacing = iblockstate.getValue(BlockShulkerBox.FACING);
              AxisAlignedBB axisalignedbb = this.getTopBoundingBox(enumfacing).offset(this.pos);
--            List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb);
-+            List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity((Entity)null, axisalignedbb);
+             List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb);
  
              if (!list.isEmpty())
              {
@@ -235,15 +231,6 @@
      public NBTTagCompound writeToNBT(NBTTagCompound compound)
      {
          super.writeToNBT(compound);
-@@ -329,7 +293,7 @@
- 
-     public void loadFromNbt(NBTTagCompound compound)
-     {
--        this.items = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-+        this.items = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
- 
-         if (!this.checkLootAndRead(compound) && compound.hasKey("Items", 9))
-         {
 @@ -362,13 +326,11 @@
          return compound;
      }

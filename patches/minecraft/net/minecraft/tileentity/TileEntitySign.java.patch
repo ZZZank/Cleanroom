@@ -87,8 +87,7 @@
  
              try
              {
--                this.signText[i] = TextComponentUtils.processComponent(icommandsender, itextcomponent, null);
-+                this.signText[i] = TextComponentUtils.processComponent(icommandsender, itextcomponent, (Entity)null);
+                 this.signText[i] = TextComponentUtils.processComponent(icommandsender, itextcomponent, null);
              }
 -            catch (CommandException commandexception)
 +            catch (CommandException var7)

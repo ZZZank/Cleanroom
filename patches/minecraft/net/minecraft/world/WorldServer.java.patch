@@ -462,15 +462,6 @@
                  {
                      if (remove)
                      {
-@@ -815,7 +806,7 @@
- 
-                     if (list == null)
-                     {
--                        list = Lists.newArrayList();
-+                        list = Lists.<NextTickListEntry>newArrayList();
-                     }
- 
-                     list.add(nextticklistentry);
 @@ -826,7 +817,6 @@
          return list;
      }
@@ -584,24 +575,6 @@
              {
                  this.loadedEntityList.add(entity);
                  this.onEntityAdded(entity);
-@@ -1080,7 +1074,7 @@
-     {
-         if (entityIn.isDead)
-         {
--            LOGGER.warn("Tried to add entity {} but it was marked as removed already", EntityList.getKey(entityIn));
-+            LOGGER.warn("Tried to add entity {} but it was marked as removed already", (Object)EntityList.getKey(entityIn));
-             return false;
-         }
-         else
-@@ -1103,7 +1097,7 @@
-                         return false;
-                     }
- 
--                    LOGGER.warn("Force-added player with duplicate UUID {}", uuid.toString());
-+                    LOGGER.warn("Force-added player with duplicate UUID {}", (Object)uuid.toString());
-                 }
- 
-                 this.removeEntityDangerously(entity);
 @@ -1113,7 +1107,6 @@
          }
      }

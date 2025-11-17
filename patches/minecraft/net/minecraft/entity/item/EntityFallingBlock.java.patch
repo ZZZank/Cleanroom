@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/item/EntityFallingBlock.java
 +++ after/net/minecraft/entity/item/EntityFallingBlock.java
-@@ -42,7 +42,7 @@
-     private int fallHurtMax = 40;
-     private float fallHurtAmount = 2.0F;
-     public NBTTagCompound tileEntityData;
--    protected static final DataParameter<BlockPos> ORIGIN = EntityDataManager.createKey(EntityFallingBlock.class, DataSerializers.BLOCK_POS);
-+    protected static final DataParameter<BlockPos> ORIGIN = EntityDataManager.<BlockPos>createKey(EntityFallingBlock.class, DataSerializers.BLOCK_POS);
- 
-     public EntityFallingBlock(World worldIn)
-     {
 @@ -56,16 +56,15 @@
          this.preventEntitySpawning = true;
          this.setSize(0.98F, 0.98F);
@@ -33,8 +24,7 @@
      @SideOnly(Side.CLIENT)
      public BlockPos getOrigin()
      {
--        return this.dataManager.get(ORIGIN);
-+        return (BlockPos)this.dataManager.get(ORIGIN);
+         return this.dataManager.get(ORIGIN);
      }
  
 -    @Override

@@ -37,24 +37,7 @@
                          }
                      }
  
--                    itextcomponent.setStyle(p_deserialize_3_.deserialize(p_deserialize_1_, Style.class));
-+                    itextcomponent.setStyle((Style)p_deserialize_3_.deserialize(p_deserialize_1_, Style.class));
+                     itextcomponent.setStyle(p_deserialize_3_.deserialize(p_deserialize_1_, Style.class));
                      return itextcomponent;
                  }
              }
-@@ -269,13 +268,13 @@
-             @Nullable
-             public static ITextComponent jsonToComponent(String json)
-             {
--                return JsonUtils.gsonDeserialize(GSON, json, ITextComponent.class, false);
-+                return (ITextComponent)JsonUtils.gsonDeserialize(GSON, json, ITextComponent.class, false);
-             }
- 
-             @Nullable
-             public static ITextComponent fromJsonLenient(String json)
-             {
--                return JsonUtils.gsonDeserialize(GSON, json, ITextComponent.class, true);
-+                return (ITextComponent)JsonUtils.gsonDeserialize(GSON, json, ITextComponent.class, true);
-             }
- 
-             static

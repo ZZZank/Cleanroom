@@ -9,15 +9,6 @@
      private final boolean hasDecoration;
      private final boolean hasDungeons;
      private WorldGenLakes waterLakeGenerator;
-@@ -48,7 +48,7 @@
- 
-             if (map.containsKey("village"))
-             {
--                Map<String, String> map1 = map.get("village");
-+                Map<String, String> map1 = (Map)map.get("village");
- 
-                 if (!map1.containsKey("size"))
-                 {
 @@ -96,7 +96,7 @@
  
          for (FlatLayerInfo flatlayerinfo : this.flatWorldGenInfo.getFlatLayers())
@@ -61,8 +52,7 @@
          }
  
          Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
--        Biome[] abiome = this.world.getBiomeProvider().getBiomes(null, x * 16, z * 16, 16, 16);
-+        Biome[] abiome = this.world.getBiomeProvider().getBiomes((Biome[])null, x * 16, z * 16, 16, 16);
+         Biome[] abiome = this.world.getBiomeProvider().getBiomes(null, x * 16, z * 16, 16, 16);
          byte[] abyte = chunk.getBiomeArray();
  
 -        for (int l = 0; l < abyte.length; l++)
@@ -171,8 +161,7 @@
      {
          for (MapGenStructure mapgenstructure : this.structureGenerators.values())
          {
--            mapgenstructure.generate(this.world, x, z, null);
-+            mapgenstructure.generate(this.world, x, z, (ChunkPrimer)null);
+             mapgenstructure.generate(this.world, x, z, null);
          }
      }
  }

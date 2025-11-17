@@ -27,15 +27,6 @@
          this.genBiomes = agenlayer[0];
          this.biomeIndexLayer = agenlayer[1];
      }
-@@ -55,7 +57,7 @@
- 
-     public Biome getBiome(BlockPos pos)
-     {
--        return this.getBiome(pos, null);
-+        return this.getBiome(pos, (Biome)null);
-     }
- 
-     public Biome getBiome(BlockPos pos, Biome defaultBiome)
 @@ -81,7 +83,7 @@
  
          try

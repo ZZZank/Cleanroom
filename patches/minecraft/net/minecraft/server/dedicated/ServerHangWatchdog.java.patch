@@ -25,15 +25,6 @@
  
                  for (ThreadInfo threadinfo : athreadinfo)
                  {
-@@ -56,7 +53,7 @@
-                         error.setStackTrace(threadinfo.getStackTrace());
-                     }
- 
--                    stringbuilder.append(threadinfo);
-+                    stringbuilder.append((Object)threadinfo);
-                     stringbuilder.append("\n");
-                 }
- 
 @@ -64,14 +61,11 @@
                  this.server.addServerInfoToCrashReport(crashreport);
                  CrashReportCategory crashreportcategory = crashreport.makeCategory("Thread Dump");
@@ -46,8 +37,7 @@
  
                  if (crashreport.saveToFile(file1))
                  {
--                    LOGGER.error("This crash report has been saved to: {}", file1.getAbsolutePath());
-+                    LOGGER.error("This crash report has been saved to: {}", (Object)file1.getAbsolutePath());
+                     LOGGER.error("This crash report has been saved to: {}", file1.getAbsolutePath());
                  }
                  else
                  {

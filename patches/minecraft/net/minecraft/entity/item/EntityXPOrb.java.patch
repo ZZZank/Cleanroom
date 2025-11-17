@@ -62,14 +62,12 @@
  
          if (!this.hasNoGravity())
          {
--            this.motionY -= 0.03F;
-+            this.motionY -= (double)0.03F;
+             this.motionY -= 0.03F;
          }
  
          if (this.world.getBlockState(new BlockPos(this)).getMaterial() == Material.LAVA)
          {
--            this.motionY = 0.2F;
-+            this.motionY = (double)0.2F;
+             this.motionY = 0.2F;
              this.motionX = (double)((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F);
              this.motionZ = (double)((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F);
              this.playSound(SoundEvents.ENTITY_GENERIC_BURN, 0.4F, 2.0F + this.rand.nextFloat() * 0.4F);
@@ -138,8 +136,7 @@
          }
  
          this.motionX *= (double)f;
--        this.motionY *= 0.98F;
-+        this.motionY *= (double)0.98F;
+         this.motionY *= 0.98F;
          this.motionZ *= (double)f;
  
          if (this.onGround)

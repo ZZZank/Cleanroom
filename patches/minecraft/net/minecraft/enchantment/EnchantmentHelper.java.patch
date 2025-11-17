@@ -50,8 +50,7 @@
  
      public static List<EnchantmentData> getEnchantmentDatas(int p_185291_0_, ItemStack p_185291_1_, boolean allowTreasure)
      {
--        List<EnchantmentData> list = Lists.newArrayList();
-+        List<EnchantmentData> list = Lists.<EnchantmentData>newArrayList();
+         List<EnchantmentData> list = Lists.newArrayList();
          Item item = p_185291_1_.getItem();
          boolean flag = p_185291_1_.getItem() == Items.BOOK;
  

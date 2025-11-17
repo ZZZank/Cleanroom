@@ -38,15 +38,6 @@
  
              try
              {
-@@ -283,7 +285,7 @@
- 
-     public void tick()
-     {
--        List<EntityPlayerMP> list = Lists.newArrayList();
-+        List<EntityPlayerMP> list = Lists.<EntityPlayerMP>newArrayList();
- 
-         for (EntityTrackerEntry entitytrackerentry : this.entries)
-         {
 @@ -300,7 +302,7 @@
              }
          }
@@ -82,14 +73,3 @@
      public void sendToTrackingAndSelf(Entity entityIn, Packet<?> packetIn)
      {
          EntityTrackerEntry entitytrackerentry = this.trackedEntityHashTable.lookup(entityIn.getEntityId());
-@@ -359,8 +380,8 @@
- 
-     public void sendLeashedEntitiesInChunk(EntityPlayerMP player, Chunk chunkIn)
-     {
--        List<Entity> list = Lists.newArrayList();
--        List<Entity> list1 = Lists.newArrayList();
-+        List<Entity> list = Lists.<Entity>newArrayList();
-+        List<Entity> list1 = Lists.<Entity>newArrayList();
- 
-         for (EntityTrackerEntry entitytrackerentry : this.entries)
-         {

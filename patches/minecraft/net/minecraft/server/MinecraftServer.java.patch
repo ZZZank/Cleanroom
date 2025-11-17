@@ -16,15 +16,6 @@
  import net.minecraft.init.Bootstrap;
  import net.minecraft.network.NetworkSystem;
  import net.minecraft.network.ServerStatusResponse;
-@@ -93,7 +95,7 @@
-     private final ISaveFormat anvilConverterForAnvilFile;
-     private final Snooper usageSnooper = new Snooper("server", this, getCurrentTimeMillis());
-     private final File anvilFile;
--    private final List<ITickable> tickables = Lists.newArrayList();
-+    private final List<ITickable> tickables = Lists.<ITickable>newArrayList();
-     public final ICommandManager commandManager;
-     public final Profiler profiler = new Profiler();
-     private final NetworkSystem networkSystem;
 @@ -103,7 +105,7 @@
      @SideOnly(Side.SERVER)
      private String hostname;
@@ -200,8 +191,7 @@
 -            catch (UnsupportedEncodingException unsupportedencodingexception)
 +            catch (UnsupportedEncodingException var5)
              {
--                LOGGER.warn("Something went wrong url encoding {}", worldNameIn);
-+                LOGGER.warn("Something went wrong url encoding {}", (Object)worldNameIn);
+                 LOGGER.warn("Something went wrong url encoding {}", worldNameIn);
              }
          }
      }
@@ -226,8 +216,7 @@
  
                  try
                  {
--                    worldserver.saveAllChunks(true, null);
-+                    worldserver.saveAllChunks(true, (IProgressUpdate)null);
+                     worldserver.saveAllChunks(true, null);
                  }
                  catch (MinecraftException minecraftexception)
                  {
@@ -326,8 +315,7 @@
  
              if (crashreport.saveToFile(file1))
              {
--                LOGGER.error("This crash report has been saved to: {}", file1.getAbsolutePath());
-+                LOGGER.error("This crash report has been saved to: {}", (Object)file1.getAbsolutePath());
+                 LOGGER.error("This crash report has been saved to: {}", file1.getAbsolutePath());
              }
              else
              {
@@ -702,15 +690,6 @@
          }
  
          return report;
-@@ -1038,7 +891,7 @@
- 
-     public List<String> getTabCompletions(ICommandSender sender, String input, @Nullable BlockPos pos, boolean hasTargetBlock)
-     {
--        List<String> list = Lists.newArrayList();
-+        List<String> list = Lists.<String>newArrayList();
-         boolean flag = input.startsWith("/");
- 
-         if (flag)
 @@ -1090,19 +943,16 @@
          return this.anvilFile != null;
      }
@@ -951,21 +930,11 @@
      public MinecraftServer getServer()
      {
          return this;
-@@ -1554,7 +1368,7 @@
- 
-         if (!this.isCallingFromMinecraftThread() && !this.isServerStopped())
-         {
--            ListenableFutureTask<V> listenablefuturetask = ListenableFutureTask.create(callable);
-+            ListenableFutureTask<V> listenablefuturetask = ListenableFutureTask.<V>create(callable);
- 
-             synchronized (this.futureTaskQueue)
-             {
 @@ -1566,23 +1380,21 @@
          {
              try
              {
--                return Futures.immediateFuture(callable.call());
-+                return Futures.<V>immediateFuture(callable.call());
+                 return Futures.immediateFuture(callable.call());
              }
              catch (Exception exception)
              {
@@ -979,8 +948,7 @@
      public ListenableFuture<Object> addScheduledTask(Runnable runnableToSchedule)
      {
          Validate.notNull(runnableToSchedule);
--        return this.callFromMainThread(Executors.callable(runnableToSchedule));
-+        return this.<Object>callFromMainThread(Executors.callable(runnableToSchedule));
+         return this.callFromMainThread(Executors.callable(runnableToSchedule));
      }
  
 -    @Override

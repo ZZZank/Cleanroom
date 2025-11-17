@@ -19,24 +19,6 @@
      private final File baseFolder;
  
      public LootTableManager(@Nullable File folder)
-@@ -68,7 +60,7 @@
-         {
-             if (p_load_1_.getPath().contains("."))
-             {
--                LootTableManager.LOGGER.debug("Invalid loot table name '{}' (can't contain periods)", p_load_1_);
-+                LootTableManager.LOGGER.debug("Invalid loot table name '{}' (can't contain periods)", (Object)p_load_1_);
-                 return LootTable.EMPTY_LOOT_TABLE;
-             }
-             else
-@@ -83,7 +75,7 @@
-                 if (loottable == null)
-                 {
-                     loottable = LootTable.EMPTY_LOOT_TABLE;
--                    LootTableManager.LOGGER.warn("Couldn't find resource table {}", p_load_1_);
-+                    LootTableManager.LOGGER.warn("Couldn't find resource table {}", (Object)p_load_1_);
-                 }
- 
-                 return loottable;
 @@ -119,7 +111,7 @@
  
                          try

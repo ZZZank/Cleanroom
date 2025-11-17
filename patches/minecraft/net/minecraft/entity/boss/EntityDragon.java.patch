@@ -4,8 +4,7 @@
  public class EntityDragon extends EntityLiving implements IEntityMultiPart, IMob
  {
      private static final Logger LOGGER = LogManager.getLogger();
--    public static final DataParameter<Integer> PHASE = EntityDataManager.createKey(EntityDragon.class, DataSerializers.VARINT);
-+    public static final DataParameter<Integer> PHASE = EntityDataManager.<Integer>createKey(EntityDragon.class, DataSerializers.VARINT);
+     public static final DataParameter<Integer> PHASE = EntityDataManager.createKey(EntityDragon.class, DataSerializers.VARINT);
      public double[][] ringBuffer = new double[64][3];
      public int ringBufferIndex = -1;
      public MultiPartEntityPart[] dragonPartArray;

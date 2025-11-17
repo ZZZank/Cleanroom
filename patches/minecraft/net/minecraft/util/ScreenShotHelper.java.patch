@@ -8,15 +8,6 @@
  import java.nio.IntBuffer;
  import java.text.DateFormat;
  import java.text.SimpleDateFormat;
-@@ -33,7 +32,7 @@
- 
-     public static ITextComponent saveScreenshot(File gameDirectory, int width, int height, Framebuffer buffer)
-     {
--        return saveScreenshot(gameDirectory, null, width, height, buffer);
-+        return saveScreenshot(gameDirectory, (String)null, width, height, buffer);
-     }
- 
-     public static ITextComponent saveScreenshot(File gameDirectory, @Nullable String screenshotName, int width, int height, Framebuffer buffer)
 @@ -54,16 +53,20 @@
                  file2 = new File(file1, screenshotName);
              }

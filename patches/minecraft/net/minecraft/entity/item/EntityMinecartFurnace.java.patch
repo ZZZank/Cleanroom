@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/item/EntityMinecartFurnace.java
 +++ after/net/minecraft/entity/item/EntityMinecartFurnace.java
-@@ -21,7 +21,7 @@
- 
- public class EntityMinecartFurnace extends EntityMinecart
- {
--    private static final DataParameter<Boolean> POWERED = EntityDataManager.createKey(EntityMinecartFurnace.class, DataSerializers.BOOLEAN);
-+    private static final DataParameter<Boolean> POWERED = EntityDataManager.<Boolean>createKey(EntityMinecartFurnace.class, DataSerializers.BOOLEAN);
-     private int fuel;
-     public double pushX;
-     public double pushZ;
 @@ -41,50 +41,45 @@
          EntityMinecart.registerFixesMinecart(fixer, EntityMinecartFurnace.class);
      }

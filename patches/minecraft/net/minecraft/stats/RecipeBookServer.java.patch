@@ -1,23 +1,5 @@
 --- before/net/minecraft/stats/RecipeBookServer.java
 +++ after/net/minecraft/stats/RecipeBookServer.java
-@@ -21,7 +21,7 @@
- 
-     public void add(List<IRecipe> recipesIn, EntityPlayerMP player)
-     {
--        List<IRecipe> list = Lists.newArrayList();
-+        List<IRecipe> list = Lists.<IRecipe>newArrayList();
- 
-         for (IRecipe irecipe : recipesIn)
-         {
-@@ -39,7 +39,7 @@
- 
-     public void remove(List<IRecipe> recipesIn, EntityPlayerMP player)
-     {
--        List<IRecipe> list = Lists.newArrayList();
-+        List<IRecipe> list = Lists.<IRecipe>newArrayList();
- 
-         for (IRecipe irecipe : recipesIn)
-         {
 @@ -55,8 +55,7 @@
  
      private void sendPacket(SPacketRecipeBook.State state, EntityPlayerMP player, List<IRecipe> recipesIn)
@@ -58,8 +40,7 @@
  
              if (irecipe == null)
              {
--                LOGGER.info("Tried to load unrecognized recipe: {} removed now.", resourcelocation);
-+                LOGGER.info("Tried to load unrecognized recipe: {} removed now.", (Object)resourcelocation);
+                 LOGGER.info("Tried to load unrecognized recipe: {} removed now.", resourcelocation);
              }
              else
              {
@@ -75,29 +56,10 @@
  
              if (irecipe1 == null)
              {
--                LOGGER.info("Tried to load unrecognized recipe: {} removed now.", resourcelocation1);
-+                LOGGER.info("Tried to load unrecognized recipe: {} removed now.", (Object)resourcelocation1);
+                 LOGGER.info("Tried to load unrecognized recipe: {} removed now.", resourcelocation1);
              }
              else
              {
-@@ -124,7 +123,7 @@
- 
-     private List<IRecipe> getRecipes()
-     {
--        List<IRecipe> list = Lists.newArrayList();
-+        List<IRecipe> list = Lists.<IRecipe>newArrayList();
- 
-         for (int i = this.recipes.nextSetBit(0); i >= 0; i = this.recipes.nextSetBit(i + 1))
-         {
-@@ -136,7 +135,7 @@
- 
-     private List<IRecipe> getDisplayedRecipes()
-     {
--        List<IRecipe> list = Lists.newArrayList();
-+        List<IRecipe> list = Lists.<IRecipe>newArrayList();
- 
-         for (int i = this.newRecipes.nextSetBit(0); i >= 0; i = this.newRecipes.nextSetBit(i + 1))
-         {
 @@ -148,9 +147,6 @@
  
      public void init(EntityPlayerMP player)

@@ -69,15 +69,6 @@
      public void onUpdate()
      {
          this.prevPosX = this.posX;
-@@ -118,7 +116,7 @@
-             if (!this.isDead && !this.onValidSurface())
-             {
-                 this.setDead();
--                this.onBroken(null);
-+                this.onBroken((Entity)null);
-             }
-         }
-     }
 @@ -137,15 +135,18 @@
              EnumFacing enumfacing = this.facingDirection.rotateYCCW();
              BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
@@ -136,8 +127,7 @@
 +        if (!this.world.isRemote && !this.isDead && x * x + y * y + z * z > 0.0D)
          {
              this.setDead();
--            this.onBroken(null);
-+            this.onBroken((Entity)null);
+             this.onBroken(null);
          }
      }
  
@@ -148,8 +138,7 @@
 +        if (!this.world.isRemote && !this.isDead && x * x + y * y + z * z > 0.0D)
          {
              this.setDead();
--            this.onBroken(null);
-+            this.onBroken((Entity)null);
+             this.onBroken(null);
          }
      }
  

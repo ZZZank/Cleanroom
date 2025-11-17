@@ -90,8 +90,7 @@
      private <T> EntityDataManager.DataEntry<T> getEntry(DataParameter<T> key)
      {
          this.lock.readLock().lock();
--        EntityDataManager.DataEntry dataentry;
-+        EntityDataManager.DataEntry<T> dataentry;
+         EntityDataManager.DataEntry dataentry;
  
          try
          {
@@ -100,21 +99,6 @@
          }
          catch (Throwable throwable)
          {
-@@ -144,12 +147,12 @@
- 
-     public <T> T get(DataParameter<T> key)
-     {
--        return this.getEntry(key).getValue();
-+        return (T)this.getEntry(key).getValue();
-     }
- 
-     public <T> void set(DataParameter<T> key, T value)
-     {
--        EntityDataManager.DataEntry<T> dataentry = this.getEntry(key);
-+        EntityDataManager.DataEntry<T> dataentry = this.<T>getEntry(key);
- 
-         if (ObjectUtils.notEqual(value, dataentry.getValue()))
-         {
 @@ -177,9 +180,9 @@
          {
              int i = 0;
@@ -122,8 +106,7 @@
 -            for (int j = entriesIn.size(); i < j; i++)
 +            for (int j = entriesIn.size(); i < j; ++i)
              {
--                EntityDataManager.DataEntry<?> dataentry = entriesIn.get(i);
-+                EntityDataManager.DataEntry<?> dataentry = (EntityDataManager.DataEntry)entriesIn.get(i);
+                 EntityDataManager.DataEntry<?> dataentry = entriesIn.get(i);
                  writeEntry(buf, dataentry);
              }
          }

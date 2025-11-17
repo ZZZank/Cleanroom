@@ -1,14 +1,5 @@
 --- before/net/minecraft/entity/monster/EntitySlime.java
 +++ after/net/minecraft/entity/monster/EntitySlime.java
-@@ -38,7 +38,7 @@
- 
- public class EntitySlime extends EntityLiving implements IMob
- {
--    private static final DataParameter<Integer> SLIME_SIZE = EntityDataManager.createKey(EntitySlime.class, DataSerializers.VARINT);
-+    private static final DataParameter<Integer> SLIME_SIZE = EntityDataManager.<Integer>createKey(EntitySlime.class, DataSerializers.VARINT);
-     public float squishAmount;
-     public float squishFactor;
-     public float prevSquishFactor;
 @@ -50,7 +50,6 @@
          this.moveHelper = new EntitySlime.SlimeMoveHelper(this);
      }

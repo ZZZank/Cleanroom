@@ -1684,20 +1684,10 @@
  
      public NBTTagCompound getLeftShoulderEntity()
      {
--        return this.dataManager.get(LEFT_SHOULDER_ENTITY);
-+        return (NBTTagCompound)this.dataManager.get(LEFT_SHOULDER_ENTITY);
+         return this.dataManager.get(LEFT_SHOULDER_ENTITY);
      }
  
      protected void setLeftShoulderEntity(NBTTagCompound tag)
-@@ -2558,7 +2488,7 @@
- 
-     public NBTTagCompound getRightShoulderEntity()
-     {
--        return this.dataManager.get(RIGHT_SHOULDER_ENTITY);
-+        return (NBTTagCompound)this.dataManager.get(RIGHT_SHOULDER_ENTITY);
-     }
- 
-     protected void setRightShoulderEntity(NBTTagCompound tag)
 @@ -2568,7 +2498,7 @@
  
      public float getCooldownPeriod()

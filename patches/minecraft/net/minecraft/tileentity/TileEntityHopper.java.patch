@@ -4,8 +4,7 @@
  
  public class TileEntityHopper extends TileEntityLockableLoot implements IHopper, ITickable
  {
--    private NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
-+    private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(5, ItemStack.EMPTY);
+     private NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
      private int transferCooldown = -1;
      private long tickedGameTime;
  
@@ -19,8 +18,7 @@
      public void readFromNBT(NBTTagCompound compound)
      {
          super.readFromNBT(compound);
--        this.inventory = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-+        this.inventory = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+         this.inventory = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
  
          if (!this.checkLootAndRead(compound))
          {
@@ -55,8 +53,7 @@
 -    @Override
      public void setInventorySlotContents(int index, ItemStack stack)
      {
--        this.fillWithLoot(null);
-+        this.fillWithLoot((EntityPlayer)null);
+         this.fillWithLoot(null);
          this.getItems().set(index, stack);
  
          if (stack.getCount() > this.getInventoryStackLimit())
@@ -195,29 +192,10 @@
 -                    ))
 +            for (EntityItem entityitem : getCaptureItems(hopper.getWorld(), hopper.getXPos(), hopper.getYPos(), hopper.getZPos()))
              {
--                if (putDropInInventoryAllSlots(null, hopper, entityitem))
-+                if (putDropInInventoryAllSlots((IInventory)null, hopper, entityitem))
+                 if (putDropInInventoryAllSlots(null, hopper, entityitem))
                  {
                      return true;
                  }
-@@ -365,7 +358,7 @@
-         if (!itemstack.isEmpty() && canExtractItemFromSlot(inventoryIn, itemstack, index, direction))
-         {
-             ItemStack itemstack1 = itemstack.copy();
--            ItemStack itemstack2 = putStackInInventoryAllSlots(inventoryIn, hopper, inventoryIn.decrStackSize(index, 1), null);
-+            ItemStack itemstack2 = putStackInInventoryAllSlots(inventoryIn, hopper, inventoryIn.decrStackSize(index, 1), (EnumFacing)null);
- 
-             if (itemstack2.isEmpty())
-             {
-@@ -390,7 +383,7 @@
-         else
-         {
-             ItemStack itemstack = entity.getItem().copy();
--            ItemStack itemstack1 = putStackInInventoryAllSlots(source, destination, itemstack, null);
-+            ItemStack itemstack1 = putStackInInventoryAllSlots(source, destination, itemstack, (EnumFacing)null);
- 
-             if (itemstack1.isEmpty())
-             {
 @@ -406,6 +399,12 @@
          }
      }

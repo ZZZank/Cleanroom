@@ -1223,8 +1223,7 @@
  
      public List<AxisAlignedBB> getCollisionBoxes(@Nullable Entity entityIn, AxisAlignedBB aabb)
      {
--        List<AxisAlignedBB> list = Lists.newArrayList();
-+        List<AxisAlignedBB> list = Lists.<AxisAlignedBB>newArrayList();
+         List<AxisAlignedBB> list = Lists.newArrayList();
          this.getCollisionBoxes(entityIn, aabb, false, list);
  
          if (entityIn != null)
@@ -1282,8 +1281,7 @@
  
      public boolean collidesWithAnyBlock(AxisAlignedBB bbox)
      {
--        return this.getCollisionBoxes(null, bbox, true, Lists.newArrayList());
-+        return this.getCollisionBoxes((Entity)null, bbox, true, Lists.newArrayList());
+         return this.getCollisionBoxes(null, bbox, true, Lists.newArrayList());
      }
  
      public int calculateSkylightSubtracted(float partialTicks)
@@ -1788,14 +1786,12 @@
  
      public boolean checkNoEntityCollision(AxisAlignedBB bb)
      {
--        return this.checkNoEntityCollision(bb, null);
-+        return this.checkNoEntityCollision(bb, (Entity)null);
+         return this.checkNoEntityCollision(bb, null);
      }
  
      public boolean checkNoEntityCollision(AxisAlignedBB bb, @Nullable Entity entityIn)
      {
--        List<Entity> list = this.getEntitiesWithinAABBExcludingEntity(null, bb);
-+        List<Entity> list = this.getEntitiesWithinAABBExcludingEntity((Entity)null, bb);
+         List<Entity> list = this.getEntitiesWithinAABBExcludingEntity(null, bb);
  
 -        for (int i = 0; i < list.size(); i++)
 +        for (int j2 = 0; j2 < list.size(); ++j2)
@@ -2814,8 +2810,7 @@
  
      public <T extends Entity> List<T> getEntities(Class <? extends T > entityType, Predicate <? super T > filter)
      {
--        List<T> list = Lists.newArrayList();
-+        List<T> list = Lists.<T>newArrayList();
+         List<T> list = Lists.newArrayList();
  
 -        for (Entity entity : this.loadedEntityList)
 +        for (Entity entity4 : this.loadedEntityList)
@@ -2832,8 +2827,7 @@
  
      public <T extends Entity> List<T> getPlayers(Class <? extends T > playerType, Predicate <? super T > filter)
      {
--        List<T> list = Lists.newArrayList();
-+        List<T> list = Lists.<T>newArrayList();
+         List<T> list = Lists.newArrayList();
  
 -        for (Entity entity : this.playerEntities)
 +        for (Entity entity4 : this.playerEntities)
@@ -2850,8 +2844,7 @@
  
      public <T extends Entity> List<T> getEntitiesWithinAABB(Class <? extends T > classEntity, AxisAlignedBB bb)
      {
--        return this.getEntitiesWithinAABB(classEntity, bb, EntitySelectors.NOT_SPECTATING);
-+        return this.<T>getEntitiesWithinAABB(classEntity, bb, EntitySelectors.NOT_SPECTATING);
+         return this.getEntitiesWithinAABB(classEntity, bb, EntitySelectors.NOT_SPECTATING);
      }
  
      public <T extends Entity> List<T> getEntitiesWithinAABB(Class <? extends T > clazz, AxisAlignedBB aabb, @Nullable Predicate <? super T > filter)
@@ -2885,8 +2878,7 @@
      @Nullable
      public <T extends Entity> T findNearestEntityWithinAABB(Class <? extends T > entityType, AxisAlignedBB aabb, T closestTo)
      {
--        List<T> list = this.getEntitiesWithinAABB(entityType, aabb);
-+        List<T> list = this.<T>getEntitiesWithinAABB(entityType, aabb);
+         List<T> list = this.getEntitiesWithinAABB(entityType, aabb);
          T t = null;
          double d0 = Double.MAX_VALUE;
  
@@ -3375,8 +3367,7 @@
  
      public void playEvent(int type, BlockPos pos, int data)
      {
--        this.playEvent(null, type, pos, data);
-+        this.playEvent((EntityPlayer)null, type, pos, data);
+         this.playEvent(null, type, pos, data);
      }
  
      public void playEvent(@Nullable EntityPlayer player, int type, BlockPos pos, int data)

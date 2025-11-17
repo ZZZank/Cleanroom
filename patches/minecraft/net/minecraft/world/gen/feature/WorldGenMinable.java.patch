@@ -77,12 +77,3 @@
                                      {
                                          worldIn.setBlockState(blockpos, this.oreBlock, 2);
                                      }
-@@ -99,7 +99,7 @@
-             {
-                 if (p_apply_1_ != null && p_apply_1_.getBlock() == Blocks.STONE)
-                 {
--                    BlockStone.EnumType blockstone$enumtype = p_apply_1_.getValue(BlockStone.VARIANT);
-+                    BlockStone.EnumType blockstone$enumtype = (BlockStone.EnumType)p_apply_1_.getValue(BlockStone.VARIANT);
-                     return blockstone$enumtype.isNatural();
-                 }
-                 else
