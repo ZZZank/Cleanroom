@@ -84,9 +84,7 @@
      public boolean deleteWorldDirectory(String saveName)
      {
          File file1 = new File(this.savesDirectory, saveName);
-@@ -178,11 +194,11 @@
-         }
-         else
+@@ -180,7 +196,7 @@
          {
              LOGGER.info("Deleting level {}", saveName);
  
@@ -95,8 +93,6 @@
              {
                  LOGGER.info("Attempt {}...", i);
  
-                 if (deleteFiles(file1.listFiles()))
-                 {
 @@ -197,8 +213,9 @@
                      {
                          Thread.sleep(500L);

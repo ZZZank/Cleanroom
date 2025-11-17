@@ -29,13 +29,7 @@
          {
              ItemStack itemstack = this.field_194336_g.getStackInSlot(i);
  
-@@ -113,13 +119,13 @@
-     private void func_194329_b()
-     {
-         boolean flag = this.field_194333_d.matches(this.field_194336_g, this.field_194332_c.world);
-         int i = this.field_194331_b.getBiggestCraftableStack(this.field_194333_d, null);
- 
-         if (flag)
+@@ -119,7 +125,7 @@
          {
              boolean flag1 = true;
  

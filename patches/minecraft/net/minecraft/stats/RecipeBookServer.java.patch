@@ -28,7 +28,7 @@
          }
  
          nbttagcompound.setTag("toBeDisplayed", nbttaglist1);
-@@ -89,14 +88,14 @@
+@@ -89,7 +88,7 @@
          this.isFilteringCraftable = tag.getBoolean("isFilteringCraftable");
          NBTTagList nbttaglist = tag.getTagList("recipes", 8);
  
@@ -37,14 +37,7 @@
          {
              ResourceLocation resourcelocation = new ResourceLocation(nbttaglist.getStringTagAt(i));
              IRecipe irecipe = CraftingManager.getRecipe(resourcelocation);
- 
-             if (irecipe == null)
-             {
-                 LOGGER.info("Tried to load unrecognized recipe: {} removed now.", resourcelocation);
-             }
-             else
-             {
-@@ -106,14 +105,14 @@
+@@ -106,7 +105,7 @@
  
          NBTTagList nbttaglist1 = tag.getTagList("toBeDisplayed", 8);
  
@@ -53,13 +46,6 @@
          {
              ResourceLocation resourcelocation1 = new ResourceLocation(nbttaglist1.getStringTagAt(j));
              IRecipe irecipe1 = CraftingManager.getRecipe(resourcelocation1);
- 
-             if (irecipe1 == null)
-             {
-                 LOGGER.info("Tried to load unrecognized recipe: {} removed now.", resourcelocation1);
-             }
-             else
-             {
 @@ -148,9 +147,6 @@
  
      public void init(EntityPlayerMP player)

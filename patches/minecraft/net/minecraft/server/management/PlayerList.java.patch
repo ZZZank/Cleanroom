@@ -126,7 +126,7 @@
          this.updateTimeAndWeatherForPlayer(playerIn, worldserver);
  
          if (!this.server.getResourcePackUrl().isEmpty())
-@@ -221,18 +216,19 @@
+@@ -221,6 +216,7 @@
          }
  
          playerIn.addSelfToInternalCraftingInventory();
@@ -134,11 +134,7 @@
      }
  
      protected void sendScoreboard(ServerScoreboard scoreboardIn, EntityPlayerMP playerIn)
-     {
-         Set<ScoreObjective> set = Sets.newHashSet();
- 
-         for (ScorePlayerTeam scoreplayerteam : scoreboardIn.getTeams())
-         {
+@@ -232,7 +228,7 @@
              playerIn.connection.sendPacket(new SPacketTeams(scoreplayerteam, 0));
          }
  
@@ -228,7 +224,7 @@
          this.playerDataManager.writePlayerData(playerIn);
          StatisticsManagerServer statisticsmanagerserver = this.playerStatFiles.get(playerIn.getUniqueID());
  
-@@ -361,16 +365,17 @@
+@@ -361,14 +365,15 @@
      {
          this.playerEntityList.add(playerIn);
          this.uuidToPlayerMap.put(playerIn.getUniqueID(), playerIn);
@@ -247,8 +243,6 @@
          worldserver.spawnEntity(playerIn);
          this.preparePlayer(playerIn, null);
      }
- 
-     public void serverUpdateMovingPlayer(EntityPlayerMP playerIn)
 @@ -380,6 +385,7 @@
  
      public void playerLoggedOut(EntityPlayerMP playerIn)
@@ -265,7 +259,7 @@
  
          worldserver.removeEntity(playerIn);
          worldserver.getPlayerChunkMap().removePlayer(playerIn);
-@@ -417,14 +424,14 @@
+@@ -417,7 +424,7 @@
              this.advancements.remove(uuid);
          }
  
@@ -274,16 +268,7 @@
      }
  
      public String allowUserToConnect(SocketAddress address, GameProfile profile)
-     {
-         if (this.bannedPlayers.isBanned(profile))
-         {
-             UserListBansEntry userlistbansentry = this.bannedPlayers.getEntry(profile);
-             String s1 = "You are banned from this server!\nReason: " + userlistbansentry.getBanReason();
- 
-             if (userlistbansentry.getBanEndDate() != null)
-@@ -459,9 +466,9 @@
-     public EntityPlayerMP createPlayerForUser(GameProfile profile)
-     {
+@@ -461,7 +468,7 @@
          UUID uuid = EntityPlayer.getUUID(profile);
          List<EntityPlayerMP> list = Lists.newArrayList();
  

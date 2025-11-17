@@ -1,6 +1,6 @@
 --- before/net/minecraft/entity/EntityLivingBase.java
 +++ after/net/minecraft/entity/EntityLivingBase.java
-@@ -81,17 +81,18 @@
+@@ -81,12 +81,13 @@
  {
      private static final Logger LOGGER = LogManager.getLogger();
      private static final UUID SPRINTING_SPEED_BOOST_ID = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
@@ -20,11 +20,6 @@
      private AbstractAttributeMap attributeMap;
      private final CombatTracker combatTracker = new CombatTracker(this);
      private final Map<Potion, PotionEffect> activePotionsMap = Maps.newHashMap();
-     private final NonNullList<ItemStack> handInventory = NonNullList.withSize(2, ItemStack.EMPTY);
-     private final NonNullList<ItemStack> armorArray = NonNullList.withSize(4, ItemStack.EMPTY);
-     public boolean isSwingInProgress;
-     public EnumHand swingingHand;
-     public int swingProgressInt;
 @@ -153,7 +154,6 @@
      private DamageSource lastDamageSource;
      private long lastDamageStamp;

@@ -13,12 +13,7 @@
      private float progress;
      private float progressOld;
      private EnumDyeColor color;
-@@ -44,15 +44,16 @@
- 
-     public TileEntityShulkerBox()
-     {
-         this(null);
-     }
+@@ -49,10 +49,11 @@
  
      public TileEntityShulkerBox(@Nullable EnumDyeColor colorIn)
      {
@@ -31,12 +26,7 @@
      public void update()
      {
          this.updateAnimation();
-@@ -105,24 +106,18 @@
- 
-     public AxisAlignedBB getBoundingBox(IBlockState p_190584_1_)
-     {
-         return this.getBoundingBox(p_190584_1_.getValue(BlockShulkerBox.FACING));
-     }
+@@ -110,19 +111,13 @@
  
      public AxisAlignedBB getBoundingBox(EnumFacing p_190587_1_)
      {
@@ -58,13 +48,7 @@
      }
  
      private void moveCollidedEntities()
-@@ -131,21 +126,21 @@
- 
-         if (iblockstate.getBlock() instanceof BlockShulkerBox)
-         {
-             EnumFacing enumfacing = iblockstate.getValue(BlockShulkerBox.FACING);
-             AxisAlignedBB axisalignedbb = this.getTopBoundingBox(enumfacing).offset(this.pos);
-             List<Entity> list = this.world.getEntitiesWithinAABBExcludingEntity(null, axisalignedbb);
+@@ -137,15 +132,15 @@
  
              if (!list.isEmpty())
              {

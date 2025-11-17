@@ -85,7 +85,7 @@
              protected IProjectile getProjectileEntity(World worldIn, IPosition position, ItemStack stackIn)
              {
                  return new EntitySnowball(worldIn, position.getX(), position.getY(), position.getZ());
-@@ -143,92 +130,66 @@
+@@ -143,89 +130,63 @@
          });
          BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Items.EXPERIENCE_BOTTLE, new BehaviorProjectileDispense()
          {
@@ -217,17 +217,7 @@
              public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-                 double d0 = source.getX() + (double)enumfacing.getXOffset();
-                 double d1 = (double)((float)(source.getBlockPos().getY() + enumfacing.getYOffset()) + 0.2F);
-                 double d2 = source.getZ() + (double)enumfacing.getZOffset();
-@@ -239,17 +200,16 @@
-                     entity.setCustomNameTag(stack.getDisplayName());
-                 }
- 
-                 ItemMonsterPlacer.applyItemEntityDataToEntity(source.getWorld(), null, stack, entity);
-                 stack.shrink(1);
-                 return stack;
-             }
+@@ -246,7 +207,6 @@
          });
          BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Items.FIREWORKS, new BehaviorDefaultDispenseItem()
          {
@@ -235,9 +225,6 @@
              public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-                 double d0 = source.getX() + (double)enumfacing.getXOffset();
-                 double d1 = (double)((float)source.getBlockPos().getY() + 0.2F);
-                 double d2 = source.getZ() + (double)enumfacing.getZOffset();
 @@ -258,7 +218,6 @@
                  stack.shrink(1);
                  return stack;
@@ -246,7 +233,7 @@
              protected void playDispenseSound(IBlockSource source)
              {
                  source.getWorld().playEvent(1004, source.getBlockPos(), 0);
-@@ -266,24 +225,22 @@
+@@ -266,7 +225,6 @@
          });
          BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Items.FIRE_CHARGE, new BehaviorDefaultDispenseItem()
          {
@@ -254,9 +241,7 @@
              public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-                 IPosition iposition = BlockDispenser.getDispensePosition(source);
-                 double d0 = iposition.getX() + (double)((float)enumfacing.getXOffset() * 0.3F);
-                 double d1 = iposition.getY() + (double)((float)enumfacing.getYOffset() * 0.3F);
+@@ -276,14 +234,13 @@
                  double d2 = iposition.getZ() + (double)((float)enumfacing.getZOffset() * 0.3F);
                  World world = source.getWorld();
                  Random random = world.rand;
@@ -274,7 +259,7 @@
              protected void playDispenseSound(IBlockSource source)
              {
                  source.getWorld().playEvent(1018, source.getBlockPos(), 0);
-@@ -298,38 +255,37 @@
+@@ -298,22 +255,21 @@
          IBehaviorDispenseItem ibehaviordispenseitem = new BehaviorDefaultDispenseItem()
          {
              private final BehaviorDefaultDispenseItem dispenseBehavior = new BehaviorDefaultDispenseItem();
@@ -302,9 +287,7 @@
              public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  World world = source.getWorld();
-                 BlockPos blockpos = source.getBlockPos().offset(source.getBlockState().getValue(BlockDispenser.FACING));
-                 IBlockState iblockstate = world.getBlockState(blockpos);
-                 Block block = iblockstate.getBlock();
+@@ -323,13 +279,13 @@
                  Material material = iblockstate.getMaterial();
                  Item item;
  
@@ -329,7 +312,7 @@
                      {
                          this.dispenseBehavior.dispense(source, new ItemStack(item));
                      }
-@@ -357,25 +313,24 @@
+@@ -357,7 +313,6 @@
          });
          BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Items.FLINT_AND_STEEL, new Bootstrap.BehaviorDispenseOptional()
          {
@@ -337,17 +320,7 @@
              protected ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  World world = source.getWorld();
-                 this.successful = true;
-                 BlockPos blockpos = source.getBlockPos().offset(source.getBlockState().getValue(BlockDispenser.FACING));
- 
-                 if (world.isAirBlock(blockpos))
-                 {
-                     world.setBlockState(blockpos, Blocks.FIRE.getDefaultState());
- 
-                     if (stack.attemptDamageItem(1, world.rand, null))
-                     {
-                         stack.setCount(0);
-                     }
+@@ -375,7 +330,7 @@
                  }
                  else if (world.getBlockState(blockpos).getBlock() == Blocks.TNT)
                  {
@@ -364,7 +337,7 @@
              protected ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  this.successful = true;
-@@ -418,42 +372,25 @@
+@@ -418,38 +372,21 @@
                  }
              }
          });
@@ -408,11 +381,7 @@
              protected ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  World world = source.getWorld();
-                 EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-                 BlockPos blockpos = source.getBlockPos().offset(enumfacing);
-                 BlockSkull blockskull = Blocks.SKULL;
-                 this.successful = true;
-@@ -514,11 +451,10 @@
+@@ -514,7 +451,6 @@
          });
          BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(Item.getItemFromBlock(Blocks.PUMPKIN), new Bootstrap.BehaviorDispenseOptional()
          {
@@ -420,10 +389,6 @@
              protected ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  World world = source.getWorld();
-                 BlockPos blockpos = source.getBlockPos().offset(source.getBlockState().getValue(BlockDispenser.FACING));
-                 BlockPumpkin blockpumpkin = (BlockPumpkin)Blocks.PUMPKIN;
-                 this.successful = true;
- 
 @@ -547,8 +483,7 @@
  
          for (EnumDyeColor enumdyecolor : EnumDyeColor.values())
@@ -460,7 +425,7 @@
          }
      }
  
-@@ -625,10 +563,9 @@
+@@ -625,7 +563,6 @@
                  this.boatType = boatTypeIn;
              }
  
@@ -468,9 +433,6 @@
              public ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-                 World world = source.getWorld();
-                 double d0 = source.getX() + (double)((float)enumfacing.getXOffset() * 1.125F);
-                 double d1 = source.getY() + (double)((float)enumfacing.getYOffset() * 1.125F);
 @@ -639,7 +576,7 @@
  
                  if (Material.WATER.equals(material))
@@ -505,7 +467,7 @@
              protected void playDispenseSound(IBlockSource source)
              {
                  source.getWorld().playEvent(this.successful ? 1000 : 1001, source.getBlockPos(), 0);
-@@ -683,14 +618,13 @@
+@@ -683,7 +618,6 @@
              {
              }
  
@@ -513,10 +475,3 @@
              protected ItemStack dispenseStack(IBlockSource source, ItemStack stack)
              {
                  Block block = Block.getBlockFromItem(stack.getItem());
-                 World world = source.getWorld();
-                 EnumFacing enumfacing = source.getBlockState().getValue(BlockDispenser.FACING);
-                 BlockPos blockpos = source.getBlockPos().offset(enumfacing);
-                 this.successful = world.mayPlace(block, blockpos, false, EnumFacing.DOWN, null);
- 
-                 if (this.successful)
-                 {

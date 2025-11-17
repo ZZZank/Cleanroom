@@ -16,7 +16,7 @@
      public boolean isEmpty()
      {
          for (ItemStack itemstack : this.minecartContainerItems)
-@@ -66,24 +64,21 @@
+@@ -66,21 +64,18 @@
          return true;
      }
  
@@ -38,10 +38,7 @@
      public ItemStack removeStackFromSlot(int index)
      {
          this.addLoot(null);
-         ItemStack itemstack = this.minecartContainerItems.get(index);
- 
-         if (itemstack.isEmpty())
-@@ -97,10 +92,9 @@
+@@ -97,7 +92,6 @@
          }
      }
  
@@ -49,9 +46,6 @@
      public void setInventorySlotContents(int index, ItemStack stack)
      {
          this.addLoot(null);
-         this.minecartContainerItems.set(index, stack);
- 
-         if (!stack.isEmpty() && stack.getCount() > this.getInventoryStackLimit())
 @@ -109,48 +103,47 @@
          }
      }
@@ -131,7 +125,7 @@
      protected void writeEntityToNBT(NBTTagCompound compound)
      {
          super.writeEntityToNBT(compound);
-@@ -193,11 +184,10 @@
+@@ -193,7 +184,6 @@
          }
      }
  
@@ -139,10 +133,6 @@
      protected void readEntityFromNBT(NBTTagCompound compound)
      {
          super.readEntityFromNBT(compound);
-         this.minecartContainerItems = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
- 
-         if (compound.hasKey("LootTable", 8))
-         {
 @@ -210,9 +200,9 @@
          }
      }
@@ -203,7 +193,7 @@
      public LockCode getLockCode()
      {
          return LockCode.EMPTY_CODE;
-@@ -288,21 +271,40 @@
+@@ -288,18 +271,37 @@
                  random = new Random(this.lootTableSeed);
              }
  
@@ -244,9 +234,6 @@
      public void clear()
      {
          this.addLoot(null);
-         this.minecartContainerItems.clear();
-     }
- 
 @@ -312,7 +314,6 @@
          this.lootTableSeed = lootTableSeedIn;
      }

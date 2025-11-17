@@ -34,7 +34,7 @@
  
      public static NBTTagList writeBaseAttributeMapToNBT(AbstractAttributeMap map)
      {
-@@ -84,14 +77,14 @@
+@@ -84,7 +77,7 @@
  
      public static void setAttributeModifiers(AbstractAttributeMap map, NBTTagList list)
      {
@@ -43,13 +43,6 @@
          {
              NBTTagCompound nbttagcompound = list.getCompoundTagAt(i);
              IAttributeInstance iattributeinstance = map.getAttributeInstanceByName(nbttagcompound.getString("Name"));
- 
-             if (iattributeinstance == null)
-             {
-                 LOGGER.warn("Ignoring unknown attribute '{}'", nbttagcompound.getString("Name"));
-             }
-             else
-             {
 @@ -108,7 +101,7 @@
          {
              NBTTagList nbttaglist = compound.getTagList("Modifiers", 10);

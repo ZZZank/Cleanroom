@@ -147,7 +147,7 @@
                          chunkPrimerIn.setBlockState(i1, j1, l, iblockstate1);
  
                          if (j == 0 && iblockstate1.getBlock() == Blocks.SAND && k > 1)
-@@ -328,27 +323,35 @@
+@@ -328,20 +323,28 @@
          }
      }
  
@@ -179,13 +179,6 @@
          }
      }
  
-     @Nullable
-     public static Biome getBiome(int id)
-     {
-         return getBiome(id, null);
-     }
- 
-     public static Biome getBiome(int biomeId, Biome fallback)
 @@ -391,7 +394,7 @@
      @SideOnly(Side.CLIENT)
      public final int getWaterColor()

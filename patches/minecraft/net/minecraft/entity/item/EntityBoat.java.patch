@@ -401,7 +401,7 @@
          }
          finally
          {
-@@ -513,36 +482,29 @@
+@@ -513,14 +482,7 @@
      public float getBoatGlide()
      {
          AxisAlignedBB axisalignedbb = this.getEntityBoundingBox();
@@ -417,13 +417,7 @@
          int i = MathHelper.floor(axisalignedbb1.minX) - 1;
          int j = MathHelper.ceil(axisalignedbb1.maxX) + 1;
          int k = MathHelper.floor(axisalignedbb1.minY) - 1;
-         int l = MathHelper.ceil(axisalignedbb1.maxY) + 1;
-         int i1 = MathHelper.floor(axisalignedbb1.minZ) - 1;
-         int j1 = MathHelper.ceil(axisalignedbb1.maxZ) + 1;
-         List<AxisAlignedBB> list = Lists.newArrayList();
-         float f = 0.0F;
-         int k1 = 0;
-         BlockPos.PooledMutableBlockPos blockpos$pooledmutableblockpos = BlockPos.PooledMutableBlockPos.retain();
+@@ -534,15 +496,15 @@
  
          try
          {
@@ -729,7 +723,7 @@
              {
                  this.fallDistance = (float)((double)this.fallDistance - y);
              }
-@@ -905,61 +878,59 @@
+@@ -905,57 +878,55 @@
  
      public boolean getPaddleState(int side)
      {
@@ -796,10 +790,6 @@
      public Entity getControllingPassenger()
      {
          List<Entity> list = this.getPassengers();
-         return list.isEmpty() ? null : list.get(0);
-     }
- 
-     @SideOnly(Side.CLIENT)
 @@ -1008,7 +979,6 @@
              return this.metadata;
          }

@@ -47,10 +47,11 @@
          {
              EntityPlayerMP entityplayermp = list.get(i);
  
-@@ -339,6 +341,25 @@
+@@ -338,6 +340,25 @@
+             entitytrackerentry.sendPacketToTrackedPlayers(packetIn);
          }
      }
- 
++
 +    /* ======================================== FORGE START =====================================*/
 +
 +    // don't expose the EntityTrackerEntry directly so mods can't mess with the data in there as easily
@@ -69,7 +70,6 @@
 +    }
 +
 +    /* ======================================== FORGE END   =====================================*/
-+
+ 
      public void sendToTrackingAndSelf(Entity entityIn, Packet<?> packetIn)
      {
-         EntityTrackerEntry entitytrackerentry = this.trackedEntityHashTable.lookup(entityIn.getEntityId());

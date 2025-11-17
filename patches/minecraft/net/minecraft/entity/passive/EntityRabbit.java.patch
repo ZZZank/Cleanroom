@@ -403,9 +403,7 @@
  
                  if (this.getIsAboveDestination())
                  {
-@@ -634,16 +583,16 @@
- 
-                     if (this.canRaid && block instanceof BlockCarrot)
+@@ -636,14 +585,14 @@
                      {
                          Integer integer = iblockstate.getValue(BlockCarrot.AGE);
  

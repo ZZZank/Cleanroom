@@ -10,7 +10,7 @@
      private static final byte[] EMPTY_SECTOR = new byte[4096];
      private final File fileName;
      private RandomAccessFile dataFile;
-@@ -51,39 +54,51 @@
+@@ -51,7 +54,7 @@
  
              if ((this.dataFile.length() & 4095L) != 0L)
              {
@@ -19,8 +19,7 @@
                  {
                      this.dataFile.write(0);
                  }
-             }
- 
+@@ -60,30 +63,42 @@
              int i1 = (int)this.dataFile.length() / 4096;
              this.sectorFree = Lists.newArrayListWithCapacity(i1);
  

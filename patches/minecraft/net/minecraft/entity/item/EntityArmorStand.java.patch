@@ -1,17 +1,6 @@
 --- before/net/minecraft/entity/item/EntityArmorStand.java
 +++ after/net/minecraft/entity/item/EntityArmorStand.java
-@@ -47,36 +47,44 @@
-     private static final Rotations DEFAULT_RIGHTARM_ROTATION = new Rotations(-15.0F, 0.0F, 10.0F);
-     private static final Rotations DEFAULT_LEFTLEG_ROTATION = new Rotations(-1.0F, 0.0F, -1.0F);
-     private static final Rotations DEFAULT_RIGHTLEG_ROTATION = new Rotations(1.0F, 0.0F, 1.0F);
-     public static final DataParameter<Byte> STATUS = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.BYTE);
-     public static final DataParameter<Rotations> HEAD_ROTATION = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.ROTATIONS);
-     public static final DataParameter<Rotations> BODY_ROTATION = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.ROTATIONS);
-     public static final DataParameter<Rotations> LEFT_ARM_ROTATION = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.ROTATIONS);
-     public static final DataParameter<Rotations> RIGHT_ARM_ROTATION = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.ROTATIONS);
-     public static final DataParameter<Rotations> LEFT_LEG_ROTATION = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.ROTATIONS);
-     public static final DataParameter<Rotations> RIGHT_LEG_ROTATION = EntityDataManager.createKey(EntityArmorStand.class, DataSerializers.ROTATIONS);
-     private static final Predicate<Entity> IS_RIDEABLE_MINECART = new Predicate<Entity>()
+@@ -58,25 +58,33 @@
      {
          public boolean apply(@Nullable Entity p_apply_1_)
          {
@@ -622,7 +611,7 @@
      public void travel(float strafe, float vertical, float forward)
      {
          if (!this.hasNoGravity())
-@@ -709,60 +694,57 @@
+@@ -709,21 +694,18 @@
          }
      }
  
@@ -644,45 +633,6 @@
      public void onUpdate()
      {
          super.onUpdate();
-         Rotations rotations = this.dataManager.get(HEAD_ROTATION);
- 
-         if (!this.headRotation.equals(rotations))
-         {
-             this.setHeadRotation(rotations);
-         }
- 
-         Rotations rotations1 = this.dataManager.get(BODY_ROTATION);
- 
-         if (!this.bodyRotation.equals(rotations1))
-         {
-             this.setBodyRotation(rotations1);
-         }
- 
-         Rotations rotations2 = this.dataManager.get(LEFT_ARM_ROTATION);
- 
-         if (!this.leftArmRotation.equals(rotations2))
-         {
-             this.setLeftArmRotation(rotations2);
-         }
- 
-         Rotations rotations3 = this.dataManager.get(RIGHT_ARM_ROTATION);
- 
-         if (!this.rightArmRotation.equals(rotations3))
-         {
-             this.setRightArmRotation(rotations3);
-         }
- 
-         Rotations rotations4 = this.dataManager.get(LEFT_LEG_ROTATION);
- 
-         if (!this.leftLegRotation.equals(rotations4))
-         {
-             this.setLeftLegRotation(rotations4);
-         }
- 
-         Rotations rotations5 = this.dataManager.get(RIGHT_LEG_ROTATION);
- 
-         if (!this.rightLegRotation.equals(rotations5))
-         {
 @@ -791,38 +773,32 @@
          }
      }

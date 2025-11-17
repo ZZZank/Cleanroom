@@ -1,10 +1,6 @@
 --- before/net/minecraft/entity/boss/EntityDragon.java
 +++ after/net/minecraft/entity/boss/EntityDragon.java
-@@ -53,18 +53,18 @@
- public class EntityDragon extends EntityLiving implements IEntityMultiPart, IMob
- {
-     private static final Logger LOGGER = LogManager.getLogger();
-     public static final DataParameter<Integer> PHASE = EntityDataManager.createKey(EntityDragon.class, DataSerializers.VARINT);
+@@ -57,14 +57,14 @@
      public double[][] ringBuffer = new double[64][3];
      public int ringBufferIndex = -1;
      public MultiPartEntityPart[] dragonPartArray;

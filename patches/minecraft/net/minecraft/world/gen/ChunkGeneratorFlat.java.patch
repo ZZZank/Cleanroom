@@ -48,10 +48,7 @@
                      {
                          chunkprimer.setBlockState(j, i, k, iblockstate);
                      }
-@@ -151,10 +148,10 @@
-         }
- 
-         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
+@@ -154,7 +151,7 @@
          Biome[] abiome = this.world.getBiomeProvider().getBiomes(null, x * 16, z * 16, 16, 16);
          byte[] abyte = chunk.getBiomeArray();
  
@@ -138,7 +135,7 @@
      public List<Biome.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
      {
          Biome biome = this.world.getBiome(pos);
-@@ -242,26 +230,23 @@
+@@ -242,21 +230,18 @@
      }
  
      @Nullable
@@ -160,8 +157,3 @@
      public void recreateStructures(Chunk chunkIn, int x, int z)
      {
          for (MapGenStructure mapgenstructure : this.structureGenerators.values())
-         {
-             mapgenstructure.generate(this.world, x, z, null);
-         }
-     }
- }

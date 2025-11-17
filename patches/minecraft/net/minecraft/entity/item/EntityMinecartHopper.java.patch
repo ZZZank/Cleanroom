@@ -93,7 +93,7 @@
              }
              else
              {
-@@ -153,19 +144,17 @@
+@@ -153,8 +144,7 @@
          }
          else
          {
@@ -103,10 +103,7 @@
  
              if (!list.isEmpty())
              {
-                 TileEntityHopper.putDropInInventoryAllSlots(null, this, list.get(0));
-             }
- 
-             return false;
+@@ -165,7 +155,6 @@
          }
      }
  

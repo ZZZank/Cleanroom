@@ -45,11 +45,7 @@
          }
  
          this.amountCrafted = 0;
-@@ -65,17 +61,18 @@
-         if (irecipe != null && !irecipe.isDynamic())
-         {
-             this.player.unlockRecipes(Lists.newArrayList(irecipe));
-             inventorycraftresult.setRecipeUsed(null);
+@@ -69,13 +65,14 @@
          }
      }
  

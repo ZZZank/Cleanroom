@@ -212,10 +212,7 @@
      public void awardKillScore(Entity p_191956_1_, int p_191956_2_, DamageSource p_191956_3_)
      {
          if (p_191956_1_ != this)
-@@ -602,10 +603,9 @@
-             }
-         }
- 
+@@ -605,7 +606,6 @@
          return Lists.newArrayList();
      }
  
@@ -533,7 +530,7 @@
      public void takeStat(StatBase stat)
      {
          if (stat != null)
-@@ -1104,16 +1069,14 @@
+@@ -1104,13 +1069,11 @@
          }
      }
  
@@ -547,9 +544,6 @@
      public void unlockRecipes(ResourceLocation[] p_193102_1_)
      {
          List<IRecipe> list = Lists.newArrayList();
- 
-         for (ResourceLocation resourcelocation : p_193102_1_)
-         {
 @@ -1123,7 +1086,6 @@
          this.unlockRecipes(list);
      }

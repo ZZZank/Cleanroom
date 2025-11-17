@@ -47,7 +47,7 @@
                  int l = (int)(f1 * 10.0F);
  
                  if (l != this.durabilityRemainingOnBlock)
-@@ -140,9 +137,19 @@
+@@ -140,6 +137,16 @@
  
      public void onBlockClicked(BlockPos pos, EnumFacing side)
      {
@@ -64,9 +64,6 @@
          if (this.isCreative())
          {
              if (!this.world.extinguishFire(null, pos, side))
-             {
-                 this.tryHarvestBlock(pos);
-             }
 @@ -175,17 +182,36 @@
                  }
              }

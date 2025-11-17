@@ -1,13 +1,6 @@
 --- before/net/minecraft/tileentity/TileEntityBrewingStand.java
 +++ after/net/minecraft/tileentity/TileEntityBrewingStand.java
-@@ -28,20 +28,18 @@
-     private static final int[] SLOTS_FOR_UP = new int[] {3};
-     private static final int[] SLOTS_FOR_DOWN = new int[] {0, 1, 2, 3};
-     private static final int[] OUTPUT_SLOTS = new int[] {0, 1, 2, 4};
-     private NonNullList<ItemStack> brewingItemStacks = NonNullList.withSize(5, ItemStack.EMPTY);
-     private int brewTime;
-     private boolean[] filledSlots;
-     private Item ingredientID;
+@@ -35,13 +35,11 @@
      private String customName;
      private int fuel;
  
@@ -126,7 +119,7 @@
  
              if (itemstack.isEmpty())
              {
-@@ -206,26 +200,24 @@
+@@ -206,22 +200,20 @@
              }
              else
              {
@@ -152,10 +145,6 @@
      public void readFromNBT(NBTTagCompound compound)
      {
          super.readFromNBT(compound);
-         this.brewingItemStacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
-         ItemStackHelper.loadAllItems(compound, this.brewingItemStacks);
-         this.brewTime = compound.getShort("BrewTime");
- 
 @@ -237,7 +229,6 @@
          this.fuel = compound.getByte("Fuel");
      }

@@ -8,7 +8,7 @@
  import java.util.List;
  import java.util.Random;
  import java.util.Set;
-@@ -50,16 +51,10 @@
+@@ -50,14 +51,8 @@
  public class DragonFightManager
  {
      private static final Logger LOGGER = LogManager.getLogger();
@@ -25,8 +25,6 @@
      private final WorldServer world;
      private final List<Integer> gateways = Lists.newArrayList();
      private final BlockPattern portalPattern;
-     private int ticksSinceDragonSeen;
-     private int aliveCrystals;
 @@ -87,6 +82,7 @@
  
              this.dragonKilled = compound.getBoolean("DragonKilled");
@@ -146,7 +144,7 @@
              {
                  this.world.getChunk(i, j);
              }
-@@ -396,10 +385,10 @@
+@@ -396,7 +385,7 @@
  
          for (WorldGenSpikes.EndSpike worldgenspikes$endspike : BiomeEndDecorator.getSpikesForWorld(this.world))
          {
@@ -155,9 +153,6 @@
          }
  
          LOGGER.debug("Found {} end crystals still alive", this.aliveCrystals);
-     }
- 
-     public void processDragonDeath(EntityDragon dragon)
 @@ -425,9 +414,9 @@
      {
          if (!this.gateways.isEmpty())
@@ -206,12 +201,7 @@
          this.world.spawnEntity(entitydragon);
          this.dragonUniqueId = entitydragon.getUniqueID();
          return entitydragon;
-@@ -539,13 +523,12 @@
-                 blockpos = this.exitPortalLocation;
-             }
- 
-             List<EntityEnderCrystal> list1 = Lists.newArrayList();
-             BlockPos blockpos1 = blockpos.up(1);
+@@ -544,8 +528,7 @@
  
              for (EnumFacing enumfacing : EnumFacing.Plane.HORIZONTAL)
              {
@@ -248,10 +238,7 @@
                              {
                                  this.world.setBlockState(blockworldstate.getPos(), Blocks.END_STONE.getDefaultState());
                              }
-@@ -601,8 +580,18 @@
-             for (EntityEnderCrystal entityendercrystal : this.world.getEntitiesWithinAABB(EntityEnderCrystal.class, worldgenspikes$endspike.getTopBoundingBox()))
-             {
-                 entityendercrystal.setEntityInvulnerable(false);
+@@ -604,5 +583,15 @@
                  entityendercrystal.setBeamTarget(null);
              }
          }

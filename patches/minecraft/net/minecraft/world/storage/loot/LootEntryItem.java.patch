@@ -34,7 +34,7 @@
      protected void serialize(JsonObject json, JsonSerializationContext context)
      {
          if (this.functions != null && this.functions.length > 0)
-@@ -79,22 +77,21 @@
+@@ -79,10 +77,9 @@
          }
      }
  
@@ -47,12 +47,7 @@
          Item item = JsonUtils.getItem(object, "name");
          LootFunction[] alootfunction;
  
-         if (object.has("functions"))
-         {
-             alootfunction = JsonUtils.deserializeClass(object, "functions", deserializationContext, LootFunction[].class);
-         }
-         else
-         {
+@@ -95,6 +92,6 @@
              alootfunction = new LootFunction[0];
          }
  

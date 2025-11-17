@@ -122,9 +122,7 @@
      public ItemStack getCraftingResult(InventoryCrafting inv)
      {
          return this.recipeOutput.copy();
-@@ -127,9 +117,9 @@
- 
-     private static NonNullList<Ingredient> deserializeIngredients(JsonArray array)
+@@ -129,7 +119,7 @@
      {
          NonNullList<Ingredient> nonnulllist = NonNullList.create();
  

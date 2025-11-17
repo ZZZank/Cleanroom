@@ -96,7 +96,7 @@
          {
              if (this.values[j] == EMPTY)
              {
-@@ -163,17 +163,15 @@
+@@ -163,13 +163,11 @@
          throw new RuntimeException("Overflowed :(");
      }
  
@@ -110,7 +110,3 @@
      public void clear()
      {
          Arrays.fill(this.values, null);
-         Arrays.fill(this.byId, null);
-         this.nextFreeIndex = 0;
-         this.mapSize = 0;
-     }

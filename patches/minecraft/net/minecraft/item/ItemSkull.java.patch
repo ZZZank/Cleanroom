@@ -206,7 +206,7 @@
      public String getItemStackDisplayName(ItemStack stack)
      {
          if (stack.getMetadata() == 3 && stack.hasTagCompound())
-@@ -187,14 +182,13 @@
+@@ -187,7 +182,6 @@
          return super.getItemStackDisplayName(stack);
      }
  
@@ -214,10 +214,3 @@
      public boolean updateItemStackNBT(NBTTagCompound nbt)
      {
          super.updateItemStackNBT(nbt);
- 
-         if (nbt.hasKey("SkullOwner", 8) && !StringUtils.isBlank(nbt.getString("SkullOwner")))
-         {
-             GameProfile gameprofile = new GameProfile(null, nbt.getString("SkullOwner"));
-             gameprofile = TileEntitySkull.updateGameProfile(gameprofile);
-             nbt.setTag("SkullOwner", NBTUtil.writeGameProfile(new NBTTagCompound(), gameprofile));
-             return true;

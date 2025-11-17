@@ -9,7 +9,7 @@
          }
      }
  
-@@ -55,25 +55,25 @@
+@@ -55,22 +55,22 @@
          if (this.profilingEnabled)
          {
              long i = System.nanoTime();
@@ -36,14 +36,7 @@
              }
  
              this.profilingSection = this.sectionList.isEmpty() ? "" : this.sectionList.get(this.sectionList.size() - 1);
-         }
-     }
- 
-@@ -81,14 +81,13 @@
-     {
-         if (!this.profilingEnabled)
-         {
-             return Collections.emptyList();
+@@ -85,10 +85,9 @@
          }
          else
          {

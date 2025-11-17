@@ -617,11 +617,7 @@
      public void processHeldItemChange(CPacketHeldItemChange packetIn)
      {
          PacketThreadUtil.checkThreadAndEnqueue(packetIn, this, this.player.getServerWorld());
-@@ -1002,18 +907,17 @@
-         }
-         else
-         {
-             LOGGER.warn("{} tried to set an invalid carried item", this.player.getName());
+@@ -1006,14 +911,13 @@
          }
      }
  
@@ -908,7 +904,7 @@
          }
      }
  
-@@ -1456,36 +1337,31 @@
+@@ -1456,21 +1337,18 @@
          return System.nanoTime() / 1000000L;
      }
  
@@ -931,7 +927,7 @@
          {
              list.add(s);
          }
- 
+@@ -1478,14 +1356,12 @@
          this.player.connection.sendPacket(new SPacketTabComplete(list.toArray(new String[list.size()])));
      }
  
@@ -982,11 +978,7 @@
  
                      if (tileentity instanceof TileEntityCommandBlock)
                      {
-@@ -1644,11 +1518,11 @@
- 
-                     if (!flag2)
-                     {
-                         commandblockbaselogic1.setLastOutput(null);
+@@ -1648,7 +1522,7 @@
                      }
  
                      commandblockbaselogic1.updateCommand();
@@ -1011,13 +1003,7 @@
                  return;
              }
  
-@@ -1693,39 +1567,21 @@
- 
-                 if (commandblockbaselogic != null)
-                 {
-                     EnumFacing enumfacing = this.player.world.getBlockState(blockpos1).getValue(BlockCommandBlock.FACING);
- 
-                     switch (tileentitycommandblock$mode)
+@@ -1699,33 +1573,15 @@
                      {
                          case SEQUENCE:
                              IBlockState iblockstate3 = Blocks.CHAIN_COMMAND_BLOCK.getDefaultState();

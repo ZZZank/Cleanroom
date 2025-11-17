@@ -437,7 +437,7 @@
      public BlockPos getNearestStructurePos(World worldIn, String structureName, BlockPos position, boolean findUnexplored)
      {
          if (!this.mapFeaturesEnabled)
-@@ -596,39 +590,38 @@
+@@ -596,7 +590,6 @@
          }
      }
  
@@ -445,35 +445,3 @@
      public void recreateStructures(Chunk chunkIn, int x, int z)
      {
          if (this.mapFeaturesEnabled)
-         {
-             if (this.settings.useMineShafts)
-             {
-                 this.mineshaftGenerator.generate(this.world, x, z, null);
-             }
- 
-             if (this.settings.useVillages)
-             {
-                 this.villageGenerator.generate(this.world, x, z, null);
-             }
- 
-             if (this.settings.useStrongholds)
-             {
-                 this.strongholdGenerator.generate(this.world, x, z, null);
-             }
- 
-             if (this.settings.useTemples)
-             {
-                 this.scatteredFeatureGenerator.generate(this.world, x, z, null);
-             }
- 
-             if (this.settings.useMonuments)
-             {
-                 this.oceanMonumentGenerator.generate(this.world, x, z, null);
-             }
- 
-             if (this.settings.useMansions)
-             {
-                 this.woodlandMansionGenerator.generate(this.world, x, z, null);
-             }
-         }
-     }

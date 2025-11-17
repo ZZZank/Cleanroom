@@ -16,11 +16,7 @@
  import javax.swing.text.BadLocationException;
  import javax.swing.text.Document;
  import net.minecraft.server.dedicated.DedicatedServer;
-@@ -51,11 +53,10 @@
-         JFrame jframe = new JFrame("Minecraft server");
-         jframe.add(minecraftservergui);
-         jframe.pack();
-         jframe.setLocationRelativeTo(null);
+@@ -55,7 +57,6 @@
          jframe.setVisible(true);
          jframe.addWindowListener(new WindowAdapter()
          {

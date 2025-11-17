@@ -17,7 +17,7 @@
      private static int nextEntityID;
      private int entityId;
      public boolean preventEntitySpawning;
-@@ -177,11 +177,15 @@
+@@ -177,6 +177,10 @@
      private boolean isPositionDirty;
      private final double[] pistonDeltas;
      private long pistonDeltasGameTime;
@@ -28,11 +28,6 @@
  
      public Entity(World worldIn)
      {
-         this.entityId = nextEntityID++;
-         this.riddenByEntities = Lists.newArrayList();
-         this.boundingBox = ZERO_AABB;
-         this.width = 0.6F;
-         this.height = 1.8F;
 @@ -193,25 +197,33 @@
          this.entityUniqueID = MathHelper.getRandomUUID(this.rand);
          this.cachedUniqueIdString = this.entityUniqueID.toString();
@@ -1593,12 +1588,7 @@
      public ITextComponent getDisplayName()
      {
          TextComponentString textcomponentstring = new TextComponentString(ScorePlayerTeam.formatPlayerName(this.getTeam(), this.getName()));
-@@ -2849,22 +2760,22 @@
- 
-     public String getCustomNameTag()
-     {
-         return this.dataManager.get(CUSTOM_NAME);
-     }
+@@ -2854,17 +2765,17 @@
  
      public boolean hasCustomName()
      {

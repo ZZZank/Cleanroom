@@ -1,12 +1,6 @@
 --- before/net/minecraft/tileentity/TileEntityHopper.java
 +++ after/net/minecraft/tileentity/TileEntityHopper.java
-@@ -30,20 +30,19 @@
- 
- public class TileEntityHopper extends TileEntityLockableLoot implements IHopper, ITickable
- {
-     private NonNullList<ItemStack> inventory = NonNullList.withSize(5, ItemStack.EMPTY);
-     private int transferCooldown = -1;
-     private long tickedGameTime;
+@@ -36,10 +36,9 @@
  
      public static void registerFixesHopper(DataFixer fixer)
      {
@@ -18,10 +12,6 @@
      public void readFromNBT(NBTTagCompound compound)
      {
          super.readFromNBT(compound);
-         this.inventory = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
- 
-         if (!this.checkLootAndRead(compound))
-         {
 @@ -58,7 +57,6 @@
          this.transferCooldown = compound.getInteger("TransferCooldown");
      }
@@ -30,7 +20,7 @@
      public NBTTagCompound writeToNBT(NBTTagCompound compound)
      {
          super.writeToNBT(compound);
-@@ -78,23 +76,21 @@
+@@ -78,20 +76,18 @@
          return compound;
      }
  
@@ -54,9 +44,6 @@
      public void setInventorySlotContents(int index, ItemStack stack)
      {
          this.fillWithLoot(null);
-         this.getItems().set(index, stack);
- 
-         if (stack.getCount() > this.getInventoryStackLimit())
 @@ -103,24 +99,21 @@
          }
      }
@@ -183,7 +170,7 @@
                  {
                      if (pullItemFromSlot(hopper, iinventory, k, enumfacing))
                      {
-@@ -344,11 +339,9 @@
+@@ -344,9 +339,7 @@
          }
          else
          {
@@ -194,8 +181,6 @@
              {
                  if (putDropInInventoryAllSlots(null, hopper, entityitem))
                  {
-                     return true;
-                 }
 @@ -406,6 +399,12 @@
          }
      }

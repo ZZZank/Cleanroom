@@ -1,8 +1,6 @@
 --- before/net/minecraft/world/storage/loot/LootContext.java
 +++ after/net/minecraft/world/storage/loot/LootContext.java
-@@ -23,16 +23,9 @@
-     private final EntityPlayer player;
-     @Nullable
+@@ -25,14 +25,7 @@
      private final DamageSource damageSource;
      private final Set<LootTable> lootTables = Sets.newLinkedHashSet();
  

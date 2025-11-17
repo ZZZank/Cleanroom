@@ -1,6 +1,6 @@
 --- before/net/minecraft/util/ClassInheritanceMultiMap.java
 +++ after/net/minecraft/util/ClassInheritanceMultiMap.java
-@@ -13,11 +13,12 @@
+@@ -13,9 +13,10 @@
  
  public class ClassInheritanceMultiMap<T> extends AbstractSet<T>
  {
@@ -14,8 +14,6 @@
      private final Class<T> baseClass;
      private final List<T> values = Lists.newArrayList();
  
-     public ClassInheritanceMultiMap(Class<T> baseClassIn)
-     {
 @@ -63,7 +64,6 @@
          }
      }
@@ -40,7 +38,7 @@
      public boolean contains(Object p_contains_1_)
      {
          return Iterators.contains(this.getByClass(p_contains_1_.getClass()).iterator(), p_contains_1_);
-@@ -123,14 +121,13 @@
+@@ -123,7 +121,6 @@
      {
          return new Iterable<S>()
          {
@@ -48,13 +46,6 @@
              public Iterator<S> iterator()
              {
                  List<T> list = ClassInheritanceMultiMap.this.map.get(ClassInheritanceMultiMap.this.initializeClassLookup(clazz));
- 
-                 if (list == null)
-                 {
-                     return Collections.emptyIterator();
-                 }
-                 else
-                 {
 @@ -141,13 +138,11 @@
          };
      }

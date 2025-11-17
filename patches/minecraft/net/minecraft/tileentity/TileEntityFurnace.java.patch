@@ -1,13 +1,6 @@
 --- before/net/minecraft/tileentity/TileEntityFurnace.java
 +++ after/net/minecraft/tileentity/TileEntityFurnace.java
-@@ -37,20 +37,18 @@
-     private static final int[] SLOTS_TOP = new int[] {0};
-     private static final int[] SLOTS_BOTTOM = new int[] {2, 1};
-     private static final int[] SLOTS_SIDES = new int[] {1};
-     private NonNullList<ItemStack> furnaceItemStacks = NonNullList.withSize(3, ItemStack.EMPTY);
-     private int furnaceBurnTime;
-     private int currentItemBurnTime;
-     private int cookTime;
+@@ -44,13 +44,11 @@
      private int totalCookTime;
      private String furnaceCustomName;
  

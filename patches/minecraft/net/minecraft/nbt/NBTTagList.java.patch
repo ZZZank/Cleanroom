@@ -38,9 +38,7 @@
      void read(DataInput input, int depth, NBTSizeTracker sizeTracker) throws IOException
      {
          sizeTracker.read(296L);
-@@ -57,9 +55,9 @@
-             else
-             {
+@@ -59,7 +57,7 @@
                  sizeTracker.read(32L * (long)i);
                  this.tagList = Lists.newArrayListWithCapacity(i);
  

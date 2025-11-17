@@ -250,10 +250,7 @@
      public Chunk generateChunk(int x, int z)
      {
          this.rand.setSeed((long)x * 341873128712L + (long)z * 132897987541L);
-@@ -260,10 +272,10 @@
-         }
- 
-         Chunk chunk = new Chunk(this.world, chunkprimer, x, z);
+@@ -263,7 +275,7 @@
          Biome[] abiome = this.world.getBiomeProvider().getBiomes(null, x * 16, z * 16, 16, 16);
          byte[] abyte = chunk.getBiomeArray();
  
@@ -566,7 +563,7 @@
              {
                  return this.genNetherBridge.getSpawnList();
              }
-@@ -499,21 +479,18 @@
+@@ -499,19 +479,16 @@
      }
  
      @Nullable
@@ -586,5 +583,3 @@
      public void recreateStructures(Chunk chunkIn, int x, int z)
      {
          this.genNetherBridge.generate(this.world, x, z, null);
-     }
- }

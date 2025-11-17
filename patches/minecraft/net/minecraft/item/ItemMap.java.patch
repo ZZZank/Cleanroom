@@ -152,7 +152,7 @@
                                                  }
                                              }
  
-@@ -196,33 +195,33 @@
+@@ -196,16 +195,16 @@
                                      }
                                  }
  
@@ -173,8 +173,7 @@
                                  {
                                      i5 = 0;
                                  }
- 
-                                 MapColor mapcolor = Iterables.getFirst(Multisets.copyHighestCountFirst(multiset), MapColor.AIR);
+@@ -214,15 +213,15 @@
  
                                  if (mapcolor == MapColor.WATER)
                                  {

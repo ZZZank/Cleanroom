@@ -63,7 +63,7 @@
          this.world = worldIn;
          this.exploder = entityIn;
          this.size = size;
-@@ -86,18 +69,19 @@
+@@ -86,6 +69,7 @@
          this.z = z;
          this.causesFire = causesFire;
          this.damagesTerrain = damagesTerrain;
@@ -71,7 +71,7 @@
      }
  
      public void doExplosionA()
-     {
+@@ -93,11 +77,11 @@
          Set<BlockPos> set = Sets.newHashSet();
          int i = 16;
  

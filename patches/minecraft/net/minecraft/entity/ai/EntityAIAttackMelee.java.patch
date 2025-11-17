@@ -56,7 +56,7 @@
      public boolean shouldContinueExecuting()
      {
          EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
-@@ -72,62 +89,70 @@
+@@ -72,23 +89,22 @@
          {
              return !this.attacker.getNavigator().noPath();
          }
@@ -85,12 +85,7 @@
      public void resetTask()
      {
          EntityLivingBase entitylivingbase = this.attacker.getAttackTarget();
- 
-         if (entitylivingbase instanceof EntityPlayer && (((EntityPlayer)entitylivingbase).isSpectator() || ((EntityPlayer)entitylivingbase).isCreative()))
-         {
-             this.attacker.setAttackTarget(null);
-         }
- 
+@@ -101,33 +117,42 @@
          this.attacker.getNavigator().clearPath();
      }
  

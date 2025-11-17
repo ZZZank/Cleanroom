@@ -129,9 +129,7 @@
      public void notifyDataManagerChange(DataParameter<?> key)
      {
          super.notifyDataManagerChange(key);
-@@ -182,19 +160,19 @@
-         {
-             try
+@@ -184,8 +162,9 @@
              {
                  this.commandBlockLogic.setLastOutput(this.getDataManager().get(LAST_OUTPUT));
              }
@@ -142,8 +140,7 @@
              }
          }
          else if (COMMAND.equals(key))
-         {
-             this.commandBlockLogic.setCommand(this.getDataManager().get(COMMAND));
+@@ -194,7 +173,6 @@
          }
      }
  

@@ -1,6 +1,6 @@
 --- before/net/minecraft/network/play/client/CPacketClickWindow.java
 +++ after/net/minecraft/network/play/client/CPacketClickWindow.java
-@@ -38,18 +38,16 @@
+@@ -38,7 +38,6 @@
          handler.processClickWindow(this);
      }
  
@@ -8,10 +8,7 @@
      public void readPacketData(PacketBuffer buf) throws IOException
      {
          this.windowId = buf.readByte();
-         this.slotId = buf.readShort();
-         this.packedClickData = buf.readByte();
-         this.actionNumber = buf.readShort();
-         this.mode = buf.readEnumValue(ClickType.class);
+@@ -49,7 +48,6 @@
          this.clickedItem = buf.readItemStack();
      }
  

@@ -14,7 +14,7 @@
      public int getBlockMetadata()
      {
          return 0;
-@@ -125,46 +123,31 @@
+@@ -125,27 +123,12 @@
      {
          p_184319_3_ = this.getExtendedProgress(p_184319_3_);
          IBlockState iblockstate = this.getCollisionRelatedBlockState();
@@ -44,16 +44,7 @@
      }
  
      private void moveCollidedEntities(float p_184322_1_)
-     {
-         EnumFacing enumfacing = this.extending ? this.pistonFacing : this.pistonFacing.getOpposite();
-         double d0 = (double)(p_184322_1_ - this.progress);
-         List<AxisAlignedBB> list = Lists.newArrayList();
-         this.getCollisionRelatedBlockState().addCollisionBoxToList(this.world, BlockPos.ORIGIN, new AxisAlignedBB(BlockPos.ORIGIN), list, null, true);
- 
-         if (!list.isEmpty())
-         {
-             AxisAlignedBB axisalignedbb = this.moveByPositionAndProgress(this.getMinMaxPiecesAABB(list));
-             List<Entity> list1 = this.world.getEntitiesWithinAABBExcludingEntity(null, this.getMovementArea(axisalignedbb, enumfacing, d0).union(axisalignedbb));
+@@ -162,9 +145,9 @@
  
              if (!list1.isEmpty())
              {

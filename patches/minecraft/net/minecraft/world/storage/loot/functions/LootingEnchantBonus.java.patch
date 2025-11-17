@@ -16,7 +16,7 @@
  
              if (i == 0)
              {
-@@ -65,14 +64,14 @@
+@@ -65,7 +64,7 @@
  
                  if (functionClazz.limit > 0)
                  {
@@ -25,10 +25,3 @@
                  }
              }
  
-             public LootingEnchantBonus deserialize(JsonObject object, JsonDeserializationContext deserializationContext, LootCondition[] conditionsIn)
-             {
-                 int i = JsonUtils.getInt(object, "limit", 0);
-                 return new LootingEnchantBonus(conditionsIn, JsonUtils.deserializeClass(object, "count", deserializationContext, RandomValueRange.class), i);
-             }
-         }
- }

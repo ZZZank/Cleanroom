@@ -1,6 +1,6 @@
 --- before/net/minecraft/world/storage/loot/LootPool.java
 +++ after/net/minecraft/world/storage/loot/LootPool.java
-@@ -21,22 +21,24 @@
+@@ -21,17 +21,19 @@
  
  public class LootPool
  {
@@ -25,11 +25,6 @@
      }
  
      protected void createLootRoll(Collection<ItemStack> stacks, Random rand, LootContext context)
-     {
-         List<LootEntry> list = Lists.newArrayList();
-         int i = 0;
- 
-         for (LootEntry lootentry : this.lootEntries)
 @@ -74,33 +76,83 @@
      {
          if (LootConditionManager.testAllConditions(this.poolConditions, rand, context))

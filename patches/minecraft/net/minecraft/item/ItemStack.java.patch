@@ -358,10 +358,7 @@
                          {
                              list.add(TextFormatting.DARK_PURPLE + "" + TextFormatting.ITALIC + nbttaglist3.getStringTagAt(l1));
                          }
-@@ -793,9 +851,10 @@
-                             + I18n.translateToLocalFormatted(
-                                 "attribute.modifier.take." + attributemodifier.getOperation(),
-                                 DECIMALFORMAT.format(d1),
+@@ -796,6 +854,7 @@
                                  I18n.translateToLocal("attribute.name." + entry.getKey())
                              )
                          );

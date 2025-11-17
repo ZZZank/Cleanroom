@@ -155,7 +155,7 @@
      public float getEyeHeight()
      {
          return 0.65F;
-@@ -226,17 +215,16 @@
+@@ -226,10 +215,9 @@
          {
              public AISpiderAttack(EntitySpider spider)
              {
@@ -167,13 +167,6 @@
              public boolean shouldContinueExecuting()
              {
                  float f = this.attacker.getBrightness();
- 
-                 if (f >= 0.5F && this.attacker.getRNG().nextInt(100) == 0)
-                 {
-                     this.attacker.setAttackTarget(null);
-                     return false;
-                 }
-                 else
 @@ -245,7 +233,6 @@
                  }
              }

@@ -8,12 +8,7 @@
  import com.google.common.collect.Sets;
  import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
  import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-@@ -84,18 +85,17 @@
- 
- public class EntityParrot extends EntityShoulderRiding implements EntityFlying
- {
-     private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(EntityParrot.class, DataSerializers.VARINT);
-     private static final Predicate<EntityLiving> CAN_MIMIC = new Predicate<EntityLiving>()
+@@ -89,13 +90,12 @@
      {
          public boolean apply(@Nullable EntityLiving p_apply_1_)
          {

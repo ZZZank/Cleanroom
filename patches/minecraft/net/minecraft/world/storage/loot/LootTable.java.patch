@@ -1,6 +1,6 @@
 --- before/net/minecraft/world/storage/loot/LootTable.java
 +++ after/net/minecraft/world/storage/loot/LootTable.java
-@@ -24,16 +24,16 @@
+@@ -24,11 +24,11 @@
  {
      private static final Logger LOGGER = LogManager.getLogger();
      public static final LootTable EMPTY_LOOT_TABLE = new LootTable(new LootPool[0]);
@@ -14,12 +14,7 @@
      }
  
      public List<ItemStack> generateLootForPools(Random rand, LootContext context)
-     {
-         List<ItemStack> list = Lists.newArrayList();
- 
-         if (context.addLootTable(this))
-         {
-@@ -68,18 +68,18 @@
+@@ -68,11 +68,11 @@
  
              if (itemstack.isEmpty())
              {
@@ -33,13 +28,6 @@
              }
          }
      }
- 
-     private void shuffleItems(List<ItemStack> stacks, int p_186463_2_, Random rand)
-     {
-         List<ItemStack> list = Lists.newArrayList();
-         Iterator<ItemStack> iterator = stacks.iterator();
- 
-         while (iterator.hasNext())
 @@ -97,7 +97,7 @@
              }
          }
@@ -49,9 +37,7 @@
  
          while (p_186463_2_ > 0 && !list.isEmpty())
          {
-@@ -130,13 +130,13 @@
- 
-     private List<Integer> getEmptySlotsRandomized(IInventory inventory, Random rand)
+@@ -132,17 +132,69 @@
      {
          List<Integer> list = Lists.newArrayList();
  
@@ -65,10 +51,10 @@
              }
          }
  
-@@ -144,12 +144,64 @@
+         Collections.shuffle(list, rand);
          return list;
      }
- 
++
 +    //======================== FORGE START =============================================
 +    private boolean isFrozen = false;
 +    public void freeze()
@@ -120,13 +106,6 @@
 +        this.pools.add(pool);
 +    }
 +    //======================== FORGE END ===============================================
-+
+ 
      public static class Serializer implements JsonDeserializer<LootTable>, JsonSerializer<LootTable>
          {
-             public LootTable deserialize(JsonElement p_deserialize_1_, Type p_deserialize_2_, JsonDeserializationContext p_deserialize_3_) throws JsonParseException
-             {
-                 JsonObject jsonobject = JsonUtils.getJsonObject(p_deserialize_1_, "loot table");
-                 LootPool[] alootpool = JsonUtils.deserializeClass(jsonobject, "pools", new LootPool[0], p_deserialize_3_, LootPool[].class);
-                 return new LootTable(alootpool);
-             }
- 

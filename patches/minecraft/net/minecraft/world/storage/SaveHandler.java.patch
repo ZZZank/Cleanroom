@@ -107,7 +107,7 @@
      public NBTTagCompound readPlayerData(EntityPlayer player)
      {
          NBTTagCompound nbttagcompound = null;
-@@ -218,9 +214,9 @@
+@@ -218,7 +214,7 @@
                  nbttagcompound = CompressedStreamTools.readCompressed(new FileInputStream(file1));
              }
          }
@@ -116,8 +116,6 @@
          {
              LOGGER.warn("Failed to load player data for {}", player.getName());
          }
- 
-         if (nbttagcompound != null)
 @@ -228,16 +224,15 @@
              player.readFromNBT(this.dataFixer.process(FixTypes.PLAYER, nbttagcompound));
          }

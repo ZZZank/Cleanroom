@@ -118,7 +118,7 @@
                          }
  
                          AnvilChunkLoader.spawnEntity(entity, world);
-@@ -179,12 +160,13 @@
+@@ -179,7 +160,8 @@
          }
          else
          {
@@ -128,11 +128,6 @@
          }
  
          if (!this.potentialSpawns.isEmpty())
-         {
-             this.setNextSpawnData(WeightedRandom.getRandomItem(this.getSpawnerWorld().rand, this.potentialSpawns));
-         }
- 
-         this.broadcastEvent(1);
 @@ -199,7 +181,7 @@
          {
              NBTTagList nbttaglist = nbt.getTagList("SpawnPotentials", 10);

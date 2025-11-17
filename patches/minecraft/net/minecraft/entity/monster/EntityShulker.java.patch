@@ -290,7 +290,7 @@
      public void move(MoverType type, double x, double y, double z)
      {
          if (type == MoverType.SHULKER_BOX)
-@@ -453,20 +383,19 @@
+@@ -453,7 +383,6 @@
          }
      }
  
@@ -298,12 +298,7 @@
      public void setPosition(double x, double y, double z)
      {
          super.setPosition(x, y, z);
- 
-         if (this.dataManager != null && this.ticksExisted != 0)
-         {
-             Optional<BlockPos> optional = this.dataManager.get(ATTACHED_BLOCK_POS);
-             Optional<BlockPos> optional1 = Optional.of(new BlockPos(x, y, z));
- 
+@@ -466,7 +395,7 @@
              if (!optional1.equals(optional))
              {
                  this.dataManager.set(ATTACHED_BLOCK_POS, optional1);
@@ -421,13 +416,7 @@
      public AxisAlignedBB getCollisionBoundingBox()
      {
          return this.isEntityAlive() ? this.getEntityBoundingBox() : null;
-@@ -616,13 +540,13 @@
- 
-     public EnumFacing getAttachmentFacing()
-     {
-         return this.dataManager.get(ATTACHED_FACE);
-     }
- 
+@@ -622,7 +546,7 @@
      @Nullable
      public BlockPos getAttachmentPos()
      {
@@ -502,7 +491,7 @@
      }
  
      class AIAttack extends EntityAIBase
-@@ -730,57 +648,53 @@
+@@ -730,52 +648,48 @@
              this.setMutexBits(3);
          }
  
@@ -568,11 +557,6 @@
                      }
                  }
                  else
-                 {
-                     EntityShulker.this.setAttackTarget(null);
-                 }
- 
-                 super.updateTask();
 @@ -795,26 +709,22 @@
              super(shulker, EntityPlayer.class, true);
          }

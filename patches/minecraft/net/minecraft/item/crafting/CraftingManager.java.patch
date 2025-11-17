@@ -137,9 +137,7 @@
      {
          if (REGISTRY.containsKey(name))
          {
-@@ -216,9 +229,9 @@
-             }
-         }
+@@ -218,7 +231,7 @@
  
          NonNullList<ItemStack> nonnulllist = NonNullList.withSize(craftMatrix.getSizeInventory(), ItemStack.EMPTY);
  

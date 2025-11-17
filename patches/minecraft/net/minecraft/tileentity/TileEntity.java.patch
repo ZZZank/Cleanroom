@@ -62,7 +62,7 @@
          }
  
          if (tileentity != null)
-@@ -115,12 +122,14 @@
+@@ -115,6 +122,8 @@
              catch (Throwable throwable)
              {
                  LOGGER.error("Failed to load data for block entity {}", s, throwable);
@@ -71,12 +71,6 @@
                  tileentity = null;
              }
          }
-         else
-         {
-             LOGGER.warn("Skipping BlockEntity with id {}", s);
-         }
- 
-         return tileentity;
 @@ -156,19 +165,18 @@
          }
      }

@@ -103,11 +103,7 @@
      }
  
      @Nullable
-@@ -194,11 +212,20 @@
- 
-         if (entity == null)
-         {
-             LOGGER.warn("Skipping Entity with id {}", resourcelocation);
+@@ -198,7 +216,16 @@
          }
          else
          {

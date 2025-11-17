@@ -8,10 +8,7 @@
  import java.io.IOException;
  import java.util.Collection;
  import java.util.Iterator;
-@@ -29,11 +30,12 @@
- public class ChunkProviderServer implements IChunkProvider
- {
-     private static final Logger LOGGER = LogManager.getLogger();
+@@ -32,8 +33,9 @@
      private final Set<Long> droppedChunks = Sets.newHashSet();
      public final IChunkGenerator chunkGenerator;
      public final IChunkLoader chunkLoader;
@@ -22,7 +19,7 @@
  
      public ChunkProviderServer(WorldServer worldObjIn, IChunkLoader chunkLoaderIn, IChunkGenerator chunkGeneratorIn)
      {
-@@ -51,25 +53,27 @@
+@@ -51,21 +53,23 @@
      {
          if (this.world.provider.canDropChunk(chunkIn.x, chunkIn.z))
          {
@@ -49,10 +46,6 @@
      public Chunk getLoadedChunk(int x, int z)
      {
          long i = ChunkPos.asLong(x, z);
-         Chunk chunk = this.loadedChunks.get(i);
- 
-         if (chunk != null)
-         {
 @@ -82,24 +86,50 @@
      @Nullable
      public Chunk loadChunk(int x, int z)
@@ -138,7 +131,7 @@
                  {
                      return false;
                  }
-@@ -215,31 +246,38 @@
+@@ -215,13 +246,17 @@
          this.chunkLoader.flush();
      }
  
@@ -157,10 +150,7 @@
                  Iterator<Long> iterator = this.droppedChunks.iterator();
  
                  for (int i = 0; i < 100 && iterator.hasNext(); iterator.remove())
-                 {
-                     Long olong = iterator.next();
-                     Chunk chunk = this.loadedChunks.get(olong);
- 
+@@ -232,14 +267,17 @@
                      if (chunk != null && chunk.unloadQueued)
                      {
                          chunk.onUnload();

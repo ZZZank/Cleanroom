@@ -24,10 +24,7 @@
  
          if (i < 1)
          {
-@@ -52,21 +52,21 @@
- 
-         int j = this.basePos.getY() + this.height;
-         int k = this.heightLimit - this.leafDistanceLimit;
+@@ -55,18 +55,18 @@
          this.foliageCoords = Lists.newArrayList();
          this.foliageCoords.add(new WorldGenBigTree.FoliageCoordinates(this.basePos.up(k), j));
  

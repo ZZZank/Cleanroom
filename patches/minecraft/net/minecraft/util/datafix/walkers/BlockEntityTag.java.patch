@@ -1,12 +1,6 @@
 --- before/net/minecraft/util/datafix/walkers/BlockEntityTag.java
 +++ after/net/minecraft/util/datafix/walkers/BlockEntityTag.java
-@@ -14,18 +14,15 @@
- public class BlockEntityTag implements IDataWalker
- {
-     private static final Logger LOGGER = LogManager.getLogger();
-     private static final Map<String, String> NEW_TO_OLD_ID_MAP = Maps.newHashMap();
-     private static final Map<String, String> ITEM_ID_TO_BLOCK_ENTITY_ID = Maps.newHashMap();
- 
+@@ -20,12 +20,9 @@
      @Nullable
      private static String getBlockEntityID(int blockID, String p_188267_1_)
      {

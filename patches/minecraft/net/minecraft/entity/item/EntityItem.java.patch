@@ -1,9 +1,6 @@
 --- before/net/minecraft/entity/item/EntityItem.java
 +++ after/net/minecraft/entity/item/EntityItem.java
-@@ -30,32 +30,39 @@
- public class EntityItem extends Entity
- {
-     private static final Logger LOGGER = LogManager.getLogger();
+@@ -33,29 +33,36 @@
      private static final DataParameter<ItemStack> ITEM = EntityDataManager.createKey(EntityItem.class, DataSerializers.ITEM_STACK);
      private int age;
      private int pickupDelay;

@@ -20,10 +20,7 @@
      public boolean canBeAttackedWithItem()
      {
          return false;
-@@ -79,28 +78,24 @@
-     @SideOnly(Side.CLIENT)
-     public BlockPos getOrigin()
-     {
+@@ -82,25 +81,21 @@
          return this.dataManager.get(ORIGIN);
      }
  

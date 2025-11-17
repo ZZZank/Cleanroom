@@ -93,11 +93,7 @@
      public ItemStack getCraftingResult(InventoryCrafting inv)
      {
          return this.getRecipeOutput().copy();
-@@ -167,13 +153,13 @@
- 
-     private static NonNullList<Ingredient> deserializeIngredients(String[] pattern, Map<String, Ingredient> keys, int patternWidth, int patternHeight)
-     {
-         NonNullList<Ingredient> nonnulllist = NonNullList.withSize(patternWidth * patternHeight, Ingredient.EMPTY);
+@@ -171,9 +157,9 @@
          Set<String> set = Sets.newHashSet(keys.keySet());
          set.remove(" ");
  
@@ -179,11 +175,7 @@
              {
                  String s = JsonUtils.getString(jsonArr.get(i), "pattern[" + i + "]");
  
-@@ -306,13 +292,13 @@
- 
-     private static Map<String, Ingredient> deserializeKey(JsonObject json)
-     {
-         Map<String, Ingredient> map = Maps.newHashMap();
+@@ -310,7 +296,7 @@
  
          for (Entry<String, JsonElement> entry : json.entrySet())
          {
@@ -192,8 +184,6 @@
              {
                  throw new JsonSyntaxException("Invalid key entry: '" + entry.getKey() + "' is an invalid symbol (must be 1 character only).");
              }
- 
-             if (" ".equals(entry.getKey()))
 @@ -329,38 +315,41 @@
  
      public static Ingredient deserializeIngredient(@Nullable JsonElement jsonElement)

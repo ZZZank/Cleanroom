@@ -184,7 +184,7 @@
                  worldserver.getChunkProvider().provideChunk(blockpos.getX() + l1 >> 4, blockpos.getZ() + i2 >> 4);
              }
          }
-@@ -354,9 +358,9 @@
+@@ -354,7 +358,7 @@
              {
                  this.setResourcePack("level://" + URLEncoder.encode(worldNameIn, StandardCharsets.UTF_8.toString()) + "/" + "resources.zip", "");
              }
@@ -193,8 +193,6 @@
              {
                  LOGGER.warn("Something went wrong url encoding {}", worldNameIn);
              }
-         }
-     }
 @@ -379,7 +383,7 @@
      {
          this.currentTask = message;
@@ -204,7 +202,7 @@
      }
  
      protected void clearCurrentTask()
-@@ -396,14 +400,12 @@
+@@ -396,9 +400,7 @@
              {
                  if (!isSilent)
                  {
@@ -215,11 +213,6 @@
                  }
  
                  try
-                 {
-                     worldserver.saveAllChunks(true, null);
-                 }
-                 catch (MinecraftException minecraftexception)
-                 {
 @@ -447,27 +449,24 @@
              {
                  if (worldserver1 != null)
@@ -304,7 +297,7 @@
          }
          catch (Throwable throwable1)
          {
-@@ -553,26 +558,24 @@
+@@ -553,9 +558,7 @@
                  crashreport = this.addServerInfoToCrashReport(new CrashReport("Exception in server tick loop", throwable1));
              }
  
@@ -315,10 +308,7 @@
  
              if (crashreport.saveToFile(file1))
              {
-                 LOGGER.error("This crash report has been saved to: {}", file1.getAbsolutePath());
-             }
-             else
-             {
+@@ -566,13 +569,13 @@
                  LOGGER.error("We were unable to save this crash report to disk.");
              }
  
@@ -930,11 +920,7 @@
      public MinecraftServer getServer()
      {
          return this;
-@@ -1566,23 +1380,21 @@
-         {
-             try
-             {
-                 return Futures.immediateFuture(callable.call());
+@@ -1570,19 +1384,17 @@
              }
              catch (Exception exception)
              {

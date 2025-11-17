@@ -9,9 +9,7 @@
  
  public enum EnumFacing implements IStringSerializable
  {
-@@ -33,17 +31,9 @@
-     private final Vec3i directionVec;
-     public static final EnumFacing[] VALUES = new EnumFacing[6];
+@@ -35,15 +33,7 @@
      public static final EnumFacing[] HORIZONTALS = new EnumFacing[4];
      private static final Map<String, EnumFacing> NAME_LOOKUP = Maps.newHashMap();
  
@@ -52,7 +50,7 @@
      private EnumFacing rotateZ()
      {
          switch (this)
-@@ -207,10 +194,9 @@
+@@ -207,7 +194,6 @@
      }
  
      @Nullable
@@ -60,9 +58,6 @@
      public static EnumFacing byName(String name)
      {
          return name == null ? null : NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
-     }
- 
-     public static EnumFacing byIndex(int index)
 @@ -225,7 +211,7 @@
  
      public static EnumFacing fromAngle(double angle)
@@ -134,7 +129,7 @@
      public Vec3i getDirectionVec()
      {
          return this.directionVec;
-@@ -343,10 +322,9 @@
+@@ -343,7 +322,6 @@
          }
  
          @Nullable
@@ -142,9 +137,6 @@
          public static EnumFacing.Axis byName(String name)
          {
              return name == null ? null : NAME_LOOKUP.get(name.toLowerCase(Locale.ROOT));
-         }
- 
-         public String getName2()
 @@ -364,7 +342,6 @@
              return this.plane == EnumFacing.Plane.HORIZONTAL;
          }
@@ -169,7 +161,7 @@
          public String toString()
          {
              return this.description;
-@@ -448,10 +423,9 @@
+@@ -448,7 +423,6 @@
              return p_apply_1_ != null && p_apply_1_.getAxis().getPlane() == this;
          }
  
@@ -177,6 +169,3 @@
          public Iterator<EnumFacing> iterator()
          {
              return Iterators.forArray(this.facings());
-         }
-     }
- }

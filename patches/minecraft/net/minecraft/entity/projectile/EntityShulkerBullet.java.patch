@@ -54,7 +54,7 @@
      protected void entityInit()
      {
      }
-@@ -156,28 +150,28 @@
+@@ -156,25 +150,25 @@
  
      private void selectNextMoveDirection(@Nullable EnumFacing.Axis p_184569_1_)
      {
@@ -86,9 +86,6 @@
          {
              BlockPos blockpos1 = new BlockPos(this);
              List<EnumFacing> list = Lists.newArrayList();
- 
-             if (p_184569_1_ != EnumFacing.Axis.X)
-             {
 @@ -219,7 +213,7 @@
  
              if (list.isEmpty())

@@ -177,7 +177,7 @@
      public IBlockState getStateForPlacement(
          World worldIn,
          BlockPos pos,
-@@ -765,21 +766,35 @@
+@@ -765,18 +766,32 @@
          player.addStat(StatList.getBlockStats(this));
          player.addExhaustion(0.005F);
  
@@ -212,9 +212,6 @@
      protected boolean canSilkHarvest()
      {
          return this.getDefaultState().isFullCube() && !this.hasTileEntity;
-     }
- 
-     protected ItemStack getSilkTouchDrop(IBlockState state)
 @@ -865,6 +880,7 @@
          entityIn.motionY = 0.0;
      }

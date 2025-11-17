@@ -794,11 +794,7 @@
          }
  
          this.setAdditionalAItasks();
-@@ -1113,24 +871,22 @@
-     public EntityVillager createChild(EntityAgeable ageable)
-     {
-         EntityVillager entityvillager = new EntityVillager(this.world);
-         entityvillager.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entityvillager)), null);
+@@ -1117,13 +875,11 @@
          return entityvillager;
      }
  
@@ -812,13 +808,6 @@
      public void onStruckByLightning(EntityLightningBolt lightningBolt)
      {
          if (!this.world.isRemote && !this.isDead)
-         {
-             EntityWitch entitywitch = new EntityWitch(this.world);
-             entitywitch.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, this.rotationPitch);
-             entitywitch.onInitialSpawn(this.world.getDifficultyForLocation(new BlockPos(entitywitch)), null);
-             entitywitch.setNoAI(this.isAIDisabled());
- 
-             if (this.hasCustomName())
 @@ -1149,7 +905,6 @@
          return this.villagerInventory;
      }
@@ -913,7 +902,7 @@
              public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random)
              {
                  int i = 1;
-@@ -1314,27 +1060,19 @@
+@@ -1314,24 +1060,16 @@
                  this.sellingPriceInfo = p_i45813_4_;
              }
  
@@ -939,9 +928,6 @@
              public void addMerchantRecipe(IMerchant merchant, MerchantRecipeList recipeList, Random random)
              {
                  Enchantment enchantment = Enchantment.REGISTRY.getRandomObject(random);
-                 int i = MathHelper.getInt(random, enchantment.getMinLevel(), enchantment.getMaxLevel());
-                 ItemStack itemstack = ItemEnchantedBook.getEnchantedItemStack(new EnchantmentData(enchantment, i));
-                 int j = 2 + random.nextInt(5 + i * 10) + 3 * i;
 @@ -1364,7 +1102,6 @@
                  this.priceInfo = p_i45814_2_;
              }

@@ -380,9 +380,7 @@
              public void updateTask()
              {
                  if (this.player != null)
-@@ -512,18 +465,16 @@
-                 {
-                     if (this.targetEntity != null)
+@@ -514,16 +467,14 @@
                      {
                          if (this.enderman.shouldAttackPlayer(this.targetEntity))
                          {
@@ -401,7 +399,7 @@
                          {
                              this.teleportTime = 0;
                          }
-@@ -543,38 +494,38 @@
+@@ -543,35 +494,35 @@
                  this.enderman = p_i45843_1_;
              }
  
@@ -446,9 +444,6 @@
                  {
                      world.setBlockState(blockpos, iblockstate2, 3);
                      this.enderman.setHeldBlockState(null);
-                 }
-             }
- 
 @@ -588,9 +539,13 @@
                  {
                      return false;

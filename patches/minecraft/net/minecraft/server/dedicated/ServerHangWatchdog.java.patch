@@ -25,7 +25,7 @@
  
                  for (ThreadInfo threadinfo : athreadinfo)
                  {
-@@ -64,14 +61,11 @@
+@@ -64,10 +61,7 @@
                  this.server.addServerInfoToCrashReport(crashreport);
                  CrashReportCategory crashreportcategory = crashreport.makeCategory("Thread Dump");
                  crashreportcategory.addCrashSection("Threads", stringbuilder);
@@ -36,10 +36,6 @@
 +                File file1 = new File(new File(this.server.getDataDirectory(), "crash-reports"), "crash-" + (new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss")).format(new Date()) + "-server.txt");
  
                  if (crashreport.saveToFile(file1))
-                 {
-                     LOGGER.error("This crash report has been saved to: {}", file1.getAbsolutePath());
-                 }
-                 else
                  {
 @@ -98,7 +92,6 @@
              Timer timer = new Timer();

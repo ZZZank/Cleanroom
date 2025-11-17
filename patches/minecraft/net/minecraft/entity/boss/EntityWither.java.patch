@@ -443,7 +443,7 @@
          }
      }
  
-@@ -543,18 +485,12 @@
+@@ -543,13 +485,7 @@
  
      private void launchWitherSkullToEntity(int p_82216_1_, EntityLivingBase p_82216_2_)
      {
@@ -458,11 +458,6 @@
      }
  
      private void launchWitherSkullToCoords(int p_82209_1_, double x, double y, double z, boolean invulnerable)
-     {
-         this.world.playEvent(null, 1024, new BlockPos(this), 0);
-         double d0 = this.getHeadX(p_82209_1_);
-         double d1 = this.getHeadY(p_82209_1_);
-         double d2 = this.getHeadZ(p_82209_1_);
 @@ -574,66 +510,63 @@
          this.world.spawnEntity(entitywitherskull);
      }

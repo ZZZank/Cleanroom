@@ -65,7 +65,7 @@
          LOGGER.info("Loading properties");
          this.settings = new PropertyManager(new File("server.properties"));
          this.eula = new ServerEula(new File("eula.txt"));
-@@ -163,17 +160,17 @@
+@@ -163,11 +160,11 @@
  
              if (this.settings.getIntProperty("difficulty", 1) < 0)
              {
@@ -79,12 +79,6 @@
              }
  
              this.canSpawnStructures = this.settings.getBooleanProperty("generate-structures", true);
-             int i = this.settings.getIntProperty("gamemode", GameType.SURVIVAL.getID());
-             this.gameType = WorldSettings.getGameTypeById(i);
-             LOGGER.info("Default game type: {}", this.gameType);
-             InetAddress inetaddress = null;
- 
-             if (!this.getServerHostname().isEmpty())
 @@ -188,7 +185,7 @@
  
              LOGGER.info("Generating keypair");

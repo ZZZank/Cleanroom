@@ -24,7 +24,7 @@
      public boolean hasCustomName()
      {
          return this.customName != null && !this.customName.isEmpty();
-@@ -103,17 +101,15 @@
+@@ -103,14 +101,12 @@
          this.customName = p_190575_1_;
      }
  
@@ -39,10 +39,7 @@
      public ItemStack decrStackSize(int index, int count)
      {
          this.fillWithLoot(null);
-         ItemStack itemstack = ItemStackHelper.getAndSplit(this.getItems(), index, count);
- 
-         if (!itemstack.isEmpty())
-@@ -124,17 +120,15 @@
+@@ -124,14 +120,12 @@
          return itemstack;
      }
  
@@ -57,10 +54,7 @@
      public void setInventorySlotContents(int index, @Nullable ItemStack stack)
      {
          this.fillWithLoot(null);
-         this.getItems().set(index, stack);
- 
-         if (stack.getCount() > this.getInventoryStackLimit())
-@@ -145,58 +139,48 @@
+@@ -145,55 +139,45 @@
          this.markDirty();
      }
  
@@ -124,6 +118,3 @@
      public void clear()
      {
          this.fillWithLoot(null);
-         this.getItems().clear();
-     }
- 

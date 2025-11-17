@@ -1665,7 +1665,7 @@
      public boolean replaceItemInInventory(int inventorySlot, ItemStack itemStackIn)
      {
          if (inventorySlot >= 0 && inventorySlot < this.inventory.mainInventory.size())
-@@ -2535,20 +2466,19 @@
+@@ -2535,15 +2466,14 @@
          this.hasReducedDebug = reducedDebug;
      }
  
@@ -1683,11 +1683,6 @@
      }
  
      public NBTTagCompound getLeftShoulderEntity()
-     {
-         return this.dataManager.get(LEFT_SHOULDER_ENTITY);
-     }
- 
-     protected void setLeftShoulderEntity(NBTTagCompound tag)
 @@ -2568,7 +2498,7 @@
  
      public float getCooldownPeriod()

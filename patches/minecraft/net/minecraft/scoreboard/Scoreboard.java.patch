@@ -1,6 +1,6 @@
 --- before/net/minecraft/scoreboard/Scoreboard.java
 +++ after/net/minecraft/scoreboard/Scoreboard.java
-@@ -202,15 +202,15 @@
+@@ -202,7 +202,7 @@
      {
          this.scoreObjectives.remove(objective.getName());
  
@@ -9,14 +9,6 @@
          {
              if (this.getObjectiveInDisplaySlot(i) == objective)
              {
-                 this.setObjectiveInDisplaySlot(i, null);
-             }
-         }
- 
-         List<ScoreObjective> list = this.scoreObjectiveCriterias.get(objective.getCriteria());
- 
-         if (list != null)
-         {
 @@ -445,7 +445,7 @@
          {
              displaySlots = new String[19];

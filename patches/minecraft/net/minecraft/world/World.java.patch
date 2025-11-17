@@ -1219,12 +1219,7 @@
                                  }
                              }
                          }
-@@ -1418,14 +1361,14 @@
- 
-     public List<AxisAlignedBB> getCollisionBoxes(@Nullable Entity entityIn, AxisAlignedBB aabb)
-     {
-         List<AxisAlignedBB> list = Lists.newArrayList();
-         this.getCollisionBoxes(entityIn, aabb, false, list);
+@@ -1423,9 +1366,9 @@
  
          if (entityIn != null)
          {
@@ -1277,12 +1272,7 @@
          }
  
          return entityToCheck.posX > d0 && entityToCheck.posX < d2 && entityToCheck.posZ > d1 && entityToCheck.posZ < d3;
-@@ -1478,52 +1426,75 @@
- 
-     public boolean collidesWithAnyBlock(AxisAlignedBB bbox)
-     {
-         return this.getCollisionBoxes(null, bbox, true, Lists.newArrayList());
-     }
+@@ -1483,47 +1431,70 @@
  
      public int calculateSkylightSubtracted(float partialTicks)
      {
@@ -1782,14 +1772,7 @@
                  }
              }
          }
-@@ -2023,18 +2065,18 @@
- 
-     public boolean checkNoEntityCollision(AxisAlignedBB bb)
-     {
-         return this.checkNoEntityCollision(bb, null);
-     }
- 
-     public boolean checkNoEntityCollision(AxisAlignedBB bb, @Nullable Entity entityIn)
+@@ -2030,11 +2072,11 @@
      {
          List<Entity> list = this.getEntitiesWithinAABBExcludingEntity(null, bb);
  
@@ -2806,9 +2789,7 @@
                  }
              }
          }
-@@ -2933,13 +3035,13 @@
- 
-     public <T extends Entity> List<T> getEntities(Class <? extends T > entityType, Predicate <? super T > filter)
+@@ -2935,11 +3037,11 @@
      {
          List<T> list = Lists.newArrayList();
  
@@ -2823,9 +2804,7 @@
              }
          }
  
-@@ -2948,13 +3050,13 @@
- 
-     public <T extends Entity> List<T> getPlayers(Class <? extends T > playerType, Predicate <? super T > filter)
+@@ -2950,11 +3052,11 @@
      {
          List<T> list = Lists.newArrayList();
  
@@ -2840,12 +2819,7 @@
              }
          }
  
-@@ -2963,24 +3065,24 @@
- 
-     public <T extends Entity> List<T> getEntitiesWithinAABB(Class <? extends T > classEntity, AxisAlignedBB bb)
-     {
-         return this.getEntitiesWithinAABB(classEntity, bb, EntitySelectors.NOT_SPECTATING);
-     }
+@@ -2968,19 +3070,19 @@
  
      public <T extends Entity> List<T> getEntitiesWithinAABB(Class <? extends T > clazz, AxisAlignedBB aabb, @Nullable Predicate <? super T > filter)
      {
@@ -2874,11 +2848,7 @@
                  }
              }
          }
-@@ -2991,19 +3093,19 @@
-     @Nullable
-     public <T extends Entity> T findNearestEntityWithinAABB(Class <? extends T > entityType, AxisAlignedBB aabb, T closestTo)
-     {
-         List<T> list = this.getEntitiesWithinAABB(entityType, aabb);
+@@ -2995,15 +3097,15 @@
          T t = null;
          double d0 = Double.MAX_VALUE;
  
@@ -3353,7 +3323,7 @@
      }
  
      @Nullable
-@@ -3596,73 +3689,67 @@
+@@ -3596,9 +3689,9 @@
  
      public void playBroadcastSound(int id, BlockPos pos, int data)
      {
@@ -3365,12 +3335,7 @@
          }
      }
  
-     public void playEvent(int type, BlockPos pos, int data)
-     {
-         this.playEvent(null, type, pos, data);
-     }
- 
-     public void playEvent(@Nullable EntityPlayer player, int type, BlockPos pos, int data)
+@@ -3611,58 +3704,52 @@
      {
          try
          {

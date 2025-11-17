@@ -86,11 +86,7 @@
          this.empty = false;
          this.lock.writeLock().unlock();
      }
-@@ -124,11 +127,11 @@
-     private <T> EntityDataManager.DataEntry<T> getEntry(DataParameter<T> key)
-     {
-         this.lock.readLock().lock();
-         EntityDataManager.DataEntry dataentry;
+@@ -128,7 +131,7 @@
  
          try
          {
@@ -99,7 +95,7 @@
          }
          catch (Throwable throwable)
          {
-@@ -177,9 +180,9 @@
+@@ -177,7 +180,7 @@
          {
              int i = 0;
  
@@ -108,8 +104,6 @@
              {
                  EntityDataManager.DataEntry<?> dataentry = entriesIn.get(i);
                  writeEntry(buf, dataentry);
-             }
-         }
 @@ -204,7 +207,7 @@
  
                      if (list == null)

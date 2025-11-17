@@ -134,7 +134,7 @@
              this.addChunkToPending(chunkIn.getPos(), nbttagcompound);
          }
          catch (Exception exception)
-@@ -150,14 +192,13 @@
+@@ -150,7 +192,6 @@
          ThreadedFileIOBase.getThreadedIOInstance().queueIO(this);
      }
  
@@ -142,13 +142,6 @@
      public boolean writeNextIO()
      {
          if (this.chunksToSave.isEmpty())
-         {
-             if (this.flushing)
-             {
-                 LOGGER.info("ThreadedAnvilChunkStorage ({}): All chunks are saved", this.chunkSaveLocation.getName());
-             }
- 
-             return false;
 @@ -202,26 +243,21 @@
          dataoutputstream.close();
      }

@@ -1,6 +1,6 @@
 --- before/net/minecraft/world/storage/MapData.java
 +++ after/net/minecraft/world/storage/MapData.java
-@@ -20,14 +20,14 @@
+@@ -20,7 +20,7 @@
  {
      public int xCenter;
      public int zCenter;
@@ -9,13 +9,6 @@
      public boolean trackingPosition;
      public boolean unlimitedTracking;
      public byte scale;
-     public byte[] colors = new byte[16384];
-     public List<MapData.MapInfo> playersArrayList = Lists.newArrayList();
-     private final Map<EntityPlayer, MapData.MapInfo> playersHashMap = Maps.newHashMap();
-     public Map<String, MapDecoration> mapDecorations = Maps.newLinkedHashMap();
- 
-     public MapData(String mapname)
-     {
 @@ -37,16 +37,15 @@
      public void calculateMapCenter(double x, double z, int mapScale)
      {

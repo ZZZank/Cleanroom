@@ -8,7 +8,7 @@
  import java.util.List;
  import javax.annotation.Nullable;
  import net.minecraft.block.state.IBlockState;
-@@ -28,23 +29,25 @@
+@@ -28,17 +29,19 @@
  
  public class InventoryPlayer implements IInventory
  {
@@ -33,12 +33,6 @@
          this.player = playerIn;
      }
  
-     public ItemStack getCurrentItem()
-     {
-         return isHotbar(this.currentItem) ? this.mainInventory.get(this.currentItem) : ItemStack.EMPTY;
-     }
- 
-     public static int getHotbarSize()
 @@ -54,25 +57,19 @@
  
      private boolean canMergeStacks(ItemStack stack1, ItemStack stack2)
@@ -399,10 +393,7 @@
      public ItemStack getStackInSlot(int index)
      {
          List<ItemStack> list = null;
-@@ -709,28 +705,24 @@
-             index -= nonnulllist.size();
-         }
- 
+@@ -712,25 +708,21 @@
          return list == null ? ItemStack.EMPTY : list.get(index);
      }
  

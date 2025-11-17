@@ -292,7 +292,7 @@
          public boolean shouldExecute()
          {
              if (!super.shouldExecute())
-@@ -337,33 +296,29 @@
+@@ -337,30 +296,26 @@
              }
              else
              {
@@ -326,9 +326,6 @@
                  EntityVex entityvex = new EntityVex(EntityEvoker.this.world);
                  entityvex.moveToBlockPosAndAngles(blockpos, 0.0F, 0.0F);
                  entityvex.onInitialSpawn(EntityEvoker.this.world.getDifficultyForLocation(blockpos), null);
-                 entityvex.setOwner(EntityEvoker.this);
-                 entityvex.setBoundOrigin(blockpos);
-                 entityvex.setLimitedLife(20 * (30 + EntityEvoker.this.rand.nextInt(90)));
 @@ -371,13 +326,11 @@
              }
          }

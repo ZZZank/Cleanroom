@@ -258,11 +258,7 @@
          {
              if (this.world.getDifficulty() != EnumDifficulty.HARD && this.rand.nextBoolean())
              {
-@@ -435,31 +417,28 @@
-             }
- 
-             this.world.spawnEntity(entityzombievillager);
-             this.world.playEvent(null, 1026, new BlockPos(this), 0);
+@@ -439,27 +421,24 @@
          }
      }
  
@@ -313,7 +309,7 @@
  
                      if (!list.isEmpty())
                      {
-@@ -491,11 +469,11 @@
+@@ -491,7 +469,7 @@
                          this.startRiding(entitychicken);
                      }
                  }
@@ -322,10 +318,6 @@
                  {
                      EntityChicken entitychicken1 = new EntityChicken(this.world);
                      entitychicken1.setLocationAndAngles(this.posX, this.posY, this.posZ, this.rotationYaw, 0.0F);
-                     entitychicken1.onInitialSpawn(difficulty, null);
-                     entitychicken1.setChickenJockey(true);
-                     this.world.spawnEntity(entitychicken1);
-                     this.startRiding(entitychicken1);
 @@ -518,20 +496,18 @@
              }
          }
